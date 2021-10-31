@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/balltogether/static/css/main.a617e044.chunk.css",
-    "main.js": "/balltogether/static/js/main.51b99646.chunk.js",
-    "main.js.map": "/balltogether/static/js/main.51b99646.chunk.js.map",
-    "runtime-main.js": "/balltogether/static/js/runtime-main.93449fe2.js",
-    "runtime-main.js.map": "/balltogether/static/js/runtime-main.93449fe2.js.map",
-    "static/js/2.ed7c0388.chunk.js": "/balltogether/static/js/2.ed7c0388.chunk.js",
-    "static/js/2.ed7c0388.chunk.js.map": "/balltogether/static/js/2.ed7c0388.chunk.js.map",
-    "static/js/3.f42f1069.chunk.js": "/balltogether/static/js/3.f42f1069.chunk.js",
-    "static/js/3.f42f1069.chunk.js.map": "/balltogether/static/js/3.f42f1069.chunk.js.map",
+    "main.css": "/balltogether/static/css/main.bef6191f.chunk.css",
+    "main.js": "/balltogether/static/js/main.c0bfcbfc.chunk.js",
+    "main.js.map": "/balltogether/static/js/main.c0bfcbfc.chunk.js.map",
+    "runtime-main.js": "/balltogether/static/js/runtime-main.54dcc24c.js",
+    "runtime-main.js.map": "/balltogether/static/js/runtime-main.54dcc24c.js.map",
+    "static/js/2.acb87d15.chunk.js": "/balltogether/static/js/2.acb87d15.chunk.js",
+    "static/js/2.acb87d15.chunk.js.map": "/balltogether/static/js/2.acb87d15.chunk.js.map",
+    "static/js/3.43f8d2d0.chunk.js": "/balltogether/static/js/3.43f8d2d0.chunk.js",
+    "static/js/3.43f8d2d0.chunk.js.map": "/balltogether/static/js/3.43f8d2d0.chunk.js.map",
     "index.html": "/balltogether/index.html",
-    "static/css/main.a617e044.chunk.css.map": "/balltogether/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.ed7c0388.chunk.js.LICENSE.txt": "/balltogether/static/js/2.ed7c0388.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/balltogether/static/media/logo.6ce24c58.svg"
+    "static/css/main.bef6191f.chunk.css.map": "/balltogether/static/css/main.bef6191f.chunk.css.map",
+    "static/js/2.acb87d15.chunk.js.LICENSE.txt": "/balltogether/static/js/2.acb87d15.chunk.js.LICENSE.txt",
+    "static/media/Man.1525f310.png": "/balltogether/static/media/Man.1525f310.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.93449fe2.js",
-    "static/js/2.ed7c0388.chunk.js",
-    "static/css/main.a617e044.chunk.css",
-    "static/js/main.51b99646.chunk.js"
+    "static/js/runtime-main.54dcc24c.js",
+    "static/js/2.acb87d15.chunk.js",
+    "static/css/main.bef6191f.chunk.css",
+    "static/js/main.c0bfcbfc.chunk.js"
   ]
 }
