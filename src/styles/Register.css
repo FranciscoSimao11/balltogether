@@ -1,0 +1,18 @@
+.global-wrapper {
+	background-color: #242825;
+	min-height: 100vh;
+	text-align: center;
+}
+
+.logo-register {
+	height: 100px;
+	width: 178px;
+	padding-top: 5%;
+}
+
+.header-register {
+	font-weight: 700;
+	font-size: 50px;
+	margin-top: -10px;
+	color: white;
+}
