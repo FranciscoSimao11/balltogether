@@ -17,9 +17,6 @@ const FormTextField = styled(TextField)({
 	"& input": {
 		color: "white",
 	},
-	"& .MuiInput-underline:after": {
-		borderBottomColor: "green",
-	},
 	"& .MuiOutlinedInput-root": {
 		"& fieldset": {
 			borderColor: "gray",

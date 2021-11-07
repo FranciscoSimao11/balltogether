@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import {
 	BrowserRouter as Router,
@@ -14,10 +14,12 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 
 function App() {
+	const [display, setDisplay] = useState("inline");
+
 	return (
 		<div className="App">
 			<Router>
-				<TopBar />
+				<TopBar display={display} />
 				<Switch>
 					<Route path="/balltogether/register" exact>
 						<Register />
