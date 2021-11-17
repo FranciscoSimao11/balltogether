@@ -50,17 +50,21 @@ function Login() {
 						variant="contained"
 						sx={{
 							color: "white",
-							backgroundColor: "#177a46",
+							backgroundColor: "#282b29",
 							fontSize: "28px",
 							marginTop: "20px",
 							paddingX: "90px",
 							"&:hover": {
-								backgroundColor: "#179a55",
+								backgroundColor: "#4b4b4b",
 							},
 						}}
 					>
 						Login
 					</Button>
+				</div>
+				<div className="phrase">Forgot your password?</div>
+				<div className="phrase">
+					Don't have an account? <b>Register</b> now!
 				</div>
 			</div>
 		</div>

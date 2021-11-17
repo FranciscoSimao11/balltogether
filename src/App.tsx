@@ -12,6 +12,7 @@ import TopBar from "./components/TopBar";
 import Homepage from "./components/Homepage";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import LoggedInHomepage from "./components/LoggedInHomepage";
 
 function App() {
 	const [display, setDisplay] = useState("inline");
@@ -20,6 +21,9 @@ function App() {
 		<div className="App">
 			<Router>
 				<Switch>
+					<Route path="/balltogether/home" exact>
+						<LoggedInHomepage />
+					</Route>
 					<Route path="/balltogether/register" exact>
 						<Register />
 					</Route>

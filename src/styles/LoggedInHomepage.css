@@ -1,0 +1,23 @@
+.Slogan-wrapper {
+	padding-top: 14%;
+	font-size: 90px;
+	color: white;
+	font-weight: 700;
+}
+
+.Slogan {
+	padding-left: 25%;
+}
+
+.Slogan2 {
+	padding-left: 35%;
+}
+
+.Button-wrapper {
+	padding-top: 4%;
+	text-align: center;
+}
+
+.Button:hover {
+	background-color: wheat;
+}
