@@ -19,7 +19,6 @@ function App() {
 	return (
 		<div className="App">
 			<Router>
-				<TopBar display={display} />
 				<Switch>
 					<Route path="/balltogether/register" exact>
 						<Register />

@@ -3,10 +3,12 @@ import logo from "./logo.svg";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import "../styles/Homepage.css";
+import TopBar from "./TopBar";
 
 function Homepage() {
 	return (
 		<div>
+			<TopBar display={"inline"} />
 			<div className="Slogan-wrapper">
 				<div className="Slogan">Play the</div>
 				<div className="Slogan2">Beautiful Game!</div>
