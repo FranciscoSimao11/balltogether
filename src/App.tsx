@@ -13,6 +13,7 @@ import Homepage from "./components/Homepage";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import LoggedInHomepage from "./components/LoggedInHomepage";
+import Profile from "./components/Profile";
 
 function App() {
 	const [display, setDisplay] = useState("inline");
@@ -29,6 +30,9 @@ function App() {
 					</Route>
 					<Route path="/balltogether/login" exact>
 						<Login />
+					</Route>
+					<Route path="/balltogether/profile" exact>
+						<Profile />
 					</Route>
 					<Route path="/balltogether/" exact>
 						<Homepage />

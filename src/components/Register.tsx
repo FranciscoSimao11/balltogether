@@ -30,6 +30,16 @@ const FormTextField = styled(TextField)({
 	},
 });
 
+const RegisterButton = styled(Button)({
+	color: "white",
+	backgroundColor: "black",
+	fontSize: "16px",
+	padding: "16px 60px 16px 60px",
+	"&:hover": {
+		backgroundColor: "#4b4b4b",
+	},
+});
+
 function Register() {
 	return (
 		<div className="global-wrapper">
@@ -42,22 +52,7 @@ function Register() {
 				<FormTextField label="Phone Number" />
 				<FormTextField label="Password" />
 				<FormTextField label="Confirm Password" />
-				<Button
-					variant="contained"
-					sx={{
-						color: "white",
-						backgroundColor: "black",
-						fontSize: "16px",
-						padding: "16px",
-						paddingRight: "60px",
-						paddingLeft: "60px",
-						"&:hover": {
-							backgroundColor: "#4b4b4b",
-						},
-					}}
-				>
-					Register
-				</Button>
+				<RegisterButton variant="contained">Register</RegisterButton>
 			</div>
 		</div>
 	);
