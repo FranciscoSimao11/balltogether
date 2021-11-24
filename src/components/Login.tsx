@@ -18,6 +18,9 @@ const FormTextField = styled(TextField)({
 	"& input": {
 		color: "white",
 	},
+	"&:focus": {
+		fontWeight: 800,
+	},
 	"& .MuiOutlinedInput-root": {
 		"& fieldset": {
 			borderColor: "white",

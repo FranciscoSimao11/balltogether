@@ -64,3 +64,8 @@
 	margin: 40px;
 	font-size: 19px;
 }
+
+.login-form-comp:focus {
+	font-weight: 700;
+	transition-duration: 400ms;
+}
