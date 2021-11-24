@@ -2,10 +2,10 @@ import React from "react";
 import logo from "./logo.svg";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import "../styles/LoggedInHomepage.css";
+import "../styles/Profile.css";
 import LoggedInTopBar from "./LoggedInTopBar";
 
-function LoggedInHomepage() {
+function Profile() {
 	return (
 		<div>
 			<LoggedInTopBar />
@@ -13,4 +13,4 @@ function LoggedInHomepage() {
 	);
 }
 
-export default LoggedInHomepage;
+export default Profile;

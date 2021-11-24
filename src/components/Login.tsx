@@ -4,6 +4,7 @@ import "../styles/Login.css";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const FormTextField = styled(TextField)({
 	paddingBottom: 20,
@@ -30,6 +31,17 @@ const FormTextField = styled(TextField)({
 	},
 });
 
+const LoginButton = styled(Button)({
+	color: "white",
+	backgroundColor: "#282b29",
+	fontSize: "28px",
+	marginTop: "20px",
+	padding: "6px 90px 6px 90px", //up right bottom left
+	"&:hover": {
+		backgroundColor: "#4b4b4b",
+	},
+});
+
 function Login() {
 	return (
 		<div className="global-container">
@@ -46,21 +58,9 @@ function Login() {
 				<div className="form">
 					<FormTextField label="Email" />
 					<FormTextField label="Password" />
-					<Button
-						variant="contained"
-						sx={{
-							color: "white",
-							backgroundColor: "#282b29",
-							fontSize: "28px",
-							marginTop: "20px",
-							paddingX: "90px",
-							"&:hover": {
-								backgroundColor: "#4b4b4b",
-							},
-						}}
-					>
-						Login
-					</Button>
+					<Link to="/balltogether/home" style={{ textDecoration: "none" }}>
+						<LoginButton variant="contained">Login</LoginButton>
+					</Link>
 				</div>
 				<div className="phrase">Forgot your password?</div>
 				<div className="phrase">

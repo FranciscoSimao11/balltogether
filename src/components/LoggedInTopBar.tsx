@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 import man from "../Man.png";
 import "../styles/TopBar.css";
 import { styled } from "@mui/material/styles";
-//O LOGO TEM POUCA DEFINIÇAO POR ALGUMA RAZAO INVEStIGAR
+import {
+	NotificationsRounded,
+	Face,
+	KeyboardArrowDown,
+} from "@mui/icons-material/";
+
+//O LOGO TEM POUCA DEFINIÇAO POR ALGUMA RAZAO INVESTIGAR
 
 const StyledTypography = styled(Typography)({
 	fontFamily: "Verdana",
@@ -14,7 +20,8 @@ const StyledTypography = styled(Typography)({
 	paddingRight: "30px",
 });
 
-function TopBar() {
+//NAS NOTIFICAÇOES METER UM DRAWER PARA AS MOSTRAR
+function LoggedInTopBar() {
 	return (
 		<AppBar sx={{ backgroundColor: "black", display: "inline" }}>
 			<Toolbar>
@@ -30,34 +37,32 @@ function TopBar() {
 						Ball Together
 					</Link>
 				</Typography>
-				<StyledTypography>
-					<a
-						href="https://franciscosimao11.github.io/ipmwebsite/"
-						style={{ textDecoration: "none", color: "white" }}
-					>
-						About Us
-					</a>
-				</StyledTypography>
 				<StyledTypography>|</StyledTypography>
 				<StyledTypography>
+					<NotificationsRounded sx={{ fontSize: "2.2rem", marginX: "-8px" }} />
+				</StyledTypography>
+				<StyledTypography>
 					<Link
-						to="/balltogether/login"
+						to="/balltogether/profile"
 						style={{ textDecoration: "none", color: "white" }}
 					>
-						Login
+						<Face sx={{ fontSize: "2.2rem", marginX: "-8px" }} />
 					</Link>
 				</StyledTypography>
 				<StyledTypography>
 					<Link
-						to="/balltogether/register"
+						to="/balltogether/profile"
 						style={{ textDecoration: "none", color: "white" }}
 					>
-						Register
+						Profile
 					</Link>
+				</StyledTypography>
+				<StyledTypography>
+					<KeyboardArrowDown sx={{ fontSize: "1.5rem", marginX: "-20px" }} />
 				</StyledTypography>
 			</Toolbar>
 		</AppBar>
 	);
 }
 
-export default TopBar;
+export default LoggedInTopBar;
