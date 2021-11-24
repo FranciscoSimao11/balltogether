@@ -16,7 +16,9 @@ const StyledTypography = styled(Typography)({
 
 function TopBar() {
 	return (
-		<AppBar sx={{ backgroundColor: "black", display: "inline" }}>
+		<AppBar
+			sx={{ backgroundColor: "black", display: "inline", height: "74px" }}
+		>
 			<Toolbar>
 				<img src={man} className="logo" />
 				<Typography

@@ -23,7 +23,9 @@ const StyledTypography = styled(Typography)({
 //NAS NOTIFICAÇOES METER UM DRAWER PARA AS MOSTRAR
 function LoggedInTopBar() {
 	return (
-		<AppBar sx={{ backgroundColor: "black", display: "inline" }}>
+		<AppBar
+			sx={{ backgroundColor: "black", display: "inline", height: "74px" }}
+		>
 			<Toolbar>
 				<img src={man} className="logo" />
 				<Typography
