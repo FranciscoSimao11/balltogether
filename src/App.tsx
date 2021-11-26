@@ -16,8 +16,6 @@ import LoggedInHomepage from "./components/LoggedInHomepage";
 import Profile from "./components/Profile";
 
 function App() {
-	const [display, setDisplay] = useState("inline");
-
 	return (
 		<div className="App">
 			<Router>

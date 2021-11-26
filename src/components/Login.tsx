@@ -60,7 +60,7 @@ function Login() {
 				<p className="header-register">Ball Together</p>
 				<div className="form">
 					<FormTextField label="Email" />
-					<FormTextField label="Password" />
+					<FormTextField label="Password" type="password" />
 					<Link to="/balltogether/home" style={{ textDecoration: "none" }}>
 						<LoginButton variant="contained">Login</LoginButton>
 					</Link>

@@ -1,23 +1,18 @@
-.Slogan-wrapper {
-	padding-top: 14%;
-	font-size: 90px;
-	color: white;
-	font-weight: 700;
+.logged-in-homepage-wrapper{
+	background-color: #242825;
+	min-height: 100vh;
+	display: flex;
 }
 
-.Slogan {
-	padding-left: 25%;
-}
-
-.Slogan2 {
-	padding-left: 35%;
-}
-
-.Button-wrapper {
-	padding-top: 4%;
+.select-wrapper{
+	width: 20%;
+	max-width: 20%;
+	margin-top: 80px;
+	margin-left: 15px;
 	text-align: center;
 }
 
-.Button:hover {
-	background-color: wheat;
+.select-and-icon{
+	display: flex;
+	margin-top: 50px;
 }

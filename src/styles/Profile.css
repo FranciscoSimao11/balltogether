@@ -1,0 +1,40 @@
+.profile-layer{
+    padding-top: 74px;
+    font-weight: bolder;
+    background-color: #242825; 
+    display: flex;
+    min-height: 35vh;
+}
+
+/*so com este ele nao muda o tamanho mas nao sei bem dps dimensionar a coisa*/
+.avatar-container{
+    height: 170px;
+    width: 170px;       
+    border-radius: 100%;
+    overflow: hidden;
+    margin-left: 70px;
+    margin-top: 35px;
+}
+
+.avatar{
+    height: 170px;
+    width: 170px;       
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.player-info-container{
+    color:white;
+    margin-left: 80px;
+    padding-top: 10px;
+    display: flex;
+}
+
+#parallelogram {
+    width: 900px;
+    height: 281px;
+    transform: skew(-35deg);
+    background: white;
+    margin-left: 80px;
+    margin-top: -10px;
+  }
