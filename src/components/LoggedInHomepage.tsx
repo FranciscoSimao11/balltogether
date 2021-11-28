@@ -2,12 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Button, MenuItem } from "@mui/material";
 import "../styles/LoggedInHomepage.css";
 import LoggedInTopBar from "./LoggedInTopBar";
-import {
-	withScriptjs,
-	withGoogleMap,
-	GoogleMap,
-	Marker,
-} from "react-google-maps";
 import { levels, hours } from "../misc/miscFuncs";
 import Select from "@mui/material/Select";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -23,49 +17,11 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
 import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
+import MapWrapper from "./Map";
+import * as matches from "../misc/Matches.json";
+
 /*games.map((game) => <Marker key=id position={{bla bla}}>*/
-
-const WrappedMap = withScriptjs(withGoogleMap(MapComponent));
-
-function MapComponent(props: any) {
-	const pos = props.position;
-	return (
-		<GoogleMap
-			defaultZoom={8}
-			defaultCenter={{ lat: pos.latitude, lng: pos.longitude }}
-		>
-			<Marker position={{ lat: pos.latitude, lng: pos.longitude }} />
-		</GoogleMap>
-	);
-}
-
-function MapWrapper(props: any) {
-	return (
-		<WrappedMap
-			position={props.position}
-			containerElement={
-				<div
-					style={{
-						width: `80%`,
-						minWidth: "80%",
-						height: `90.7vh`,
-						minHeight: "90.7vh",
-						marginLeft: `auto`,
-						marginRight: `auto`,
-						padding: `74px 0px 0px 0`,
-						position: `relative`,
-						float: "right",
-					}}
-				></div>
-			}
-			mapElement={<div style={{ height: `100%` }} />}
-			googleMapURL={
-				"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-			}
-			loadingElement={<div style={{ height: `100%` }} />}
-		></WrappedMap>
-	);
-}
 
 const BootstrapInput = styled(InputBase)({
 	"label + &": {
@@ -87,10 +43,11 @@ const BootstrapInput = styled(InputBase)({
 });
 
 const HostMatchButton = styled(Button)({
-	marginTop: "200px",
+	marginTop: "170px",
+	padding: "20px 50px 20px 50px",
 	marginRight: "15px",
 	color: "#242825",
-	fontSize: "20px",
+	fontSize: "25px",
 	backgroundColor: "white",
 	fontWeight: "bold",
 	"&:hover": {
@@ -127,6 +84,17 @@ function LoggedInHomepage() {
 	const [currentPosition, setPosition] = useState({});
 	const [hour, setHour] = useState({});
 	const [level, setLevel] = useState({});
+	const mapStyle = {
+		width: `80%`,
+		minWidth: "80%",
+		height: `90.7vh`,
+		minHeight: "90.7vh",
+		marginLeft: `auto`,
+		marginRight: `auto`,
+		padding: `74px 0px 0px 0`,
+		position: `relative`,
+		float: "right",
+	};
 	// navigator.geolocation.getCurrentPosition((position) => {
 	// 	const positionObject = {
 	// 		latitude: position.coords.latitude,
@@ -136,8 +104,8 @@ function LoggedInHomepage() {
 	// });
 	useEffect(() => {
 		setPosition({
-			latitude: 0.0,
-			longitude: 0.0,
+			latitude: 38.660988,
+			longitude: -9.203319,
 		});
 	}, []);
 
@@ -208,9 +176,15 @@ function LoggedInHomepage() {
 						))}
 					</Select>
 				</div>
-				<HostMatchButton>Host Match</HostMatchButton>
+				<Link to="/balltogether/hostmatch" style={{ textDecoration: "none" }}>
+					<HostMatchButton>Host Match</HostMatchButton>
+				</Link>
 			</div>
-			<MapWrapper position={currentPosition} />
+			<MapWrapper
+				position={currentPosition}
+				mapStyle={mapStyle}
+				matches={matches}
+			/>
 		</div>
 	);
 }

@@ -1,0 +1,10 @@
+.hostmatch-wrapper{
+	background-color: #242825;
+	min-height: 100vh;
+}
+
+.hostmatch-options-wrapper{
+    width: 30%;
+    margin-top: 80px;
+    text-align: center;
+}

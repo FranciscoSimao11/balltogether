@@ -1,0 +1,42 @@
+[
+    {
+        "host": "Sr. Ping no Jamor",
+        "numberOfSpotsLeft": 9,
+        "description": "Careful with Salah's left.",
+        "skillLevel": "3.0",
+        "duration": 1,
+        "date": "31/12/2021",
+        "location":{
+            "name": "Jamor",
+            "latitude": 38.703060,
+            "longitude": -9.254067
+        }   
+    },
+    {
+        "host": "Sr. Ping na FCT",
+        "numberOfSpotsLeft": 9,
+        "description": "Careful with Salah's left.",
+        "skillLevel": "3.0",
+        "duration": 1,
+        "date": "31/12/2021",
+        "location":{
+            "name": "FCT",
+            "latitude": 38.658525, 
+            "longitude": -9.204671
+        }   
+    },
+    {
+        "host": "Sr. Ping em Alvalade",
+        "numberOfSpotsLeft": 9,
+        "description": "Careful with Salah's left.",
+        "skillLevel": "3.0",
+        "duration": 1,
+        "date": "31/12/2021",
+        "location":{
+            "name": "Alvalade",
+            "latitude": 38.761149,
+            "longitude": -9.161331
+        }   
+    }
+]
+

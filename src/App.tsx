@@ -14,6 +14,8 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import LoggedInHomepage from "./components/LoggedInHomepage";
 import Profile from "./components/Profile";
+import HostMatch from "./components/HostMatch";
+import Match from "./components/Match";
 
 function App() {
 	return (
@@ -31,6 +33,12 @@ function App() {
 					</Route>
 					<Route path="/balltogether/profile" exact>
 						<Profile />
+					</Route>
+					<Route path="/balltogether/hostmatch" exact>
+						<HostMatch />
+					</Route>
+					<Route path="/balltogether/match" exact>
+						<Match />
 					</Route>
 					<Route path="/balltogether/" exact>
 						<Homepage />

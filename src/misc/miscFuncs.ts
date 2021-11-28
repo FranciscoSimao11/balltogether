@@ -1,6 +1,6 @@
 var levelsArr = [];
-for (var i = 0; i <= 10.0; i++) {
-    levelsArr[i] = i / 2;
+for (var i = 0; i <= 5.0; i++) {
+    levelsArr[i] = i;
 }
 
 export const levels = levelsArr;

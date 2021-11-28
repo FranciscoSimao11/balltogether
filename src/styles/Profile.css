@@ -4,6 +4,7 @@
     background-color: #242825; 
     display: flex;
     min-height: 35vh;
+    width: 100%;
 }
 
 /*so com este ele nao muda o tamanho mas nao sei bem dps dimensionar a coisa*/
@@ -14,6 +15,7 @@
     overflow: hidden;
     margin-left: 70px;
     margin-top: 35px;
+    background-color: rgb(6, 64, 129);
 }
 
 .avatar{
@@ -25,16 +27,29 @@
 
 .player-info-container{
     color:white;
-    margin-left: 80px;
+    margin-left: 50px;
     padding-top: 10px;
     display: flex;
 }
 
-#parallelogram {
-    width: 900px;
-    height: 281px;
-    transform: skew(-35deg);
-    background: white;
-    margin-left: 80px;
-    margin-top: -10px;
-  }
+.profile-options-container{
+    margin-left: 54.5px;
+    background: rgba(35, 40, 37, 0.6);
+    z-index: 1;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+}
+
+#trapezoid {
+    border-bottom: 281px solid rgb(5, 37, 128);
+    border-left: 155px solid transparent;
+    border-right: 0px solid transparent;
+    margin-left: 50px;
+    width: 1036.1px;
+    height: 100%;
+    margin-right: -110px;
+    z-index: 0;
+    
+}
