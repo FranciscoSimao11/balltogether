@@ -1,0 +1,66 @@
+.global-match-wrapper{
+
+}
+
+.match-wrapper{
+    padding-top: 74px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.team-wrapper{
+    font-size: 30px;
+    margin-top: 20px;
+    height: 70vh;
+}
+
+.team-header{
+    color: #343F4B;
+    text-align: center;
+}
+
+.player-wrapper{
+    font-size: 24px;
+    color: white;
+    font-weight: 500;
+    text-transform: none;
+    background-color: #343F4B;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.player-wrapper:hover{
+    background-color: #272d35;
+}
+
+.player-wrapper-red{
+    border-right: 6px solid #F95F62 
+}
+
+.player-wrapper-blue{
+    border-left: 6px solid #00A6FF
+}
+
+.player-wrapper-red:hover{
+    color: #F95F62 
+}
+
+.player-wrapper-blue:hover{
+    color: #00A6FF
+}
+
+.avg-rating-header{
+    color: #343F4B;
+    text-align: center;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.match-info-wrapper{
+    color: #343F4B;
+    text-align: center;
+    align-self: center;
+    font-size: 25px;
+}

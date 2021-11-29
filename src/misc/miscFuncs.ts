@@ -50,4 +50,10 @@ export function processRating(rating: string) {
     }
 }
 
-
+export function computeAvg(players: any) {
+    var avg = 0;
+    for (var i = 0; i < players.length; i++) {
+        avg += parseFloat(players[i].avgRating);
+    }
+    return (Math.round(avg / players.length * 100) / 100).toFixed(2);
+}

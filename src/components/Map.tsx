@@ -21,6 +21,10 @@ const MatchDetailsButton = styled(Button)({
 	},
 });
 
+function createDynamicURL(matchId: string) {
+	return "http://localhost:3000/balltogether/match/" + matchId;
+}
+
 const WrappedMap = withScriptjs(withGoogleMap(MapComponent));
 
 function MapComponent(props: any) {
@@ -36,6 +40,7 @@ function MapComponent(props: any) {
 	}[] = props.matches;
 	const [selectedMatch, setSelectedMatch] = useState<any>(undefined);
 	console.log(selectedMatch);
+
 	return (
 		<GoogleMap
 			defaultZoom={13}
@@ -69,6 +74,8 @@ function MapComponent(props: any) {
 							<div style={{ textAlign: "left", marginBottom: "10px" }}>
 								<b>Date: </b>
 								{selectedMatch.date} <br />
+								<b>Starting Time: </b>
+								{selectedMatch.startingTime}h <br />
 								<b>Duration: </b>
 								{selectedMatch.duration}h <br />
 								<b>Number of Spots left: </b>
@@ -82,7 +89,8 @@ function MapComponent(props: any) {
 								{selectedMatch.description} <br />
 							</div>
 							<a
-								href="http://localhost:3000/balltogether/match" //nao sei, ele nao me deixa usar os links do router...
+								href="javascript:window.location=createDynamicURL(selectedMatch.location.name);"
+								//nao sei, ele nao me deixa usar os links do router...
 								style={{ textDecoration: "none" }}
 							>
 								<MatchDetailsButton>View Match</MatchDetailsButton>
