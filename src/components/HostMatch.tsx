@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import LoggedInTopBar from "./LoggedInTopBar";
 import MapWrapper from "./Map";
+import * as matches from "../misc/Matches.json";
 import "../styles/HostMatch.css";
 
 const FormTextField = styled(TextField)({
@@ -78,7 +79,7 @@ function HostMatch() {
 					<FormTextField label="Location" />
 					<FormTextField label="Date" />
 					<FormTextField label=" Start Time" />
-					<FormTextField label="Number Of Players" />
+					<FormTextField label="Number of Players" />
 					<FormTextField label="Expected Skill Level" />
 					<FormTextField label="Duration" />
 					<FormTextField
@@ -87,7 +88,11 @@ function HostMatch() {
 					/>
 					<HostMatchButton>Create Match</HostMatchButton>
 				</div>
-				<MapWrapper position={currentPosition} mapStyle={mapStyle} />
+				<MapWrapper
+					position={currentPosition}
+					mapStyle={mapStyle}
+					matches={matches}
+				/>
 			</div>
 		</div>
 	);

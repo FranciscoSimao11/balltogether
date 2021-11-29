@@ -7,6 +7,19 @@ import {
 	InfoWindow,
 } from "react-google-maps";
 import ball from "../ball.png";
+import Button from "@mui/material/Button";
+import { textAlign } from "@mui/system";
+import { styled } from "@mui/material/styles";
+
+const MatchDetailsButton = styled(Button)({
+	color: "white",
+	backgroundColor: "black",
+	fontSize: "10px",
+	padding: "5px 20px 5px 20px",
+	"&:hover": {
+		backgroundColor: "#4b4b4b",
+	},
+});
 
 const WrappedMap = withScriptjs(withGoogleMap(MapComponent));
 
@@ -21,7 +34,7 @@ function MapComponent(props: any) {
 		date: string;
 		location: { name: string; latitude: number; longitude: number };
 	}[] = props.matches;
-	const [selectedMatch, setSelectedMatch] = useState<any>(null);
+	const [selectedMatch, setSelectedMatch] = useState<any>(undefined);
 	console.log(selectedMatch);
 	return (
 		<GoogleMap
@@ -47,10 +60,35 @@ function MapComponent(props: any) {
 						lng: selectedMatch.location.longitude,
 					}}
 					onCloseClick={() => {
-						setSelectedMatch(null);
+						setSelectedMatch(undefined);
 					}}
 				>
-					<div></div>
+					<div>
+						<h2>{selectedMatch.location.name}</h2>
+						<div style={{ textAlign: "center" }}>
+							<div style={{ textAlign: "left", marginBottom: "10px" }}>
+								<b>Date: </b>
+								{selectedMatch.date} <br />
+								<b>Duration: </b>
+								{selectedMatch.duration}h <br />
+								<b>Number of Spots left: </b>
+								{selectedMatch.numberOfSpotsLeft}
+								<br />
+								<b>Skil Level: </b>
+								{selectedMatch.skillLevel} <br />
+								<b>Host Name: </b>
+								{selectedMatch.host} <br />
+								<b>Description: </b>
+								{selectedMatch.description} <br />
+							</div>
+							<a
+								href="http://localhost:3000/balltogether/match" //nao sei, ele nao me deixa usar os links do router...
+								style={{ textDecoration: "none" }}
+							>
+								<MatchDetailsButton>View Match</MatchDetailsButton>
+							</a>
+						</div>
+					</div>
 				</InfoWindow>
 			)}
 		</GoogleMap>
@@ -68,6 +106,6 @@ export default function MapWrapper(props: any) {
 				"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
 			}
 			loadingElement={<div style={{ height: `100%` }} />}
-		></WrappedMap>
+		/>
 	);
 }
