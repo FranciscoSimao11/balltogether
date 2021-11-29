@@ -74,7 +74,7 @@ function MapComponent(props: any) {
 							<div style={{ textAlign: "left", marginBottom: "10px" }}>
 								<b>Date: </b>
 								{selectedMatch.date} <br />
-								<b>Starting Time: </b>
+								<b>Starting: </b>
 								{selectedMatch.startingTime}h <br />
 								<b>Duration: </b>
 								{selectedMatch.duration}h <br />
