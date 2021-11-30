@@ -1,0 +1,542 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Eden Hazard",
+            "preferredPositon": "Midfielder",
+            "matchHistory": [
+                {
+                    "location": "Johan Cruyff Arena",
+                    "date": "20/10/2021",
+                    "finalScore": "3 - 1",
+                    "rating": "5.0"
+                },
+                {
+                    "location": "Stamford Bridge",
+                    "date": "30/10/2021",
+                    "finalScore": "4 - 2",
+                    "rating": "5.0"
+                }
+            ],
+            "nextMatches": [],
+            "watchlist": [],
+            "friends": [
+                {
+                    "userId": 2
+                }
+            ],
+            "socialMedia": [
+                "https://twitter.com/hazardeden10",
+                "https://www.instagram.com/hazardeden_10/",
+                "https://www.facebook.com/edenhazard",
+                "https://web.whatsapp.com/"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Memphis Depay",
+            "preferredPositon": "Forward",
+            "matchHistory": [
+                {
+                    "location": "Camp Nou",
+                    "date": "16/10/2021",
+                    "finalScore": "2 - 0",
+                    "rating": "5.0"
+                }
+            ],
+            "nextMatches": [],
+            "watchlist": [],
+            "friends": [
+                {
+                    "userId": 1
+                },
+                {
+                    "userId": 3
+                },
+                {
+                    "userId": 4
+                },
+                {
+                    "userId": 5
+                },
+                {
+                    "userId": 6
+                },
+                {
+                    "userId": 7
+                },
+                {
+                    "userId": 8
+                },
+                {
+                    "userId": 9
+                },
+                {
+                    "userId": 10
+                }
+            ],
+            "socialMedia": [
+                "https://twitter.com/Memphis",
+                "https://www.instagram.com/memphisdepay/",
+                "https://www.facebook.com/memphisdepayofficial",
+                "https://web.whatsapp.com/"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Simon",
+            "preferredPositon": "Forward",
+            "matchHistory": [
+                {
+                    "location": "MyIndoor Sacavém",
+                    "date": "22/11/2021",
+                    "finalScore": "5 - 1",
+                    "rating": "5.0"
+                }
+            ],
+            "nextMatches": [],
+            "watchlist": [],
+            "friends": [
+                {
+                    "userId": 2
+                }
+            ],
+            "socialMedia": [
+                "https://twitter.com/SimonsFooties",
+                "https://www.instagram.com/_francisco__11_/",
+                "https://www.facebook.com/francisco.simoes11/",
+                "https://web.whatsapp.com/"
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Guillaume",
+            "preferredPositon": "Defender",
+            "matchHistory": [
+                {
+                    "location": "MyIndoor Sacavém",
+                    "date": "22/11/2021",
+                    "finalScore": "5 - 1",
+                    "rating": "2.0"
+                },
+                {
+                    "location": "MyIndoor Sacavém",
+                    "date": "25/11/2021",
+                    "finalScore": "3 - 2",
+                    "rating": "3.0"
+                }
+            ],
+            "nextMatches": [],
+            "watchlist": [],
+            "friends": [
+                {
+                    "userId": 2
+                }
+            ],
+            "socialMedia": [
+                "https://twitter.com",
+                "https://www.instagram.com",
+                "https://www.facebook.com",
+                "https://web.whatsapp.com/"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Roberto Alves",
+            "preferredPositon": "Goalkeeper",
+            "matchHistory": [
+                {
+                    "location": "MyIndoor Sacavém",
+                    "date": "22/11/2021",
+                    "finalScore": "5 - 1",
+                    "rating": "2.0"
+                }
+            ],
+            "nextMatches": [],
+            "watchlist": [],
+            "friends": [
+                {
+                    "userId": 2
+                }
+            ],
+            "socialMedia": [
+                "https://twitter.com",
+                "https://www.instagram.com",
+                "https://www.facebook.com",
+                "https://web.whatsapp.com/"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Sr. Ping",
+            "preferredPositon": "Defender",
+            "matchHistory": [
+                {
+                    "location": "Oeiras, Parque dos Poetas",
+                    "date": "22/11/2021",
+                    "finalScore": "2 - 1",
+                    "rating": "4.0"
+                },
+                {
+                    "location": "MyIndoor Almada",
+                    "date": "25/11/2021",
+                    "finalScore": "3 - 2",
+                    "rating": "3.0"
+                }
+            ],
+            "nextMatches": [],
+            "watchlist": [],
+            "friends": [
+                {
+                    "userId": 2
+                }
+            ],
+            "socialMedia": [
+                "https://twitter.com",
+                "https://www.instagram.com",
+                "https://www.facebook.com",
+                "https://web.whatsapp.com/"
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Mario Götze",
+            "preferredPositon": "Midfielder",
+            "matchHistory": [
+                {
+                    "location": "Arena dos Aliados",
+                    "date": "10/11/2021",
+                    "finalScore": "5 - 1",
+                    "rating": "4.5"
+                },
+                {
+                    "location": "Parque do Sinal",
+                    "date": "25/11/2021",
+                    "finalScore": "0 - 2",
+                    "rating": "3.0"
+                }
+            ],
+            "nextMatches": [],
+            "watchlist": [],
+            "friends": [
+                {
+                    "userId": 2
+                }
+            ],
+            "socialMedia": [
+                "https://twitter.com",
+                "https://www.instagram.com",
+                "https://www.facebook.com",
+                "https://web.whatsapp.com/"
+            ]
+        },
+        {
+            "id": 8,
+            "name": "User8",
+            "preferredPositon": "Forward",
+            "matchHistory": [
+                {
+                    "location": "MyIndoor Gaia",
+                    "date": "22/11/2021",
+                    "finalScore": "3 - 1",
+                    "rating": "3.0"
+                },
+                {
+                    "location": "MyIndoor Sacavém",
+                    "date": "25/11/2021",
+                    "finalScore": "3 - 2",
+                    "rating": "2.0"
+                }
+            ],
+            "nextMatches": [],
+            "watchlist": [],
+            "friends": [
+                {
+                    "userId": 2
+                }
+            ],
+            "socialMedia": [
+                "https://twitter.com",
+                "https://www.instagram.com",
+                "https://www.facebook.com",
+                "https://web.whatsapp.com/"
+            ]
+        },
+        {
+            "id": 9,
+            "name": "User9",
+            "preferredPositon": "Goalkeeper",
+            "matchHistory": [
+                {
+                    "location": "MyIndoor Sacavém",
+                    "date": "22/11/2021",
+                    "finalScore": "5 - 1",
+                    "rating": "2.0"
+                },
+                {
+                    "location": "MyIndoor Sacavém",
+                    "date": "25/11/2021",
+                    "finalScore": "3 - 2",
+                    "rating": "3.0"
+                }
+            ],
+            "nextMatches": [],
+            "watchlist": [],
+            "friends": [
+                {
+                    "userId": 2
+                }
+            ],
+            "socialMedia": [
+                "https://twitter.com",
+                "https://www.instagram.com",
+                "https://www.facebook.com",
+                "https://web.whatsapp.com/"
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Charizard",
+            "preferredPositon": "Midfielder",
+            "matchHistory": [
+                {
+                    "location": "Vermilion City",
+                    "date": "22/11/2021",
+                    "finalScore": "5 - 1",
+                    "rating": "2.0"
+                },
+                {
+                    "location": "Saffron City",
+                    "date": "25/11/2021",
+                    "finalScore": "3 - 2",
+                    "rating": "3.0"
+                }
+            ],
+            "nextMatches": [],
+            "watchlist": [],
+            "friends": [
+                {
+                    "userId": 2
+                }
+            ],
+            "socialMedia": [
+                "https://twitter.com",
+                "https://www.instagram.com/charizard_king24/",
+                "https://www.facebook.com",
+                "https://web.whatsapp.com/"
+            ]
+        }
+    ],
+    "matches": [
+        {
+            "id": 1,
+            "host": "Sr. Ping no Jamor",
+            "numberOfSpotsLeft": 0,
+            "totalNumberOfPlayers": 10,
+            "description": "Careful with Salah's left.",
+            "skillLevel": "3.0",
+            "duration": 1,
+            "date": "31/12/2021",
+            "startingTime": "19:00",
+            "location": {
+                "name": "Jamor",
+                "latitude": 38.703060,
+                "longitude": -9.254067
+            },
+            "blueTeam": [
+                {
+                    "userId": 1,
+                    "name": "Eden Hazard",
+                    "avgRating": "5.0"
+                },
+                {
+                    "userId": 2,
+                    "name": "Memphis Depay",
+                    "avgRating": "5.0"
+                },
+                {
+                    "userId": 3,
+                    "name": "Simon",
+                    "avgRating": "5.0"
+                },
+                {
+                    "userId": 4,
+                    "name": "Gillaume",
+                    "avgRating": "2.5"
+                },
+                {
+                    "userId": 5,
+                    "name": "Roberto Alves",
+                    "avgRating": "2.0"
+                }
+            ],
+            "redTeam": [
+                {
+                    "userId": 6,
+                    "name": "Sr. Ping",
+                    "avgRating": "3.5"
+                },
+                {
+                    "userId": 7,
+                    "name": "Mario Götze",
+                    "avgRating": "3.75"
+                },
+                {
+                    "userId": 8,
+                    "name": "User8",
+                    "avgRating": "2.5"
+                },
+                {
+                    "userId": 9,
+                    "name": "User9",
+                    "avgRating": "2.5"
+                },
+                {
+                    "userId": 10,
+                    "name": "Charizard",
+                    "avgRating": "2.5"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "host": "Sr. Ping na FCT",
+            "numberOfSpotsLeft": 9,
+            "totalNumberOfPlayers": 10,
+            "description": "Careful with Salah's left.",
+            "skillLevel": "3.0",
+            "duration": 1,
+            "date": "31/12/2021",
+            "startingTime": "19:00",
+            "location": {
+                "name": "FCT",
+                "latitude": 38.658525,
+                "longitude": -9.204671
+            },
+            "blueTeam": [
+                {
+                    "userId": 1,
+                    "name": "Eden Hazard",
+                    "avgRating": "5.0"
+                },
+                {
+                    "userId": 2,
+                    "name": "Memphis Depay",
+                    "avgRating": "5.0"
+                },
+                {
+                    "userId": 3,
+                    "name": "Simon",
+                    "avgRating": "5.0"
+                },
+                {
+                    "userId": 4,
+                    "name": "Gillaume",
+                    "avgRating": "2.5"
+                },
+                {
+                    "userId": 5,
+                    "name": "Roberto Alves",
+                    "avgRating": "2.0"
+                }
+            ],
+            "redTeam": [
+                {
+                    "userId": 6,
+                    "name": "Sr. Ping",
+                    "avgRating": "3.5"
+                },
+                {
+                    "userId": 7,
+                    "name": "Mario Götze",
+                    "avgRating": "3.75"
+                },
+                {
+                    "userId": 8,
+                    "name": "User8",
+                    "avgRating": "2.5"
+                },
+                {
+                    "userId": 9,
+                    "name": "User9",
+                    "avgRating": "2.5"
+                },
+                {
+                    "userId": 10,
+                    "name": "Charizard",
+                    "avgRating": "2.5"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "host": "Sr. Ping em Alvalade",
+            "numberOfSpotsLeft": 9,
+            "totalNumberOfPlayers": 10,
+            "description": "Careful with Salah's left.",
+            "skillLevel": "3.0",
+            "duration": 1,
+            "date": "31/12/2021",
+            "startingTime": "19:00",
+            "location": {
+                "name": "Alvalade",
+                "latitude": 38.761149,
+                "longitude": -9.161331
+            },
+            "blueTeam": [
+                {
+                    "userId": 1,
+                    "name": "Eden Hazard",
+                    "avgRating": "5.0"
+                },
+                {
+                    "userId": 2,
+                    "name": "Memphis Depay",
+                    "avgRating": "5.0"
+                },
+                {
+                    "userId": 3,
+                    "name": "Simon",
+                    "avgRating": "5.0"
+                },
+                {
+                    "userId": 4,
+                    "name": "Gillaume",
+                    "avgRating": "2.5"
+                },
+                {
+                    "userId": 5,
+                    "name": "Roberto Alves",
+                    "avgRating": "2.0"
+                }
+            ],
+            "redTeam": [
+                {
+                    "userId": 6,
+                    "name": "Sr. Ping",
+                    "avgRating": "3.5"
+                },
+                {
+                    "userId": 7,
+                    "name": "Mario Götze",
+                    "avgRating": "3.75"
+                },
+                {
+                    "userId": 8,
+                    "name": "User8",
+                    "avgRating": "2.5"
+                },
+                {
+                    "userId": 9,
+                    "name": "User9",
+                    "avgRating": "2.5"
+                },
+                {
+                    "userId": 10,
+                    "name": "Charizard",
+                    "avgRating": "2.5"
+                }
+            ]
+        }
+    ]
+}

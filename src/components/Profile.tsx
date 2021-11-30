@@ -119,7 +119,7 @@ const StyledTabs = styled((props: any) => (
 		height: "5px",
 		marginTop: "-0.6px",
 		width: "100%",
-		backgroundColor: "rgb(6, 64, 129)",
+		backgroundColor: "#242825",
 	},
 });
 
