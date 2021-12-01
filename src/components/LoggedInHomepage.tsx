@@ -20,8 +20,8 @@ import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import MapWrapper from "./Map";
 import * as matches from "../misc/Matches.json";
-
-/*games.map((game) => <Marker key=id position={{bla bla}}>*/
+import { useSelector, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 
 const BootstrapInput = styled(InputBase)({
 	"label + &": {
@@ -81,6 +81,7 @@ function BasicDatePicker() {
 }
 
 function LoggedInHomepage() {
+	const state = useSelector((state) => state);
 	const [currentPosition, setPosition] = useState({});
 	const [hour, setHour] = useState({});
 	const [level, setLevel] = useState({});
@@ -95,6 +96,8 @@ function LoggedInHomepage() {
 		position: `relative`,
 		float: "right",
 	};
+
+	console.log(state);
 	// navigator.geolocation.getCurrentPosition((position) => {
 	// 	const positionObject = {
 	// 		latitude: position.coords.latitude,

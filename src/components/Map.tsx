@@ -39,7 +39,6 @@ function MapComponent(props: any) {
 		location: { name: string; latitude: number; longitude: number };
 	}[] = props.matches;
 	const [selectedMatch, setSelectedMatch] = useState<any>(undefined);
-	console.log(selectedMatch);
 
 	return (
 		<GoogleMap

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
-import { Toolbar, Typography } from "@mui/material";
+import { InputBase, Toolbar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import man from "../Man.png";
 import "../styles/TopBar.css";
@@ -13,6 +13,9 @@ import {
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
+import SearchIcon from "@mui/icons-material/Search";
+import Avatar from "@mui/material/Avatar";
+import { useSelector } from "react-redux";
 
 //O LOGO TEM POUCA DEFINIÇAO POR ALGUMA RAZAO INVESTIGAR
 //TIRAR EFEITOS DE CLICK NO SINO E NA SETA
@@ -22,6 +25,45 @@ const StyledTypography = styled(Typography)({
 	left: "44%",
 	paddingRight: "30px",
 });
+
+const Search = styled("div")(({ theme }) => ({
+	position: "relative",
+	borderRadius: theme.shape.borderRadius,
+	backgroundColor: "rgb(255,255,255,0.15)",
+	"&:hover": {
+		backgroundColor: "rgb(255,255,255,0.25)",
+	},
+	marginRight: theme.spacing(2),
+	width: "100%",
+	[theme.breakpoints.up("sm")]: {
+		marginLeft: "100px",
+		width: "auto",
+	},
+}));
+
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+	padding: theme.spacing(0, 2),
+	height: "100%",
+	position: "absolute",
+	pointerEvents: "none",
+	display: "flex",
+	alignItems: "center",
+	justifyContent: "center",
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+	color: "inherit",
+	"& .MuiInputBase-input": {
+		padding: theme.spacing(1, 1, 1, 0),
+		//paddingRight: "350px",
+		paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+		transition: theme.transitions.create("width"),
+		width: "100%",
+		[theme.breakpoints.up("md")]: {
+			width: "58ch",
+		},
+	},
+}));
 
 function Notifications() {
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -37,7 +79,7 @@ function Notifications() {
 		<div>
 			<Button
 				onClick={handleClick}
-				sx={{ color: "white", width: "0px", minWidth: "0px" }}
+				sx={{ color: "white", width: "0px", minWidth: "0px", padding: "0px" }}
 			>
 				<NotificationsRounded sx={{ fontSize: "2.2rem", marginX: "-8px" }} />
 			</Button>
@@ -77,9 +119,19 @@ function Options() {
 		<div>
 			<Button
 				onClick={handleClick}
-				sx={{ color: "white", width: "0px", minWidth: "0px" }}
+				sx={{
+					color: "white",
+					width: "0px",
+					minWidth: "0px",
+					padding: "0px",
+				}}
 			>
-				<KeyboardArrowDown sx={{ fontSize: "1.5rem", marginRight: "30px" }} />
+				<KeyboardArrowDown
+					sx={{
+						fontSize: "1.5rem",
+						marginRight: "30px",
+					}}
+				/>
 			</Button>
 			<Menu
 				anchorEl={anchorEl}
@@ -114,6 +166,11 @@ function Options() {
 
 //NAS NOTIFICAÇOES METER UM DRAWER PARA AS MOSTRAR
 function LoggedInTopBar() {
+	const state = useSelector((state) => state);
+
+	const { session } = state as any;
+	const { id, avatar } = session;
+
 	return (
 		<AppBar
 			sx={{ backgroundColor: "black", display: "inline", height: "74px" }}
@@ -125,16 +182,25 @@ function LoggedInTopBar() {
 					sx={{ fontFamily: "Verdana", fontWeight: 600, whiteSpace: "nowrap" }}
 				>
 					<Link
-						to="/balltogether/"
+						to="/balltogether/home"
 						style={{ textDecoration: "none", color: "white" }}
 					>
 						Ball Together
 					</Link>
 				</Typography>
+				<Search>
+					<SearchIconWrapper>
+						<SearchIcon />
+					</SearchIconWrapper>
+					<StyledInputBase
+						placeholder="Search…"
+						inputProps={{ "aria-label": "search" }}
+					/>
+				</Search>
 				<div
 					style={{
 						display: "flex",
-						marginInline: "725px",
+						marginInline: "31.5px",
 						alignItems: "center",
 					}}
 				>
@@ -147,7 +213,16 @@ function LoggedInTopBar() {
 							to="/balltogether/profile"
 							style={{ textDecoration: "none", color: "white" }}
 						>
-							<Face sx={{ fontSize: "2.2rem", marginX: "-8px" }} />
+							<Avatar
+								sx={{
+									marginX: "0px",
+									height: "32px",
+									width: "32px",
+									marginRight: "-10px",
+									backgroundColor: "none",
+								}}
+								src={avatar}
+							/>
 						</Link>
 					</StyledTypography>
 					<StyledTypography>

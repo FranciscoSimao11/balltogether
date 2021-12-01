@@ -1,13 +1,13 @@
 .global-wrapper {
 	background-color: #242825;
 	min-height: 100vh;
-	text-align: center;
+	text-align: -webkit-center;
 }
 
 .logo-register {
 	height: 100px;
 	width: 178px;
-	margin-top: -25px;
+	margin-top: -45px;
 }
 
 .header-register {
@@ -15,11 +15,12 @@
 	font-size: 50px;
 	margin-top: -10px;
 	color: white;
+	margin-bottom: 10px;
 }
 
 .form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: -20px;
+	margin-top: -10px;
 }

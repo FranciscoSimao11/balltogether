@@ -8,6 +8,9 @@ import {
 	useRouteMatch,
 	useParams,
 } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "./state/index";
 import TopBar from "./components/TopBar";
 import Homepage from "./components/Homepage";
 import Register from "./components/Register";
@@ -18,6 +21,10 @@ import HostMatch from "./components/HostMatch";
 import Match from "./components/Match";
 
 function App() {
+	const state = useSelector((state) => state);
+	const dispatch = useDispatch();
+	const { login, logout } = bindActionCreators(actionCreators, dispatch);
+
 	return (
 		<div className="App">
 			<Router>
