@@ -77,9 +77,9 @@ function HostMatch() {
 						Host Match
 					</h2>
 					<FormTextField label="Location" />
+					<FormTextField label="Number of Players" />
 					<FormTextField label="Date" />
 					<FormTextField label=" Start Time" />
-					<FormTextField label="Number of Players" />
 					<FormTextField label="Expected Skill Level" />
 					<FormTextField label="Duration" />
 					<FormTextField

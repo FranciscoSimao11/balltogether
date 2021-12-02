@@ -45,7 +45,6 @@ export function processRating(rating: string) {
         } else {
             res = { filledStars: Math.round(ratingFloat) - 1, halfStars: 1, emptyStars: 5 - Math.round(ratingFloat) }
         }
-
         return res;
     }
 }

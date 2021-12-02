@@ -24,7 +24,8 @@
       "watchlist": [],
       "friends": [
         {
-          "userId": "memphisdepay@gmail.com"
+          "userId": "memphisdepay@gmail.com",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
         }
       ],
       "socialMedia": [
@@ -50,35 +51,61 @@
           "rating": "5.0"
         }
       ],
-      "nextMatches": [],
+      "nextMatches": [
+        {
+          "location": "Wanda Metropolitano",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 2,
+          "skillLevel": "5.0"
+        }
+      ],
       "watchlist": [],
       "friends": [
         {
-          "userId": "edenhazard@gmail.com"
+          "userId": "edenhazard@gmail.com",
+          "name": "Eden Hazard",
+          "avatar": "https://futhead.cursecdn.com/static/img/19/players/183277.png"
         },
         {
-          "userId": "simon@gmail.com"
+          "userId": "simon@gmail.com",
+          "name": "Simon",
+          "avatar": "https://lh3.googleusercontent.com/a-/AOh14Gi0bIKNroUgzZADxyOfiy_EDC837tNyAUA11r-2jA=s96-c-rg-br100"
         },
         {
-          "userId": "guillaume@gmail.com"
+          "userId": "guillaume@gmail.com",
+          "name": "Guillaume",
+          "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"
         },
         {
-          "userId": "robertoalves@gmail.com"
+          "userId": "robertoalves@gmail.com",
+          "name": "Roberto Alves",
+          "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"
         },
         {
-          "userId": "srping@gmail.com"
+          "userId": "srping@gmail.com",
+          "name": "Sr. Ping",
+          "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"
         },
         {
-          "userId": "mariogotze@gmail.com"
+          "userId": "mariogotze@gmail.com",
+          "name": "Mario Götze",
+          "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"
         },
         {
-          "userId": "user8@gmail.com"
+          "userId": "jamesfrango@gmail.com",
+          "name": "James Frango",
+          "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"
         },
         {
-          "userId": "learningagreement@gmail.com"
+          "userId": "learningagreement@gmail.com",
+          "name": "Learning Agreement",
+          "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png"
         },
         {
-          "userId": "chouricard@gmail.com"
+          "userId": "chouricard@gmail.com",
+          "name": "Chouriçard, o Deus do Fogo",
+          "avatar": "http://2.bp.blogspot.com/-uyfMKz44gFw/Uk6-iNfQkpI/AAAAAAAABSc/wZBEgv1KOYk/s1600/256px-006Charizard.png"
         }
       ],
       "socialMedia": [
@@ -87,7 +114,7 @@
         "https://www.facebook.com/memphisdepayofficial",
         "https://web.whatsapp.com/"
       ],
-      "avatar": "https://eaassets-a.akamaihd.net/fifa/u/f/fm21/prod/s/static/players/players_21/p202556_FALL.png?v=58e09fv904",
+      "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png",
       "banner": ""
     },
     {
@@ -117,7 +144,7 @@
         "https://www.facebook.com/francisco.simoes11/",
         "https://web.whatsapp.com/"
       ],
-      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/2048px-No_image_available.svg.png",
+      "avatar": "https://lh3.googleusercontent.com/a-/AOh14Gi0bIKNroUgzZADxyOfiy_EDC837tNyAUA11r-2jA=s96-c-rg-br100",
       "banner": ""
     },
     {
@@ -455,55 +482,55 @@
       },
       "blueTeam": [
         {
-          "userId": 1,
+          "userId": "edenhazard@gmail.com",
           "name": "Eden Hazard",
           "avgRating": "5.0"
         },
         {
-          "userId": 2,
+          "userId": "memphisdepay@gmail.com",
           "name": "Memphis Depay",
           "avgRating": "5.0"
         },
         {
-          "userId": 3,
+          "userId": "simon@gmail.com",
           "name": "Simon",
           "avgRating": "5.0"
         },
         {
-          "userId": 4,
-          "name": "Gillaume",
+          "userId": "guillaume@gmail.com",
+          "name": "Guillaume",
           "avgRating": "2.5"
         },
         {
-          "userId": 5,
+          "userId": "robertoalves@gmail.com",
           "name": "Roberto Alves",
           "avgRating": "2.0"
         }
       ],
       "redTeam": [
         {
-          "userId": 6,
+          "userId": "srping@gmail.com",
           "name": "Sr. Ping",
           "avgRating": "3.5"
         },
         {
-          "userId": 7,
+          "userId": "mariogotze@gmail.com",
           "name": "Mario Götze",
           "avgRating": "3.75"
         },
         {
-          "userId": 8,
-          "name": "User8",
+          "userId": "jamesfrango@gmail.com",
+          "name": "James Frango",
           "avgRating": "2.5"
         },
         {
-          "userId": 9,
-          "name": "User9",
+          "userId": "learningagreement@gmail.com",
+          "name": "Learning Agreement",
           "avgRating": "2.5"
         },
         {
-          "userId": 10,
-          "name": "Charizard",
+          "userId": "chouricard@gmail.com",
+          "name": "Chouriçard, o Deus do Fogo",
           "avgRating": "2.5"
         }
       ]
@@ -525,55 +552,55 @@
       },
       "blueTeam": [
         {
-          "userId": 1,
+          "userId": "edenhazard@gmail.com",
           "name": "Eden Hazard",
           "avgRating": "5.0"
         },
         {
-          "userId": 2,
+          "userId": "memphisdepay@gmail.com",
           "name": "Memphis Depay",
           "avgRating": "5.0"
         },
         {
-          "userId": 3,
+          "userId": "simon@gmail.com",
           "name": "Simon",
           "avgRating": "5.0"
         },
         {
-          "userId": 4,
-          "name": "Gillaume",
+          "userId": "guillaume@gmail.com",
+          "name": "Guillaume",
           "avgRating": "2.5"
         },
         {
-          "userId": 5,
+          "userId": "robertoalves@gmail.com",
           "name": "Roberto Alves",
           "avgRating": "2.0"
         }
       ],
       "redTeam": [
         {
-          "userId": 6,
+          "userId": "srping@gmail.com",
           "name": "Sr. Ping",
           "avgRating": "3.5"
         },
         {
-          "userId": 7,
+          "userId": "mariogotze@gmail.com",
           "name": "Mario Götze",
           "avgRating": "3.75"
         },
         {
-          "userId": 8,
-          "name": "User8",
+          "userId": "jamesfrango@gmail.com",
+          "name": "James Frango",
           "avgRating": "2.5"
         },
         {
-          "userId": 9,
-          "name": "User9",
+          "userId": "learningagreement@gmail.com",
+          "name": "Learning Agreement",
           "avgRating": "2.5"
         },
         {
-          "userId": 10,
-          "name": "Charizard",
+          "userId": "chouricard@gmail.com",
+          "name": "Chouriçard, o Deus do Fogo",
           "avgRating": "2.5"
         }
       ]

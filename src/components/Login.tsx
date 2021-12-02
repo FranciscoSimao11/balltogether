@@ -8,7 +8,10 @@ import { Link, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../state/index";
-import { connect } from "react-redux";
+import Alert from "@mui/material/Alert";
+import IconButton from "@mui/material/IconButton";
+import Collapse from "@mui/material/Collapse";
+import CloseIcon from "@mui/icons-material/Close";
 
 const FormTextField = styled(TextField)({
 	paddingBottom: 20,
@@ -59,8 +62,8 @@ function Login() {
 	}>({ id: "", password: "" });
 	const [finishedLogin, setFinishedLogin] = useState<Boolean>(false);
 	const [finishedAuth, setFinishedAuth] = useState<Boolean>(false);
-	const [failedLogin, setFailedLogin] = useState<Boolean>(false);
-
+	const [failedLogin, setFailedLogin] = useState(false);
+	const [alertOpen, setAlertOpen] = useState(false);
 	useEffect(() => {
 		if (finishedLogin) {
 			fetch("http://localhost:8000/users/" + user.id, {
@@ -77,7 +80,6 @@ function Login() {
 					} else {
 						setFinishedLogin(false);
 						setFailedLogin(true);
-						console.log("falhei");
 					}
 				});
 		}
@@ -100,6 +102,30 @@ function Login() {
 			<div className="wrapper">
 				<img src={man} className="logo-register" />
 				<p className="header-register">Ball Together</p>
+				<Collapse in={failedLogin}>
+					<Alert
+						variant="filled"
+						severity="error"
+						sx={{
+							paddingInline: "10px",
+							width: "250px",
+						}}
+						action={
+							<IconButton
+								aria-label="close"
+								color="inherit"
+								size="small"
+								onClick={() => {
+									setFailedLogin(false);
+								}}
+							>
+								<CloseIcon fontSize="inherit" />
+							</IconButton>
+						}
+					>
+						Email or password incorrect!
+					</Alert>
+				</Collapse>
 				<div className="form">
 					<FormTextField
 						label="Email"
@@ -119,14 +145,15 @@ function Login() {
 								password: e.currentTarget.value,
 							});
 						}}
+						onKeyDown={(e) => {
+							if (e.key === "Enter") {
+								setFinishedLogin(true);
+							}
+						}}
 					/>
 					<LoginButton
 						variant="contained"
 						onClick={() => {
-							setUser({
-								id: user.id,
-								password: user.password,
-							});
 							setFinishedLogin(true);
 						}}
 					>

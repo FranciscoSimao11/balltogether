@@ -10,7 +10,9 @@
 /*so com este ele nao muda o tamanho mas nao sei bem dps dimensionar a coisa*/
 .avatar-container{
     height: 170px;
-    width: 170px;       
+    width: 170px;    
+    min-height: 170px;
+    min-width: 170px;    
     border-radius: 100%;
     overflow: hidden;
     margin-left: 70px;
@@ -27,7 +29,8 @@
 
 .player-info-container{
     color:white;
-    margin-left: 50px;
+    margin-left: 30px;
+    margin-right: -40px;
     padding-top: 10px;
     display: flex;
 }
@@ -43,13 +46,36 @@
 }
 
 #trapezoid {
-    border-bottom: 281px solid rgb(5, 37, 128);
+    border-bottom: 281px solid rgb(5, 37, 128,1);
     border-left: 155px solid transparent;
     border-right: 0px solid transparent;
-    margin-left: 50px;
+    margin-left: 85px;
     width: 1036.1px;
     height: 100%;
     margin-right: -110px;
     z-index: 0;
-    
+   /*url("https://twitter.com/hazardeden10");*/
+}
+
+.profile-match-container{
+    color:white
+}
+
+.profile-friends-container{ 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile-friend-container{
+    color: red;
+    display: flex;
+    flex: 1 0 21%;
+    width: 500px;
+}
+
+.friend-avatar{
+    height: 60px;
+    width: 60px;       
+    border-radius: 100%;
+    overflow: hidden;
 }

@@ -15,3 +15,12 @@ export const logout = (user) => {
         })
     }
 }
+
+export const updateSessionInfo = (user) => {
+    return (dispatch) => {
+        dispatch({
+            type: "updateSessionInfo",
+            payload: user
+        })
+    }
+}

@@ -212,6 +212,11 @@ function Register() {
 						label="Confirm Password"
 						type={visibleConfirm}
 						required
+						onKeyDown={(e) => {
+							if (e.key === "Enter") {
+								setFinishedRegister(true);
+							}
+						}}
 					/>
 					{visibleConfirm == "password" && (
 						<Visibility
@@ -251,12 +256,6 @@ function Register() {
 				<RegisterButton
 					variant="contained"
 					onClick={() => {
-						setUser({
-							name: user.name,
-							id: user.id,
-							phone: user.phone,
-							password: user.password,
-						});
 						setFinishedRegister(true);
 					}}
 				>

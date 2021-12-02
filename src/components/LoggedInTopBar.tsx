@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import { InputBase, Toolbar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -15,7 +15,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import Avatar from "@mui/material/Avatar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../state/index";
 
 //O LOGO TEM POUCA DEFINIÇAO POR ALGUMA RAZAO INVESTIGAR
 //TIRAR EFEITOS DE CLICK NO SINO E NA SETA
@@ -98,7 +100,7 @@ function Notifications() {
 				sx={{ marginTop: "40px" }}
 			>
 				<MenuItem onClick={handleClose}>
-					No notifications at the moment, depois tratar disto
+					No notifications at the moment.
 				</MenuItem>
 			</Menu>
 		</div>
@@ -106,6 +108,9 @@ function Notifications() {
 }
 
 function Options() {
+	const state = useSelector((state) => state);
+	const dispatch = useDispatch();
+	const { logout } = bindActionCreators(actionCreators, dispatch);
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const open = Boolean(anchorEl);
 	const handleClick = (event: any) => {
@@ -113,6 +118,11 @@ function Options() {
 	};
 	const handleClose = () => {
 		setAnchorEl(null);
+	};
+	const handleLogout = () => {
+		setAnchorEl(null);
+		logout((state as any).session);
+		localStorage.removeItem("activeUser");
 	};
 
 	return (
@@ -153,12 +163,14 @@ function Options() {
 				>
 					<MenuItem onClick={handleClose}>Profile</MenuItem>
 				</Link>
-				<Link
-					to="/balltogether"
-					style={{ textDecoration: "none", color: "black" }}
-				>
-					<MenuItem onClick={handleClose}>Logout</MenuItem>
-				</Link>
+				<MenuItem onClick={handleLogout}>
+					<Link
+						to="/balltogether"
+						style={{ textDecoration: "none", color: "black" }}
+					>
+						Logout
+					</Link>
+				</MenuItem>
 			</Menu>
 		</div>
 	);
@@ -167,77 +179,111 @@ function Options() {
 //NAS NOTIFICAÇOES METER UM DRAWER PARA AS MOSTRAR
 function LoggedInTopBar() {
 	const state = useSelector((state) => state);
-
 	const { session } = state as any;
-	const { id, avatar } = session;
+	const [user, setUser] = useState<any>();
+	const getUser = () => {
+		if (!user) {
+			fetch("http://localhost:8000/users/" + session.id, {
+				method: "GET",
+			})
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					setUser(data);
+				});
+		} else {
+			fetch("http://localhost:8000/users/" + user.id, {
+				method: "GET",
+			})
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					setUser(data);
+				});
+		}
+	};
+	useEffect(() => {
+		console.log(user);
+		if (!user) {
+			getUser();
+		}
+	}, [user]);
 
 	return (
 		<AppBar
 			sx={{ backgroundColor: "black", display: "inline", height: "74px" }}
 		>
-			<Toolbar>
-				<img src={man} className="logo" />
-				<Typography
-					variant="h6"
-					sx={{ fontFamily: "Verdana", fontWeight: 600, whiteSpace: "nowrap" }}
-				>
-					<Link
-						to="/balltogether/home"
-						style={{ textDecoration: "none", color: "white" }}
+			{user && (
+				<Toolbar>
+					<img src={man} className="logo" />
+					<Typography
+						variant="h6"
+						sx={{
+							fontFamily: "Verdana",
+							fontWeight: 600,
+							whiteSpace: "nowrap",
+						}}
 					>
-						Ball Together
-					</Link>
-				</Typography>
-				<Search>
-					<SearchIconWrapper>
-						<SearchIcon />
-					</SearchIconWrapper>
-					<StyledInputBase
-						placeholder="Search…"
-						inputProps={{ "aria-label": "search" }}
-					/>
-				</Search>
-				<div
-					style={{
-						display: "flex",
-						marginInline: "31.5px",
-						alignItems: "center",
-					}}
-				>
-					<StyledTypography>|</StyledTypography>
-					<StyledTypography>
-						<Notifications />
-					</StyledTypography>
-					<StyledTypography>
 						<Link
-							to="/balltogether/profile"
+							to="/balltogether/home"
 							style={{ textDecoration: "none", color: "white" }}
 						>
-							<Avatar
-								sx={{
-									marginX: "0px",
-									height: "32px",
-									width: "32px",
-									marginRight: "-10px",
-									backgroundColor: "none",
-								}}
-								src={avatar}
-							/>
+							Ball Together
 						</Link>
-					</StyledTypography>
-					<StyledTypography>
-						<Link
-							to="/balltogether/profile"
-							style={{ textDecoration: "none", color: "white" }}
-						>
-							Profile
-						</Link>
-					</StyledTypography>
-					<StyledTypography>
-						<Options />
-					</StyledTypography>
-				</div>
-			</Toolbar>
+					</Typography>
+					<Search>
+						<SearchIconWrapper>
+							<SearchIcon />
+						</SearchIconWrapper>
+						<StyledInputBase
+							placeholder="Search…"
+							inputProps={{ "aria-label": "search" }}
+						/>
+					</Search>
+					<div
+						style={{
+							display: "flex",
+							marginInline: "31.5px",
+							alignItems: "center",
+						}}
+					>
+						<StyledTypography>|</StyledTypography>
+						<StyledTypography>
+							<Notifications />
+						</StyledTypography>
+						<StyledTypography>
+							<Link
+								to="/balltogether/profile"
+								style={{ textDecoration: "none", color: "white" }}
+							>
+								<Avatar
+									sx={{
+										marginX: "0px",
+										height: "32px",
+										width: "32px",
+										marginRight: "-10px",
+										backgroundColor: "rgb(255,255,255,0.2)",
+									}}
+									src={user.avatar}
+								/>
+							</Link>
+						</StyledTypography>
+						<StyledTypography>
+							<Link
+								to="/balltogether/profile"
+								style={{ textDecoration: "none", color: "white" }}
+							>
+								Profile
+							</Link>
+						</StyledTypography>
+						<StyledTypography>
+							<Options />
+						</StyledTypography>
+					</div>
+				</Toolbar>
+			)}
 		</AppBar>
 	);
 }

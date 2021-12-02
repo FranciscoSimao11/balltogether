@@ -21,26 +21,6 @@ import { Link } from "react-router-dom";
 import MapWrapper from "./Map";
 import * as matches from "../misc/Matches.json";
 import { useSelector, useDispatch } from "react-redux";
-import { connect } from "react-redux";
-
-const BootstrapInput = styled(InputBase)({
-	"label + &": {
-		color: "black",
-	},
-	"& .MuiInputBase-input": {
-		borderRadius: 4,
-		position: "relative",
-		border: "1px solid white",
-		fontSize: 16,
-		padding: "16.5px 100px 0 0",
-		color: "white",
-		"&:focus": {
-			borderRadius: 4,
-			borderColor: "white",
-			boxShadow: "0 0 0 0.2rem rgba(0,123,255,.25)",
-		},
-	},
-});
 
 const HostMatchButton = styled(Button)({
 	marginTop: "170px",
@@ -73,7 +53,9 @@ function BasicDatePicker() {
 					onChange={(newDate) => {
 						setDate(newDate);
 					}}
-					renderInput={(params) => <TextField {...params} />}
+					renderInput={(params) => (
+						<TextField sx={{ color: "white" }} {...params} />
+					)}
 				/>
 			</LocalizationProvider>
 		</Box>
@@ -97,7 +79,6 @@ function LoggedInHomepage() {
 		float: "right",
 	};
 
-	console.log(state);
 	// navigator.geolocation.getCurrentPosition((position) => {
 	// 	const positionObject = {
 	// 		latitude: position.coords.latitude,
@@ -111,7 +92,7 @@ function LoggedInHomepage() {
 			longitude: -9.203319,
 		});
 	}, []);
-
+	//<BasicDatePicker></BasicDatePicker>
 	return (
 		<div className="logged-in-homepage-wrapper">
 			<LoggedInTopBar />
@@ -125,31 +106,19 @@ function LoggedInHomepage() {
 							marginRight: "25px",
 						}}
 					/>
-					<BasicDatePicker></BasicDatePicker>
+					<input type="date" id="birthday" name="birthday"></input>
 				</div>
 				<div className="select-and-icon">
 					<AccessTimeIcon
 						sx={{ color: "white", fontSize: "60px", marginRight: "25px" }}
 					/>
-					<Select
-						label="Hour"
-						value={hour}
-						onChange={(e) => setHour(e.target.value)}
-						sx={{
-							paddingX: "25%",
-						}}
-					>
-						{hours.map((hour) => (
-							<MenuItem
-								value={hour}
-								sx={{
-									paddingX: "20px", //PARA DETNRO DO INPUT PROP NESTA CENA????
-								}}
-							>
-								{hour}
-							</MenuItem>
-						))}
-					</Select>
+					<select onChange={(e) => setHour(e.target.value)}>
+						<optgroup label="Hour">
+							{hours.map((hour) => (
+								<option value={hour}>{hour}</option>
+							))}
+						</optgroup>
+					</select>
 				</div>
 				<div className="select-and-icon">
 					<GradeIcon
@@ -159,25 +128,24 @@ function LoggedInHomepage() {
 							marginRight: "25px",
 						}}
 					/>
-					<Select
-						label="Hour"
-						value={hour}
-						onChange={(e) => setHour(e.target.value)}
-						sx={{
-							paddingX: "25%",
-						}}
-					>
-						{levels.map((level) => (
-							<MenuItem
-								value={level}
-								sx={{
-									paddingX: "20px", //PARA DETNRO DO INPUT PROP NESTA CENA????
-								}}
-							>
-								{level}
-							</MenuItem>
-						))}
-					</Select>
+					<select onChange={(e) => setLevel(e.target.value)}>
+						<optgroup label="Level">
+							{levels.map((level) => (
+								<option value={level}>{level}</option>
+							))}
+						</optgroup>
+					</select>
+				</div>
+				<div
+					style={{
+						color: "white",
+						marginTop: "50px",
+						marginBottom: "-100px",
+						fontSize: "30px",
+						fontWeight: "bold",
+					}}
+				>
+					-- OR --
 				</div>
 				<Link to="/balltogether/hostmatch" style={{ textDecoration: "none" }}>
 					<HostMatchButton>Host Match</HostMatchButton>

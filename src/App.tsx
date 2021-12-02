@@ -24,7 +24,7 @@ function App() {
 	const state = useSelector((state) => state);
 	const dispatch = useDispatch();
 	const { login, logout } = bindActionCreators(actionCreators, dispatch);
-
+	const { session } = state as any;
 	return (
 		<div className="App">
 			<Router>
@@ -38,7 +38,7 @@ function App() {
 					<Route path="/balltogether/login" exact>
 						<Login />
 					</Route>
-					<Route path="/balltogether/profile" exact>
+					<Route path={"/balltogether/profile"} exact>
 						<Profile />
 					</Route>
 					<Route path="/balltogether/hostmatch" exact>

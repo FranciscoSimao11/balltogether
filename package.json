@@ -10,6 +10,7 @@
 		"@mui/icons-material": "^5.2.0",
 		"@mui/lab": "^5.0.0-alpha.57",
 		"@mui/material": "^5.0.6",
+		"@reach/combobox": "^0.16.4",
 		"@testing-library/jest-dom": "^5.11.4",
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
@@ -33,6 +34,7 @@
 		"redux": "^4.1.2",
 		"redux-thunk": "^2.4.1",
 		"typescript": "^4.1.2",
+		"use-places-autocomplete": "^1.10.1",
 		"web-vitals": "^1.0.1"
 	},
 	"scripts": {
