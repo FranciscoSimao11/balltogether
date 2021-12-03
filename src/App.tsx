@@ -29,27 +29,17 @@ function App() {
 		<div className="App">
 			<Router>
 				<Switch>
-					<Route path="/balltogether/home" exact>
-						<LoggedInHomepage />
-					</Route>
-					<Route path="/balltogether/register" exact>
-						<Register />
-					</Route>
-					<Route path="/balltogether/login" exact>
-						<Login />
-					</Route>
-					<Route path={"/balltogether/profile"} exact>
-						<Profile />
-					</Route>
-					<Route path="/balltogether/hostmatch" exact>
-						<HostMatch />
-					</Route>
-					<Route path="/balltogether/match" exact>
-						<Match />
-					</Route>
-					<Route path="/balltogether/" exact>
-						<Homepage />
-					</Route>
+					<Route path="/balltogether/home" component={LoggedInHomepage} exact />
+					<Route path="/balltogether/register" component={Register} exact />
+					<Route path="/balltogether/login" component={Login} exact />
+					<Route
+						path="/balltogether/profile/:userId"
+						component={Profile}
+						exact
+					/>
+					<Route path="/balltogether/hostmatch" component={HostMatch} exact />
+					<Route path="/balltogether/match" component={Match} exact />
+					<Route path="/balltogether/" component={Homepage} exact />
 				</Switch>
 			</Router>
 		</div>

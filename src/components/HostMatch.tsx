@@ -5,8 +5,9 @@ import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import LoggedInTopBar from "./LoggedInTopBar";
 import MapWrapper from "./Map";
-import * as matches from "../misc/Matches.json";
 import "../styles/HostMatch.css";
+import { levels, hours } from "../misc/miscFuncs";
+import { useSelector } from "react-redux";
 
 const FormTextField = styled(TextField)({
 	marginInline: "10px",
@@ -45,7 +46,14 @@ const HostMatchButton = styled(Button)({
 });
 
 function HostMatch() {
-	const [currentPosition, setPosition] = useState({});
+	const [location, setLocation] = useState<any>();
+	const [nPlayers, setNPlayers] = useState<any>();
+	const [date, setDate] = useState<any>();
+	const [hour, setHour] = useState<any>();
+	const [level, setLevel] = useState<any>();
+	const [duration, setDuration] = useState<any>();
+	const [description, setDescription] = useState<any>();
+	const [finishedCreatingMatch, setFinishedCreatingMatch] = useState(false);
 	const mapStyle = {
 		width: `70%`,
 		minWidth: "70%",
@@ -57,13 +65,45 @@ function HostMatch() {
 		position: `relative`,
 		float: "right",
 	};
+	const state = useSelector((state) => state);
+	const { session } = state as any;
 
 	useEffect(() => {
-		setPosition({
-			latitude: 38.660988,
-			longitude: -9.203319,
-		});
-	}, []);
+		if (finishedCreatingMatch) {
+			fetch("http://localhost:8000/users/" + session.id, {
+				method: "GET",
+			})
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					fetch("http://localhost:8000/matches", {
+						headers: {
+							"Content-Type": "application/json",
+							Accept: "application/json",
+						},
+						method: "POST",
+						body: JSON.stringify({
+							host: data.name,
+							numberOfSpotsLeft: parseInt(nPlayers),
+							totalNumberOfPlayers: parseInt(nPlayers),
+							date: date,
+							startingTime: hour,
+							duration: duration,
+							skillLevel: level,
+							description: description,
+							location: {
+								name: location,
+								latitude: 0,
+								longitude: 0,
+							},
+							blueTeam: [],
+							redTeam: [],
+						}),
+					});
+				});
+		}
+	}, [finishedCreatingMatch]);
 
 	return (
 		<div className="hostmatch-wrapper">
@@ -76,23 +116,42 @@ function HostMatch() {
 					>
 						Host Match
 					</h2>
-					<FormTextField label="Location" />
-					<FormTextField label="Number of Players" />
-					<FormTextField label="Date" />
-					<FormTextField label=" Start Time" />
-					<FormTextField label="Expected Skill Level" />
-					<FormTextField label="Duration" />
-					<FormTextField
-						label="Description"
-						sx={{ width: "400px", height: "2em" }}
-					/>
-					<HostMatchButton>Create Match</HostMatchButton>
+					<div style={{ display: "grid" }}>
+						<label style={{ color: "white" }}>Location: </label>
+						<input type="text" onChange={(e) => setLocation(e.target.value)} />
+						<label style={{ color: "white" }}>Number of Players: </label>
+						<input type="text" onChange={(e) => setNPlayers(e.target.value)} />
+						<label style={{ color: "white" }}>Date: </label>
+						<input type="date" onChange={(e) => setDate(e.target.value)} />
+						<label style={{ color: "white" }}>Starting Time: </label>
+						<select onChange={(e) => setHour(e.target.value)}>
+							{hours.map((hour) => (
+								<option value={hour}>{hour}</option>
+							))}
+						</select>
+						<label style={{ color: "white" }}>Recommended Level: </label>
+						<select onChange={(e) => setLevel(e.target.value)}>
+							{levels.map((level) => (
+								<option value={level}>{level}</option>
+							))}
+						</select>
+						<label style={{ color: "white" }}>Duration: </label>
+						<input type="time" onChange={(e) => setDuration(e.target.value)} />
+						<label style={{ color: "white" }}>Description: </label>
+						<input
+							type="text"
+							onChange={(e) => setDescription(e.target.value)}
+						/>
+					</div>
+					<HostMatchButton
+						onClick={() => {
+							setFinishedCreatingMatch(true);
+						}}
+					>
+						Create Match
+					</HostMatchButton>
 				</div>
-				<MapWrapper
-					position={currentPosition}
-					mapStyle={mapStyle}
-					matches={matches}
-				/>
+				<MapWrapper mapStyle={mapStyle} />
 			</div>
 		</div>
 	);

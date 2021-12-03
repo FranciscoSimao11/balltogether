@@ -64,7 +64,6 @@ function BasicDatePicker() {
 
 function LoggedInHomepage() {
 	const state = useSelector((state) => state);
-	const [currentPosition, setPosition] = useState({});
 	const [hour, setHour] = useState({});
 	const [level, setLevel] = useState({});
 	const mapStyle = {
@@ -86,13 +85,7 @@ function LoggedInHomepage() {
 	// 	};
 	// 	setPosition(positionObject);
 	// });
-	useEffect(() => {
-		setPosition({
-			latitude: 38.660988,
-			longitude: -9.203319,
-		});
-	}, []);
-	//<BasicDatePicker></BasicDatePicker>
+
 	return (
 		<div className="logged-in-homepage-wrapper">
 			<LoggedInTopBar />
@@ -106,19 +99,21 @@ function LoggedInHomepage() {
 							marginRight: "25px",
 						}}
 					/>
-					<input type="date" id="birthday" name="birthday"></input>
+					<input type="date"></input>
 				</div>
 				<div className="select-and-icon">
 					<AccessTimeIcon
 						sx={{ color: "white", fontSize: "60px", marginRight: "25px" }}
 					/>
 					<select onChange={(e) => setHour(e.target.value)}>
-						<optgroup label="Hour">
+						<optgroup label="Starting Time">
 							{hours.map((hour) => (
 								<option value={hour}>{hour}</option>
 							))}
 						</optgroup>
 					</select>
+					<b style={{ color: "white" }}> Or </b>
+					<input type="time" onChange={(e) => setHour(e.target.value)} />
 				</div>
 				<div className="select-and-icon">
 					<GradeIcon
@@ -151,11 +146,7 @@ function LoggedInHomepage() {
 					<HostMatchButton>Host Match</HostMatchButton>
 				</Link>
 			</div>
-			<MapWrapper
-				position={currentPosition}
-				mapStyle={mapStyle}
-				matches={matches}
-			/>
+			<MapWrapper mapStyle={mapStyle} />
 		</div>
 	);
 }

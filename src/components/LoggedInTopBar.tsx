@@ -205,7 +205,6 @@ function LoggedInTopBar() {
 		}
 	};
 	useEffect(() => {
-		console.log(user);
 		if (!user) {
 			getUser();
 		}
@@ -255,16 +254,18 @@ function LoggedInTopBar() {
 						</StyledTypography>
 						<StyledTypography>
 							<Link
-								to="/balltogether/profile"
+								to={`/balltogether/profile/${session.id}`}
 								style={{ textDecoration: "none", color: "white" }}
 							>
 								<Avatar
 									sx={{
 										marginX: "0px",
-										height: "32px",
-										width: "32px",
+										height: "33px",
+										width: "33px",
 										marginRight: "-10px",
 										backgroundColor: "rgb(255,255,255,0.2)",
+										borderRadius: "100%",
+										overflow: "hidden",
 									}}
 									src={user.avatar}
 								/>

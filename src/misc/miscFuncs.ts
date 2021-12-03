@@ -1,6 +1,6 @@
 var levelsArr = [];
 for (var i = 0; i <= 5.0; i++) {
-    levelsArr[i] = i;
+    levelsArr[i] = i.toFixed(1);
 }
 
 export const levels = levelsArr;
@@ -20,8 +20,12 @@ function toTime(hour: any) {
 }
 
 var hoursArr = [];
-for (var j = 0; j <= 48; j++) {
-    hoursArr[j] = toTime(j / 2);
+// for (var j = 0; j <= 48; j++) {
+//     hoursArr[j] = toTime(j / 2);
+// }
+
+for (var j = 0; j <= 24; j++) {
+    hoursArr[j] = toTime(j);
 }
 
 export const hours = hoursArr;

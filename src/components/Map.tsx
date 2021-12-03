@@ -22,6 +22,7 @@ import usePlacesAutocomplete, {
 	getGeocode,
 	getLatLng,
 } from "use-places-autocomplete";
+import { Link } from "react-router-dom";
 
 const MatchDetailsButton = styled(Button)({
 	color: "white",
@@ -40,16 +41,31 @@ function createDynamicURL(matchId: string) {
 const WrappedMap = withScriptjs(withGoogleMap(MapComponent));
 
 function MapComponent(props: any) {
-	const pos = props.position;
-	const matches: {
-		host: string;
-		numberOfSpotsLeft: number;
-		description: string;
-		skillLevel: string;
-		duration: number;
-		date: string;
-		location: { name: string; latitude: number; longitude: number };
-	}[] = props.matches;
+	const [matches, setMatches] = useState<
+		{
+			host: string;
+			numberOfSpotsLeft: number;
+			description: string;
+			skillLevel: string;
+			duration: number;
+			date: string;
+			location: { name: string; latitude: number; longitude: number };
+		}[]
+	>();
+	useEffect(() => {
+		if (!matches) {
+			fetch("http://localhost:8000/matches/", {
+				method: "GET",
+			})
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					setMatches(data);
+				});
+		}
+	}, [matches]);
+
 	const [selectedMatch, setSelectedMatch] = useState<any>(undefined);
 	const {
 		ready,
@@ -63,7 +79,25 @@ function MapComponent(props: any) {
 			radius: 100 * 1000,
 		},
 	});
-	const [location, setLocation] = useState({ lat: 38.660988, lng: -9.203319 });
+	interface coords {
+		lat: number;
+		lng: number;
+	}
+	const [location, setLocation] = useState<coords>({
+		lat: 38.660988,
+		lng: -9.203319,
+	});
+
+	useEffect(() => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition((position) => {
+				setLocation({
+					lat: position.coords.latitude,
+					lng: position.coords.longitude,
+				});
+			});
+		}
+	}, []);
 	return (
 		<div>
 			<div
@@ -76,11 +110,12 @@ function MapComponent(props: any) {
 			>
 				<Combobox
 					onSelect={async (address) => {
+						setValue(address, false);
+						clearSuggestions();
 						try {
 							const results = await getGeocode({ address });
 							const { lat, lng } = await getLatLng(results[0]);
 							setLocation({ lat, lng });
-							console.log(location);
 						} catch (error) {
 							console.log("error");
 						}
@@ -101,65 +136,66 @@ function MapComponent(props: any) {
 					</ComboboxPopover>
 				</Combobox>
 			</div>
-			<GoogleMap
-				defaultZoom={13}
-				defaultCenter={{ lat: location.lat, lng: location.lng }}
-				defaultOptions={{ styles: mapStyles }}
-			>
-				{matches.map((m) => (
-					<Marker
-						key={m.host}
-						position={{ lat: m.location.latitude, lng: m.location.longitude }}
-						icon={{
-							url: ball,
-						}}
-						onClick={() => {
-							setSelectedMatch(m);
-						}}
-					></Marker>
-				))}
-				{selectedMatch && (
-					<InfoWindow
-						position={{
-							lat: selectedMatch.location.latitude,
-							lng: selectedMatch.location.longitude,
-						}}
-						onCloseClick={() => {
-							setSelectedMatch(undefined);
-						}}
-					>
-						<div>
-							<h2>{selectedMatch.location.name}</h2>
-							<div style={{ textAlign: "center" }}>
-								<div style={{ textAlign: "left", marginBottom: "10px" }}>
-									<b>Date: </b>
-									{selectedMatch.date} <br />
-									<b>Starting: </b>
-									{selectedMatch.startingTime}h <br />
-									<b>Duration: </b>
-									{selectedMatch.duration}h <br />
-									<b>Number of Spots left: </b>
-									{selectedMatch.numberOfSpotsLeft}
-									<br />
-									<b>Skil Level: </b>
-									{selectedMatch.skillLevel} <br />
-									<b>Host Name: </b>
-									{selectedMatch.host} <br />
-									<b>Description: </b>
-									{selectedMatch.description} <br />
-								</div>
-								<a
-									href="javascript:window.location=createDynamicURL(selectedMatch.location.name);"
-									//nao sei, ele nao me deixa usar os links do router...
-									style={{ textDecoration: "none" }}
-								>
+			{matches && location && (
+				<GoogleMap
+					zoom={15}
+					center={{ lat: location.lat, lng: location.lng }}
+					defaultOptions={{ styles: mapStyles }}
+					onClick={(e) => {
+						console.log(e.latLng.lat());
+						console.log(e.latLng.lng());
+					}}
+				>
+					{matches.map((m) => (
+						<Marker
+							key={m.host}
+							position={{ lat: m.location.latitude, lng: m.location.longitude }}
+							icon={{
+								url: ball,
+							}}
+							onClick={() => {
+								setSelectedMatch(m);
+							}}
+						></Marker>
+					))}
+					{selectedMatch && (
+						<InfoWindow
+							position={{
+								lat: selectedMatch.location.latitude,
+								lng: selectedMatch.location.longitude,
+							}}
+							onCloseClick={() => {
+								setSelectedMatch(undefined);
+							}}
+						>
+							<div>
+								<h2>{selectedMatch.location.name}</h2>
+								<div style={{ textAlign: "center" }}>
+									<div style={{ textAlign: "left", marginBottom: "10px" }}>
+										<b>Date: </b>
+										{selectedMatch.date} <br />
+										<b>Starting: </b>
+										{selectedMatch.startingTime}h <br />
+										<b>Duration: </b>
+										{selectedMatch.duration}h <br />
+										<b>Number of Spots left: </b>
+										{selectedMatch.numberOfSpotsLeft}
+										<br />
+										<b>Skil Level: </b>
+										{selectedMatch.skillLevel} <br />
+										<b>Host Name: </b>
+										{selectedMatch.host} <br />
+										<b>Description: </b>
+										{selectedMatch.description} <br />
+									</div>
+
 									<MatchDetailsButton>View Match</MatchDetailsButton>
-								</a>
+								</div>
 							</div>
-						</div>
-					</InfoWindow>
-				)}
-			</GoogleMap>
+						</InfoWindow>
+					)}
+				</GoogleMap>
+			)}
 		</div>
 	);
 }
@@ -168,7 +204,6 @@ export default function MapWrapper(props: any) {
 	return (
 		<WrappedMap
 			position={props.position}
-			matches={props.matches.default}
 			containerElement={<div style={props.mapStyle}></div>}
 			mapElement={<div style={{ height: `100%` }} />}
 			googleMapURL={

@@ -229,14 +229,13 @@ function ProfileTabMenu(props: any) {
 							<div className="profile-friend-container">
 								<img className="friend-avatar" src={f.avatar} />
 								{f.name}
-								<Button>
-									<Link
-										to={"/balltogether/profile/" + f.userId}
-										style={{ textDecoration: "none", color: "white" }}
-									>
-										View Profile
-									</Link>
-								</Button>
+
+								<Link
+									to={"/balltogether/profile/" + f.userId}
+									style={{ textDecoration: "none", color: "white" }}
+								>
+									<Button>View Profile</Button>
+								</Link>
 							</div>
 						))}
 					</div>
