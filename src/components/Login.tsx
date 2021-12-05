@@ -4,7 +4,7 @@ import "../styles/Login.css";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
-import { Link, Redirect } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../state/index";
@@ -64,6 +64,7 @@ function Login() {
 	const [finishedAuth, setFinishedAuth] = useState<Boolean>(false);
 	const [failedLogin, setFailedLogin] = useState(false);
 	const [alertOpen, setAlertOpen] = useState(false);
+	let navigate = useNavigate();
 	useEffect(() => {
 		if (finishedLogin) {
 			fetch("http://localhost:8000/users/" + user.id, {
@@ -85,10 +86,12 @@ function Login() {
 		}
 	}, [finishedLogin]);
 
-	if (finishedAuth) {
-		localStorage.setItem("activeUser", JSON.stringify(state));
-		return <Redirect to="/balltogether/home" />;
-	}
+	useEffect(() => {
+		if (finishedAuth) {
+			localStorage.setItem("activeUser", JSON.stringify(state));
+			navigate("/balltogether/home");
+		}
+	}, [finishedAuth]);
 
 	return (
 		<div className="global-container">
@@ -163,12 +166,13 @@ function Login() {
 				<div className="phrase">Forgot your password?</div>
 				<div className="phrase">
 					Don't have an account?
-					<Link
-						to="/balltogether/register"
-						style={{ textDecoration: "none", color: "white" }}
+					<b
+						onClick={() => {
+							navigate("/balltogether/register");
+						}}
 					>
-						<b> Register </b>
-					</Link>
+						Register
+					</b>
 					now!
 				</div>
 			</div>

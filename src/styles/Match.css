@@ -29,6 +29,7 @@
     min-width: 300px;
     display: flex;
     align-items: center;
+    max-width: 300px;
 }
 
 .player-wrapper:hover{

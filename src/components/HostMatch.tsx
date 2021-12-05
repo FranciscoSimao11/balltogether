@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
 import LoggedInTopBar from "./LoggedInTopBar";
 import MapWrapper from "./Map";
 import "../styles/HostMatch.css";
 import { levels, hours } from "../misc/miscFuncs";
 import { useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router";
 
 const FormTextField = styled(TextField)({
 	marginInline: "10px",
@@ -53,6 +53,7 @@ function HostMatch() {
 	const [level, setLevel] = useState<any>();
 	const [duration, setDuration] = useState<any>();
 	const [description, setDescription] = useState<any>();
+	const [hostPlays, setHostPlays] = useState<any>(false);
 	const [finishedCreatingMatch, setFinishedCreatingMatch] = useState(false);
 	const mapStyle = {
 		width: `70%`,
@@ -65,43 +66,97 @@ function HostMatch() {
 		position: `relative`,
 		float: "right",
 	};
+	const [marker, setMarker] = useState();
 	const state = useSelector((state) => state);
 	const { session } = state as any;
+	let navigate = useNavigate();
+	let rating = 0;
+
+	const addMarkerCallback = useCallback(
+		(marker) => {
+			setMarker(marker);
+		},
+		[marker]
+	);
 
 	useEffect(() => {
 		if (finishedCreatingMatch) {
-			fetch("http://localhost:8000/users/" + session.id, {
-				method: "GET",
-			})
-				.then((res) => {
-					return res.json();
+			if (!hostPlays) {
+				fetch("http://localhost:8000/users/" + session.id, {
+					method: "GET",
 				})
-				.then((data) => {
-					fetch("http://localhost:8000/matches", {
-						headers: {
-							"Content-Type": "application/json",
-							Accept: "application/json",
-						},
-						method: "POST",
-						body: JSON.stringify({
-							host: data.name,
-							numberOfSpotsLeft: parseInt(nPlayers),
-							totalNumberOfPlayers: parseInt(nPlayers),
-							date: date,
-							startingTime: hour,
-							duration: duration,
-							skillLevel: level,
-							description: description,
-							location: {
-								name: location,
-								latitude: 0,
-								longitude: 0,
+					.then((res) => {
+						return res.json();
+					})
+					.then((data) => {
+						fetch("http://localhost:8000/matches", {
+							headers: {
+								"Content-Type": "application/json",
+								Accept: "application/json",
 							},
-							blueTeam: [],
-							redTeam: [],
-						}),
+							method: "POST",
+							body: JSON.stringify({
+								host: data.name,
+								numberOfSpotsLeft: parseInt(nPlayers),
+								totalNumberOfPlayers: parseInt(nPlayers),
+								date: date,
+								startingTime: hour,
+								duration: duration,
+								skillLevel: level,
+								description: description,
+								location: {
+									name: location,
+									latitude: 0,
+									longitude: 0,
+								},
+								blueTeam: [],
+								redTeam: [],
+							}),
+						});
 					});
-				});
+			} else {
+				fetch("http://localhost:8000/users/" + session.id, {
+					method: "GET",
+				})
+					.then((res) => {
+						return res.json();
+					})
+					.then((data) => {
+						data.matchHistory.forEach((m: any) => {
+							rating += parseFloat(m.rating) / data.matchHistory.length;
+						});
+						fetch("http://localhost:8000/matches", {
+							headers: {
+								"Content-Type": "application/json",
+								Accept: "application/json",
+							},
+							method: "POST",
+							body: JSON.stringify({
+								host: data.name,
+								numberOfSpotsLeft: parseInt(nPlayers) - 1,
+								totalNumberOfPlayers: parseInt(nPlayers),
+								date: date,
+								startingTime: hour,
+								duration: duration,
+								skillLevel: level,
+								description: description,
+								location: {
+									name: location,
+									latitude: 0,
+									longitude: 0,
+								},
+								blueTeam: [
+									{
+										userId: data.id,
+										name: data.name,
+										avgRating: rating.toFixed(2),
+									},
+								],
+								redTeam: [],
+							}),
+						});
+					});
+			}
 		}
 	}, [finishedCreatingMatch]);
 
@@ -112,12 +167,16 @@ function HostMatch() {
 			<div style={{ display: "flex" }}>
 				<div className="hostmatch-options-wrapper">
 					<h2
-						style={{ color: "white", marginBottom: "35px", fontSize: "30px" }}
+						style={{ color: "white", marginBottom: "35px", fontSize: "35px" }}
 					>
 						Host Match
 					</h2>
 					<div style={{ display: "grid" }}>
-						<label style={{ color: "white" }}>Location: </label>
+						<label
+							style={{ color: "white", fontSize: "20px", fontWeight: "bold" }}
+						>
+							Pick a location on the map.
+						</label>
 						<input type="text" onChange={(e) => setLocation(e.target.value)} />
 						<label style={{ color: "white" }}>Number of Players: </label>
 						<input type="text" onChange={(e) => setNPlayers(e.target.value)} />
@@ -142,6 +201,10 @@ function HostMatch() {
 							type="text"
 							onChange={(e) => setDescription(e.target.value)}
 						/>
+						<label style={{ color: "white" }}>
+							Will you participate in this match as a player?
+						</label>
+						<input type="checkbox" onClick={() => setHostPlays(!hostPlays)} />
 					</div>
 					<HostMatchButton
 						onClick={() => {
@@ -151,7 +214,13 @@ function HostMatch() {
 						Create Match
 					</HostMatchButton>
 				</div>
-				<MapWrapper mapStyle={mapStyle} />
+				<MapWrapper
+					mapStyle={mapStyle}
+					filters={undefined}
+					marker={marker}
+					markerCallback={addMarkerCallback}
+					interactive={true}
+				/>
 			</div>
 		</div>
 	);

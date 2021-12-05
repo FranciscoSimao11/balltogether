@@ -17,9 +17,8 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
 import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import MapWrapper from "./Map";
-import * as matches from "../misc/Matches.json";
 import { useSelector, useDispatch } from "react-redux";
 
 const HostMatchButton = styled(Button)({
@@ -64,8 +63,19 @@ function BasicDatePicker() {
 
 function LoggedInHomepage() {
 	const state = useSelector((state) => state);
-	const [hour, setHour] = useState({});
-	const [level, setLevel] = useState({});
+	let navigate = useNavigate();
+	const [date, setDate] = useState<any>("2021-12-31");
+	const [startHour, setStartHour] = useState<any>("00:00");
+	const [endHour, setEndHour] = useState<any>("24:00");
+	const [minLevel, setMinLevel] = useState<any>("0.00");
+	const [maxLevel, setMaxLevel] = useState<any>("5.00");
+	const [filters, setFilters] = useState<any>({
+		date,
+		startHour,
+		endHour,
+		minLevel,
+		maxLevel,
+	});
 	const mapStyle = {
 		width: `80%`,
 		minWidth: "80%",
@@ -77,15 +87,9 @@ function LoggedInHomepage() {
 		position: `relative`,
 		float: "right",
 	};
-
-	// navigator.geolocation.getCurrentPosition((position) => {
-	// 	const positionObject = {
-	// 		latitude: position.coords.latitude,
-	// 		longitude: position.coords.longitude,
-	// 	};
-	// 	setPosition(positionObject);
-	// });
-
+	useEffect(() => {
+		setFilters({ date, startHour, endHour, minLevel, maxLevel });
+	}, [date, startHour, endHour, minLevel, maxLevel]);
 	return (
 		<div className="logged-in-homepage-wrapper">
 			<LoggedInTopBar />
@@ -99,21 +103,26 @@ function LoggedInHomepage() {
 							marginRight: "25px",
 						}}
 					/>
-					<input type="date"></input>
+					<input type="date" onChange={(e) => setDate(e.target.value)}></input>
 				</div>
 				<div className="select-and-icon">
 					<AccessTimeIcon
 						sx={{ color: "white", fontSize: "60px", marginRight: "25px" }}
 					/>
-					<select onChange={(e) => setHour(e.target.value)}>
-						<optgroup label="Starting Time">
+					<select onChange={(e) => setStartHour(e.target.value)}>
+						<optgroup label="Starting After">
 							{hours.map((hour) => (
 								<option value={hour}>{hour}</option>
 							))}
 						</optgroup>
 					</select>
-					<b style={{ color: "white" }}> Or </b>
-					<input type="time" onChange={(e) => setHour(e.target.value)} />
+					<select onChange={(e) => setEndHour(e.target.value)}>
+						<optgroup label="Starting Before">
+							{hours.map((hour) => (
+								<option value={hour}>{hour}</option>
+							))}
+						</optgroup>
+					</select>
 				</div>
 				<div className="select-and-icon">
 					<GradeIcon
@@ -123,8 +132,15 @@ function LoggedInHomepage() {
 							marginRight: "25px",
 						}}
 					/>
-					<select onChange={(e) => setLevel(e.target.value)}>
-						<optgroup label="Level">
+					<select onChange={(e) => setMinLevel(e.target.value)}>
+						<optgroup label="Min Skill Level">
+							{levels.map((level) => (
+								<option value={level}>{level}</option>
+							))}
+						</optgroup>
+					</select>
+					<select onChange={(e) => setMaxLevel(e.target.value)}>
+						<optgroup label="Max Skill Level">
 							{levels.map((level) => (
 								<option value={level}>{level}</option>
 							))}
@@ -142,11 +158,15 @@ function LoggedInHomepage() {
 				>
 					-- OR --
 				</div>
-				<Link to="/balltogether/hostmatch" style={{ textDecoration: "none" }}>
-					<HostMatchButton>Host Match</HostMatchButton>
-				</Link>
+				<HostMatchButton
+					onClick={() => {
+						navigate("/balltogether/hostmatch");
+					}}
+				>
+					Host Match
+				</HostMatchButton>
 			</div>
-			<MapWrapper mapStyle={mapStyle} />
+			<MapWrapper mapStyle={mapStyle} filters={filters} interactive={false} />
 		</div>
 	);
 }

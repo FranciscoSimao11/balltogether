@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import { InputBase, Toolbar, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 import man from "../Man.png";
 import "../styles/TopBar.css";
 import { styled } from "@mui/material/styles";
-import {
-	NotificationsRounded,
-	Face,
-	KeyboardArrowDown,
-} from "@mui/icons-material/";
+import { NotificationsRounded, KeyboardArrowDown } from "@mui/icons-material/";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
@@ -18,6 +13,7 @@ import Avatar from "@mui/material/Avatar";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../state/index";
+import { useParams, useNavigate } from "react-router";
 
 //O LOGO TEM POUCA DEFINIÇAO POR ALGUMA RAZAO INVESTIGAR
 //TIRAR EFEITOS DE CLICK NO SINO E NA SETA
@@ -111,18 +107,22 @@ function Options() {
 	const state = useSelector((state) => state);
 	const dispatch = useDispatch();
 	const { logout } = bindActionCreators(actionCreators, dispatch);
+	const { session } = state as any;
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const open = Boolean(anchorEl);
+	let navigate = useNavigate();
 	const handleClick = (event: any) => {
 		setAnchorEl(event.currentTarget);
 	};
 	const handleClose = () => {
 		setAnchorEl(null);
+		navigate(`/balltogether/profile/${session.id}`);
 	};
 	const handleLogout = () => {
 		setAnchorEl(null);
 		logout((state as any).session);
 		localStorage.removeItem("activeUser");
+		navigate("/balltogether");
 	};
 
 	return (
@@ -157,20 +157,8 @@ function Options() {
 				}}
 				sx={{ marginTop: "40px", marginLeft: "-20px" }}
 			>
-				<Link
-					to="/balltogether/profile"
-					style={{ textDecoration: "none", color: "black" }}
-				>
-					<MenuItem onClick={handleClose}>Profile</MenuItem>
-				</Link>
-				<MenuItem onClick={handleLogout}>
-					<Link
-						to="/balltogether"
-						style={{ textDecoration: "none", color: "black" }}
-					>
-						Logout
-					</Link>
-				</MenuItem>
+				<MenuItem onClick={handleClose}>Profile</MenuItem>
+				<MenuItem onClick={handleLogout}>Logout</MenuItem>
 			</Menu>
 		</div>
 	);
@@ -181,6 +169,7 @@ function LoggedInTopBar() {
 	const state = useSelector((state) => state);
 	const { session } = state as any;
 	const [user, setUser] = useState<any>();
+	let navigate = useNavigate();
 	const getUser = () => {
 		if (!user) {
 			fetch("http://localhost:8000/users/" + session.id, {
@@ -216,7 +205,12 @@ function LoggedInTopBar() {
 		>
 			{user && (
 				<Toolbar>
-					<img src={man} className="logo" />
+					<img
+						src={man}
+						className="logo"
+						style={{ cursor: "pointer" }}
+						onClick={() => navigate("/balltogether/home")}
+					/>
 					<Typography
 						variant="h6"
 						sx={{
@@ -224,13 +218,10 @@ function LoggedInTopBar() {
 							fontWeight: 600,
 							whiteSpace: "nowrap",
 						}}
+						onClick={() => navigate("/balltogether/home")}
+						style={{ cursor: "pointer" }}
 					>
-						<Link
-							to="/balltogether/home"
-							style={{ textDecoration: "none", color: "white" }}
-						>
-							Ball Together
-						</Link>
+						Ball Together
 					</Typography>
 					<Search>
 						<SearchIconWrapper>
@@ -252,32 +243,28 @@ function LoggedInTopBar() {
 						<StyledTypography>
 							<Notifications />
 						</StyledTypography>
-						<StyledTypography>
-							<Link
-								to={`/balltogether/profile/${session.id}`}
-								style={{ textDecoration: "none", color: "white" }}
-							>
-								<Avatar
-									sx={{
-										marginX: "0px",
-										height: "33px",
-										width: "33px",
-										marginRight: "-10px",
-										backgroundColor: "rgb(255,255,255,0.2)",
-										borderRadius: "100%",
-										overflow: "hidden",
-									}}
-									src={user.avatar}
-								/>
-							</Link>
+						<StyledTypography
+							onClick={() => navigate(`/balltogether/profile/${session.id}`)}
+							style={{ cursor: "pointer" }}
+						>
+							<Avatar
+								sx={{
+									marginX: "0px",
+									height: "33px",
+									width: "33px",
+									marginRight: "-10px",
+									backgroundColor: "rgb(255,255,255,0.2)",
+									borderRadius: "100%",
+									overflow: "hidden",
+								}}
+								src={user.avatar}
+							/>
 						</StyledTypography>
-						<StyledTypography>
-							<Link
-								to="/balltogether/profile"
-								style={{ textDecoration: "none", color: "white" }}
-							>
-								Profile
-							</Link>
+						<StyledTypography
+							onClick={() => navigate(`/balltogether/profile/${session.id}`)}
+							style={{ cursor: "pointer" }}
+						>
+							Profile
 						</StyledTypography>
 						<StyledTypography>
 							<Options />

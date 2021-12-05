@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	useRouteMatch,
-	useParams,
-} from "react-router-dom";
+import { Routes, Route, useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state/index";
@@ -27,21 +20,15 @@ function App() {
 	const { session } = state as any;
 	return (
 		<div className="App">
-			<Router>
-				<Switch>
-					<Route path="/balltogether/home" component={LoggedInHomepage} exact />
-					<Route path="/balltogether/register" component={Register} exact />
-					<Route path="/balltogether/login" component={Login} exact />
-					<Route
-						path="/balltogether/profile/:userId"
-						component={Profile}
-						exact
-					/>
-					<Route path="/balltogether/hostmatch" component={HostMatch} exact />
-					<Route path="/balltogether/match" component={Match} exact />
-					<Route path="/balltogether/" component={Homepage} exact />
-				</Switch>
-			</Router>
+			<Routes>
+				<Route path="/balltogether/" element={<Homepage />} />
+				<Route path="/balltogether/login" element={<Login />} />
+				<Route path="/balltogether/register" element={<Register />} />
+				<Route path="/balltogether/home" element={<LoggedInHomepage />} />
+				<Route path="/balltogether/profile/:userId" element={<Profile />} />
+				<Route path="/balltogether/hostmatch" element={<HostMatch />} />
+				<Route path="/balltogether/match/:matchId" element={<Match />} />
+			</Routes>
 		</div>
 	);
 }

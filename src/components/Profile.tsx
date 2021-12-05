@@ -15,17 +15,20 @@ import FlagIcon from "@mui/icons-material/Flag";
 import PropTypes from "prop-types";
 import { Tab, Tabs, Box, Typography, Popover, Button } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 
 function Rating(props: any) {
 	const { name, rating, socialMedia } = props;
 	const [ratingAvg, setRatingAvg] = useState<any>();
 	const stars = processRating(rating);
 	useEffect(() => {
+		setRatingAvg(null);
+	}, [props]);
+	useEffect(() => {
 		if (props && !ratingAvg) {
 			setRatingAvg(props.rating);
 		}
-	}, [props]);
+	}, [props, ratingAvg]);
 	return (
 		<div style={{ textAlign: "center" }}>
 			<h2
@@ -149,26 +152,8 @@ function ProfileTabMenu(props: any) {
 		setValue(newValue);
 	};
 	const { nextMatches, matchHistory, watchlist, friends } = props;
-	// const [friendsObjects, setFriendsObjects] = useState<any>([]);
-	// const getUser = (id: string) => {
-	// 	fetch("http://localhost:8000/users/" + id, {
-	// 		method: "GET",
-	// 	})
-	// 		.then((res) => {
-	// 			return res.json();
-	// 		})
-	// 		.then((data) => {
-	// 			console.log(data);
-	// 			setFriendsObjects((friendsObjects: any) => [...friendsObjects, data]);
-	// 		});
-	// };
-	// useEffect(() => {
-	// 	if (friends) {
-	// 		friends.map((f: any) => {
-	// 			getUser(f.userId);
-	// 		});
-	// 	}
-	// }, []);
+	let navigate = useNavigate();
+
 	return (
 		<Box
 			sx={{
@@ -229,13 +214,13 @@ function ProfileTabMenu(props: any) {
 							<div className="profile-friend-container">
 								<img className="friend-avatar" src={f.avatar} />
 								{f.name}
-
-								<Link
-									to={"/balltogether/profile/" + f.userId}
-									style={{ textDecoration: "none", color: "white" }}
+								<Button
+									onClick={() => {
+										navigate("/balltogether/profile/" + f.userId);
+									}}
 								>
-									<Button>View Profile</Button>
-								</Link>
+									View Profile
+								</Button>
 							</div>
 						))}
 					</div>
@@ -281,73 +266,43 @@ function Profile() {
 		setAnchorEl4(null);
 	};
 	const open4 = Boolean(anchorEl4);
-
+	let userId = useParams().userId;
+	let navigate = useNavigate();
 	const state = useSelector((state) => state);
 	const { session } = state as any;
 	var rating = 0;
-
-	// const {
-	// 	id,
-	// 	avatar,
-	// 	name,
-	// 	preferredPosition,
-	// 	matchHistory,
-	// 	nextMatches,
-	// 	watchlist,
-	// 	friends,
-	// 	socialMedia,
-	// 	banner,
-	// } = user;
 	const [user, setUser] = useState<any>();
 	const [ratingStr, setRating] = useState<any>();
 	const getUser = () => {
-		if (!user) {
-			fetch("http://localhost:8000/users/" + session.id, {
-				method: "GET",
+		fetch("http://localhost:8000/users/" + userId, {
+			method: "GET",
+		})
+			.then((res) => {
+				return res.json();
 			})
-				.then((res) => {
-					return res.json();
-				})
-				.then((data) => {
-					setUser(data);
-				});
-		} else {
-			fetch("http://localhost:8000/users/" + user.id, {
-				method: "GET",
-			})
-				.then((res) => {
-					return res.json();
-				})
-				.then((data) => {
-					setUser(data);
-				});
-		}
+			.then((data) => {
+				setUser(data);
+			});
 	};
 	useEffect(() => {
-		if (!user) {
+		if (userId) {
 			getUser();
 		}
-	}, [user]);
+	}, [userId]);
 
 	useEffect(() => {
 		if (user) {
 			user.matchHistory.forEach((m: any) => {
 				rating += parseFloat(m.rating) / user.matchHistory.length;
 			});
-			setRating(
-				Math.round(((rating / user.matchHistory.length) * 100) / 100).toFixed(2)
-			);
+			setRating(rating.toFixed(2));
 		}
-	}, [user]);
-
-	// const ratingStr = Math.round(
-	// 	((rating / user.matchHistory.length) * 100) / 100
-	// ).toFixed(2);
+	}, [user, userId]);
 
 	return (
 		<div>
 			<LoggedInTopBar />
-			{user && ratingStr && (
+			{user && user.id == userId && ratingStr && (
 				<div>
 					<div className="profile-layer">
 						<div className="avatar-container">

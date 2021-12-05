@@ -9,11 +9,9 @@ import store from "./state/store";
 
 ReactDOM.render(
 	<BrowserRouter>
-		<React.Fragment>
-			<Provider store={store}>
-				<App />
-			</Provider>
-		</React.Fragment>
+		<Provider store={store}>
+			<App />
+		</Provider>
 	</BrowserRouter>,
 	document.getElementById("root")
 );

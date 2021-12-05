@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import { Toolbar, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import man from "../Man.png";
 import "../styles/TopBar.css";
 import { styled } from "@mui/material/styles";
@@ -15,22 +15,25 @@ const StyledTypography = styled(Typography)({
 });
 
 function TopBar() {
+	let navigate = useNavigate();
 	return (
 		<AppBar
 			sx={{ backgroundColor: "black", display: "inline", height: "74px" }}
 		>
 			<Toolbar>
-				<img src={man} className="logo" />
+				<img
+					src={man}
+					className="logo"
+					style={{ cursor: "pointer" }}
+					onClick={() => navigate("/balltogether")}
+				/>
 				<Typography
 					variant="h6"
 					sx={{ fontFamily: "Verdana", fontWeight: 600 }}
+					style={{ cursor: "pointer" }}
+					onClick={() => navigate("/balltogether")}
 				>
-					<Link
-						to="/balltogether/"
-						style={{ textDecoration: "none", color: "white" }}
-					>
-						Ball Together
-					</Link>
+					Ball Together
 				</Typography>
 				<StyledTypography>
 					<a
@@ -41,21 +44,17 @@ function TopBar() {
 					</a>
 				</StyledTypography>
 				<StyledTypography>|</StyledTypography>
-				<StyledTypography>
-					<Link
-						to="/balltogether/login"
-						style={{ textDecoration: "none", color: "white" }}
-					>
-						Login
-					</Link>
+				<StyledTypography
+					style={{ cursor: "pointer" }}
+					onClick={() => navigate("/balltogether/login")}
+				>
+					Login
 				</StyledTypography>
-				<StyledTypography>
-					<Link
-						to="/balltogether/register"
-						style={{ textDecoration: "none", color: "white" }}
-					>
-						Register
-					</Link>
+				<StyledTypography
+					style={{ cursor: "pointer" }}
+					onClick={() => navigate("/balltogether/register")}
+				>
+					Register
 				</StyledTypography>
 			</Toolbar>
 		</AppBar>

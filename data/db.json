@@ -25,6 +25,7 @@
       "friends": [
         {
           "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
           "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
         }
       ],
@@ -135,7 +136,9 @@
       "watchlist": [],
       "friends": [
         {
-          "userId": "memphisdepay@gmail.com"
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
         }
       ],
       "socialMedia": [
@@ -171,7 +174,9 @@
       "watchlist": [],
       "friends": [
         {
-          "userId": "memphisdepay@gmail.com"
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
         }
       ],
       "socialMedia": [
@@ -201,7 +206,9 @@
       "watchlist": [],
       "friends": [
         {
-          "userId": "memphisdepay@gmail.com"
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
         }
       ],
       "socialMedia": [
@@ -237,7 +244,9 @@
       "watchlist": [],
       "friends": [
         {
-          "userId": "memphisdepay@gmail.com"
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
         }
       ],
       "socialMedia": [
@@ -273,7 +282,9 @@
       "watchlist": [],
       "friends": [
         {
-          "userId": "memphisdepay@gmail.com"
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
         }
       ],
       "socialMedia": [
@@ -309,7 +320,9 @@
       "watchlist": [],
       "friends": [
         {
-          "userId": "memphisdepay@gmail.com"
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
         }
       ],
       "socialMedia": [
@@ -345,7 +358,9 @@
       "watchlist": [],
       "friends": [
         {
-          "userId": "memphisdepay@gmail.com"
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
         }
       ],
       "socialMedia": [
@@ -381,7 +396,9 @@
       "watchlist": [],
       "friends": [
         {
-          "userId": "memphisdepay@gmail.com"
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
         }
       ],
       "socialMedia": [
@@ -412,76 +429,6 @@
       },
       "blueTeam": [
         {
-          "userId": 1,
-          "name": "Eden Hazard",
-          "avgRating": "5.0"
-        },
-        {
-          "userId": 2,
-          "name": "Memphis Depay",
-          "avgRating": "5.0"
-        },
-        {
-          "userId": 3,
-          "name": "Simon",
-          "avgRating": "5.0"
-        },
-        {
-          "userId": 4,
-          "name": "Gillaume",
-          "avgRating": "2.5"
-        },
-        {
-          "userId": 5,
-          "name": "Roberto Alves",
-          "avgRating": "2.0"
-        }
-      ],
-      "redTeam": [
-        {
-          "userId": 6,
-          "name": "Sr. Ping",
-          "avgRating": "3.5"
-        },
-        {
-          "userId": 7,
-          "name": "Mario Götze",
-          "avgRating": "3.75"
-        },
-        {
-          "userId": 8,
-          "name": "User8",
-          "avgRating": "2.5"
-        },
-        {
-          "userId": 9,
-          "name": "User9",
-          "avgRating": "2.5"
-        },
-        {
-          "userId": 10,
-          "name": "Charizard",
-          "avgRating": "2.5"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "host": "Sr. Ping",
-      "numberOfSpotsLeft": 9,
-      "totalNumberOfPlayers": 10,
-      "description": "Careful with Salah's left.",
-      "skillLevel": "3.0",
-      "duration": 1,
-      "date": "31/12/2021",
-      "startingTime": "19:00",
-      "location": {
-        "name": "FCT",
-        "latitude": 38.658525,
-        "longitude": -9.204671
-      },
-      "blueTeam": [
-        {
           "userId": "edenhazard@gmail.com",
           "name": "Eden Hazard",
           "avgRating": "5.0"
@@ -507,6 +454,50 @@
           "avgRating": "2.0"
         }
       ],
+      "redTeam": [
+        {
+          "userId": "srping@gmail.com",
+          "name": "Sr. Ping",
+          "avgRating": "3.5"
+        },
+        {
+          "userId": "mariogotze@gmail.com",
+          "name": "Mario Götze",
+          "avgRating": "3.75"
+        },
+        {
+          "userId": "jamesfrango@gmail.com",
+          "name": "James Frango",
+          "avgRating": "2.5"
+        },
+        {
+          "userId": "learningagreement@gmail.com",
+          "name": "Learning Agreement",
+          "avgRating": "2.5"
+        },
+        {
+          "userId": "chouricard@gmail.com",
+          "name": "Chouriçard, o Deus do Fogo",
+          "avgRating": "2.5"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "host": "Sr. Ping",
+      "numberOfSpotsLeft": 9,
+      "totalNumberOfPlayers": 10,
+      "description": "Careful with Salah's left.",
+      "skillLevel": "3.0",
+      "duration": 1,
+      "date": "31/12/2021",
+      "startingTime": "19:00",
+      "location": {
+        "name": "FCT",
+        "latitude": 38.658525,
+        "longitude": -9.204671
+      },
+      "blueTeam": [],
       "redTeam": [
         {
           "userId": "srping@gmail.com",
@@ -604,24 +595,6 @@
           "avgRating": "2.5"
         }
       ]
-    },
-    {
-      "host": "Memphis Depay",
-      "numberOfSpotsLeft": "12",
-      "totalNumberOfPlayers": "12",
-      "date": "2000-11-11",
-      "startingTime": "03:00",
-      "duration": "16:48",
-      "skillLevel": "3.0",
-      "description": "Ol+a eu sou um jogo",
-      "location": {
-        "name": "sss",
-        "latitude": 0,
-        "longitude": 0
-      },
-      "blueTeam": [],
-      "redTeam": [],
-      "id": 4
     }
   ]
 }

@@ -1,7 +1,6 @@
 import React from "react";
-import logo from "./logo.svg";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import "../styles/Homepage.css";
 import { styled } from "@mui/material/styles";
 import TopBar from "./TopBar";
@@ -29,6 +28,7 @@ const LoginButton = styled(Button)({
 });
 
 function Homepage() {
+	let navigate = useNavigate();
 	return (
 		<div>
 			<TopBar />
@@ -37,12 +37,18 @@ function Homepage() {
 				<div className="Slogan2">Beautiful Game!</div>
 			</div>
 			<div className="Button-wrapper">
-				<Link to="/balltogether/register" style={{ textDecoration: "none" }}>
-					<RegisterButton variant="contained">Register</RegisterButton>
-				</Link>
-				<Link to="/balltogether/login" style={{ textDecoration: "none" }}>
-					<LoginButton variant="contained">Login</LoginButton>
-				</Link>
+				<RegisterButton
+					variant="contained"
+					onClick={() => navigate("/balltogether/register")}
+				>
+					Register
+				</RegisterButton>
+				<LoginButton
+					variant="contained"
+					onClick={() => navigate("/balltogether/login")}
+				>
+					Login
+				</LoginButton>
 			</div>
 		</div>
 	);

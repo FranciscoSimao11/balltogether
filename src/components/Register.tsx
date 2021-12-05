@@ -4,7 +4,7 @@ import "../styles/Register.css";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
-import { Link, Redirect } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Alert from "@mui/material/Alert";
@@ -59,6 +59,7 @@ function Register() {
 	const [visibleConfirm, setVisibleConfirm] = useState("password");
 	const [finishedPost, setFinishedPost] = useState<Boolean>(false);
 	const [alertOpen, setAlertOpen] = useState(false);
+	let navigate = useNavigate();
 	useEffect(() => {
 		if (finishedRegister) {
 			if (user.id != "" && user.password != "") {
@@ -89,9 +90,11 @@ function Register() {
 		}
 	}, [finishedRegister]);
 
-	if (finishedPost) {
-		return <Redirect to="/balltogether/login" />;
-	}
+	useEffect(() => {
+		if (finishedPost) {
+			navigate("/balltogether/login");
+		}
+	}, [finishedPost]);
 
 	return (
 		<div className="global-wrapper">

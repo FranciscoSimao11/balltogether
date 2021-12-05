@@ -22,7 +22,7 @@ import usePlacesAutocomplete, {
 	getGeocode,
 	getLatLng,
 } from "use-places-autocomplete";
-import { Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 
 const MatchDetailsButton = styled(Button)({
 	color: "white",
@@ -34,11 +34,25 @@ const MatchDetailsButton = styled(Button)({
 	},
 });
 
-function createDynamicURL(matchId: string) {
-	return "http://localhost:3000/balltogether/match/" + matchId;
-}
-
 const WrappedMap = withScriptjs(withGoogleMap(MapComponent));
+
+function filterMatches(match: any, filters: any) {
+	if (filters == undefined) {
+		return true;
+	} else {
+		let filterDate = filters.date.split("-");
+		let actualDate = filterDate[2] + "/" + filterDate[1] + "/" + filterDate[0];
+		return (
+			match.date == actualDate &&
+			parseInt(match.startingTime.split(":", 1)[0]) >=
+				parseInt(filters.startHour.split(":", 1)[0]) &&
+			parseInt(match.startingTime.split(":", 1)[0]) <=
+				parseInt(filters.endHour.split(":", 1)[0]) &&
+			parseInt(match.skillLevel) >= parseInt(filters.minLevel) &&
+			parseInt(match.skillLevel) <= parseInt(filters.maxLevel)
+		);
+	}
+}
 
 function MapComponent(props: any) {
 	const [matches, setMatches] = useState<
@@ -53,20 +67,19 @@ function MapComponent(props: any) {
 		}[]
 	>();
 	useEffect(() => {
-		if (!matches) {
-			fetch("http://localhost:8000/matches/", {
-				method: "GET",
+		fetch("http://localhost:8000/matches/", {
+			method: "GET",
+		})
+			.then((res) => {
+				return res.json();
 			})
-				.then((res) => {
-					return res.json();
-				})
-				.then((data) => {
-					setMatches(data);
-				});
-		}
-	}, [matches]);
+			.then((data) => {
+				setMatches(data.filter((v: any) => filterMatches(v, props.filters)));
+			});
+	}, [props]);
 
 	const [selectedMatch, setSelectedMatch] = useState<any>(undefined);
+	let navigate = useNavigate();
 	const {
 		ready,
 		value,
@@ -87,11 +100,18 @@ function MapComponent(props: any) {
 		lat: 38.660988,
 		lng: -9.203319,
 	});
-
+	const [center, setCenter] = useState<any>({
+		lat: 38.660988,
+		lng: -9.203319,
+	});
 	useEffect(() => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((position) => {
 				setLocation({
+					lat: position.coords.latitude,
+					lng: position.coords.longitude,
+				});
+				setCenter({
 					lat: position.coords.latitude,
 					lng: position.coords.longitude,
 				});
@@ -115,7 +135,10 @@ function MapComponent(props: any) {
 						try {
 							const results = await getGeocode({ address });
 							const { lat, lng } = await getLatLng(results[0]);
+							console.log(address);
+							console.log(results[0]);
 							setLocation({ lat, lng });
+							setCenter({ lat, lng });
 						} catch (error) {
 							console.log("error");
 						}
@@ -138,18 +161,39 @@ function MapComponent(props: any) {
 			</div>
 			{matches && location && (
 				<GoogleMap
-					zoom={15}
-					center={{ lat: location.lat, lng: location.lng }}
+					//zoom={16}
+					defaultZoom={16}
+					center={{ lat: center.lat, lng: center.lng }}
 					defaultOptions={{ styles: mapStyles }}
 					onClick={(e) => {
-						console.log(e.latLng.lat());
-						console.log(e.latLng.lng());
+						console.log(e);
+						if (props.interactive) {
+							props.markerCallback({
+								lat: e.latLng.lat(),
+								lng: e.latLng.lng(),
+							});
+							setCenter({
+								lat: e.latLng.lat(),
+								lng: e.latLng.lng(),
+							});
+						}
 					}}
 				>
+					{props.marker && (
+						<Marker
+							position={{
+								lat: props.marker.lat,
+								lng: props.marker.lng,
+							}}
+						></Marker>
+					)}
 					{matches.map((m) => (
 						<Marker
 							key={m.host}
-							position={{ lat: m.location.latitude, lng: m.location.longitude }}
+							position={{
+								lat: m.location.latitude,
+								lng: m.location.longitude,
+							}}
 							icon={{
 								url: ball,
 							}}
@@ -189,7 +233,13 @@ function MapComponent(props: any) {
 										{selectedMatch.description} <br />
 									</div>
 
-									<MatchDetailsButton>View Match</MatchDetailsButton>
+									<MatchDetailsButton
+										onClick={() => {
+											navigate("/balltogether/match/" + selectedMatch.id);
+										}}
+									>
+										View Match
+									</MatchDetailsButton>
 								</div>
 							</div>
 						</InfoWindow>
@@ -204,6 +254,10 @@ export default function MapWrapper(props: any) {
 	return (
 		<WrappedMap
 			position={props.position}
+			marker={props.marker}
+			markerCallback={props.markerCallback}
+			interactive={props.interactive}
+			filters={props.filters}
 			containerElement={<div style={props.mapStyle}></div>}
 			mapElement={<div style={{ height: `100%` }} />}
 			googleMapURL={
