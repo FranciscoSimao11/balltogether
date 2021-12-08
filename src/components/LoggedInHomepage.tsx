@@ -103,7 +103,7 @@ function LoggedInHomepage() {
 							marginRight: "25px",
 						}}
 					/>
-					<input type="date" onChange={(e) => setDate(e.target.value)}></input>
+					<input className="input-date" type="date" onChange={(e) => setDate(e.target.value)}></input>
 				</div>
 				<div className="select-and-icon">
 					<AccessTimeIcon

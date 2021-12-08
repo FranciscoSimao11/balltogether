@@ -609,6 +609,30 @@
           "avgRating": "2.5"
         }
       ]
+    },
+    {
+      "id": 4,
+      "host": "Memphis Depay",
+      "numberOfSpotsLeft": 9,
+      "totalNumberOfPlayers": 10,
+      "date": "2021-10-16",
+      "startingTime": "19:00",
+      "duration": "02:00",
+      "skillLevel": "5.0",
+      "description": "Més que un club.",
+      "location": {
+        "name": "Camp Nou Tour & Museo FC Barcelona, Carrer d'Arístides Maillol, Barcelona, Espanha",
+        "latitude": 41.380589,
+        "longitude": 2.123237
+      },
+      "blueTeam": [
+        {
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avgRating": "5.00"
+        }
+      ],
+      "redTeam": []
     }
   ]
 }

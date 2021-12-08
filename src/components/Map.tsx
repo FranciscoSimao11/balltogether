@@ -261,7 +261,7 @@ export default function MapWrapper(props: any) {
 			containerElement={<div style={props.mapStyle}></div>}
 			mapElement={<div style={{ height: `100%` }} />}
 			googleMapURL={
-				"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key="
+				"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyApqDepx72qyciy7FwFjxAmFFKSrtm78ws"
 			}
 			loadingElement={<div style={{ height: `100%` }} />}
 		/>
