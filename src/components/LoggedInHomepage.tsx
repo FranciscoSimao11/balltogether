@@ -103,20 +103,30 @@ function LoggedInHomepage() {
 							marginRight: "25px",
 						}}
 					/>
-					<input type="date" onChange={(e) => setDate(e.target.value)}></input>
+					<input
+						type="date"
+						defaultValue="2021-12-31"
+						onChange={(e) => setDate(e.target.value)}
+					></input>
 				</div>
 				<div className="select-and-icon">
 					<AccessTimeIcon
 						sx={{ color: "white", fontSize: "60px", marginRight: "25px" }}
 					/>
-					<select onChange={(e) => setStartHour(e.target.value)}>
+					<select
+						defaultValue="00:00"
+						onChange={(e) => setStartHour(e.target.value)}
+					>
 						<optgroup label="Starting After">
 							{hours.map((hour) => (
 								<option value={hour}>{hour}</option>
 							))}
 						</optgroup>
 					</select>
-					<select onChange={(e) => setEndHour(e.target.value)}>
+					<select
+						defaultValue="24:00"
+						onChange={(e) => setEndHour(e.target.value)}
+					>
 						<optgroup label="Starting Before">
 							{hours.map((hour) => (
 								<option value={hour}>{hour}</option>
@@ -132,14 +142,20 @@ function LoggedInHomepage() {
 							marginRight: "25px",
 						}}
 					/>
-					<select onChange={(e) => setMinLevel(e.target.value)}>
+					<select
+						defaultValue="0.0"
+						onChange={(e) => setMinLevel(e.target.value)}
+					>
 						<optgroup label="Min Skill Level">
 							{levels.map((level) => (
 								<option value={level}>{level}</option>
 							))}
 						</optgroup>
 					</select>
-					<select onChange={(e) => setMaxLevel(e.target.value)}>
+					<select
+						defaultValue="5.0"
+						onChange={(e) => setMaxLevel(e.target.value)}
+					>
 						<optgroup label="Max Skill Level">
 							{levels.map((level) => (
 								<option value={level}>{level}</option>
