@@ -12,13 +12,25 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import ShareIcon from "@mui/icons-material/Share";
 import FlagIcon from "@mui/icons-material/Flag";
+import SettingsIcon from "@mui/icons-material/Settings";
+import MailIcon from "@mui/icons-material/Mail";
 import PropTypes from "prop-types";
-import { Tab, Tabs, Box, Typography, Popover, Button } from "@mui/material";
+import {
+	Tab,
+	Tabs,
+	Box,
+	Typography,
+	Popover,
+	Button,
+	Modal,
+} from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router";
 
+const positions = ["Goalkeeper", "Defender", "Midfielder", "Forward"];
+
 function Rating(props: any) {
-	const { name, rating, socialMedia } = props;
+	const { name, rating, socialMedia, position } = props;
 	const [ratingAvg, setRatingAvg] = useState<any>();
 	const stars = processRating(rating);
 	useEffect(() => {
@@ -29,8 +41,14 @@ function Rating(props: any) {
 			setRatingAvg(props.rating);
 		}
 	}, [props, ratingAvg]);
+	console.log(position);
 	return (
-		<div style={{ textAlign: "center" }}>
+		<div
+			style={{
+				textAlign: "center",
+				marginTop: "-14px" /*margem top para posiçao*/,
+			}}
+		>
 			<h2
 				style={{
 					marginTop: "45px",
@@ -41,6 +59,29 @@ function Rating(props: any) {
 			>
 				{name}
 			</h2>
+			{position != "" && (
+				<div
+					style={{
+						marginTop: "8px",
+						marginBottom: "-10px",
+						fontWeight: "lighter",
+					}}
+				>
+					{props.position}
+				</div>
+			)}
+			{position == "" && (
+				<div
+					style={{
+						marginTop: "8px",
+						marginBottom: "-10px",
+						fontWeight: "lighter",
+					}}
+				>
+					No Preferred Position
+				</div>
+			)}
+
 			{ratingAvg && (
 				<div style={{ display: "inline-flex", alignItems: "center" }}>
 					<h3 style={{ marginRight: "10px" }}>{ratingAvg}</h3>
@@ -63,6 +104,7 @@ function Rating(props: any) {
 						))}
 				</div>
 			)}
+
 			<div>
 				{socialMedia.map((s: any) => (
 					<SocialIcon
@@ -231,41 +273,6 @@ function ProfileTabMenu(props: any) {
 }
 
 function Profile() {
-	const [anchorEl1, setAnchorEl1] = React.useState(null);
-	const handlePopoverOpen1 = (event: any) => {
-		setAnchorEl1(event.currentTarget);
-	};
-	const handlePopoverClose1 = () => {
-		setAnchorEl1(null);
-	};
-	const open1 = Boolean(anchorEl1);
-
-	const [anchorEl2, setAnchorEl2] = React.useState(null);
-	const handlePopoverOpen2 = (event: any) => {
-		setAnchorEl2(event.currentTarget);
-	};
-	const handlePopoverClose2 = () => {
-		setAnchorEl2(null);
-	};
-	const open2 = Boolean(anchorEl2);
-
-	const [anchorEl3, setAnchorEl3] = React.useState(null);
-	const handlePopoverOpen3 = (event: any) => {
-		setAnchorEl3(event.currentTarget);
-	};
-	const handlePopoverClose3 = () => {
-		setAnchorEl3(null);
-	};
-	const open3 = Boolean(anchorEl3);
-
-	const [anchorEl4, setAnchorEl4] = React.useState(null);
-	const handlePopoverOpen4 = (event: any) => {
-		setAnchorEl4(event.currentTarget);
-	};
-	const handlePopoverClose4 = () => {
-		setAnchorEl4(null);
-	};
-	const open4 = Boolean(anchorEl4);
 	let userId = useParams().userId;
 	let navigate = useNavigate();
 	const state = useSelector((state) => state);
@@ -273,6 +280,12 @@ function Profile() {
 	var rating = 0;
 	const [user, setUser] = useState<any>();
 	const [ratingStr, setRating] = useState<any>();
+	const [open, setOpen] = React.useState(false);
+	const [position, setPosition] = useState("");
+	const [avatar, setAvatar] = useState("");
+	const handleOpenModal = () => setOpen(true);
+	const handleCloseModal = () => setOpen(false);
+
 	const getUser = () => {
 		fetch("http://localhost:8000/users/" + userId, {
 			method: "GET",
@@ -282,8 +295,71 @@ function Profile() {
 			})
 			.then((data) => {
 				setUser(data);
+				console.log(data);
 			});
 	};
+	useEffect(() => {
+		if (avatar != "" && position != "") {
+			fetch("http://localhost:8000/users/" + userId, {
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				method: "PUT",
+				body: JSON.stringify({
+					...user,
+					avatar: avatar,
+					preferredPosition: position,
+				}),
+			})
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					setUser(data);
+					console.log(data);
+				});
+		} else if (avatar != "") {
+			fetch("http://localhost:8000/users/" + userId, {
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				method: "PUT",
+				body: JSON.stringify({
+					...user,
+					avatar: avatar,
+				}),
+			})
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					setUser(data);
+					console.log(data);
+				});
+		} else if (position != "") {
+			fetch("http://localhost:8000/users/" + userId, {
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				method: "PUT",
+				body: JSON.stringify({
+					...user,
+					preferredPosition: position,
+				}),
+			})
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					setUser(data);
+					console.log(data);
+				});
+		}
+	}, [avatar, position]);
+
 	useEffect(() => {
 		if (userId) {
 			getUser();
@@ -306,157 +382,153 @@ function Profile() {
 				<div>
 					<div className="profile-layer">
 						<div className="avatar-container">
-							<img className="avatar" src={user.avatar} />
+							{user.avatar != "" && (
+								<img className="avatar" src={user.avatar} />
+							)}
+							{user.avatar == "" && (
+								<img
+									className="avatar"
+									src={
+										"https://img.icons8.com/emoji/256/smiling-face-with-smiling-eyes.png"
+									}
+								/>
+							)}
 						</div>
 						<div className="player-info-container">
 							<Rating
 								name={user.name}
 								rating={ratingStr}
 								socialMedia={user.socialMedia}
+								position={user.preferredPosition}
 							/>
 						</div>
 						<div id="trapezoid" />
 						<div className="profile-options-container">
-							<Typography
-								onMouseEnter={handlePopoverOpen1}
-								onMouseLeave={handlePopoverClose1}
-							>
-								<ChatIcon
+							{userId != session.id && (
+								<div style={{ height: "100%", display: "contents" }}>
+									<Typography>
+										<PersonAddIcon
+											sx={{
+												width: "40px",
+												height: "40px",
+												color: "rgba(170, 170, 170, 1)",
+												"&:hover": {
+													color: "rgba(250, 250, 250, 1)",
+												},
+											}}
+										></PersonAddIcon>
+									</Typography>
+									<Typography>
+										<ChatIcon
+											sx={{
+												width: "40px",
+												height: "40px",
+												color: "rgba(170, 170, 170, 1)",
+												"&:hover": {
+													color: "rgba(250, 250, 250, 1)",
+												},
+											}}
+										></ChatIcon>
+									</Typography>
+									<Typography>
+										<ShareIcon
+											sx={{
+												width: "40px",
+												height: "40px",
+												color: "rgba(170, 170, 170, 1)",
+												"&:hover": {
+													color: "rgba(250, 250, 250, 1)",
+												},
+											}}
+										></ShareIcon>
+									</Typography>
+									<Typography>
+										<FlagIcon
+											sx={{
+												width: "40px",
+												height: "40px",
+												color: "rgba(170, 170, 170, 1)",
+												"&:hover": {
+													color: "rgba(250, 250, 250, 1)",
+												},
+											}}
+										></FlagIcon>
+									</Typography>
+								</div>
+							)}
+							{userId == session.id && (
+								<div style={{ height: "100%", display: "contents" }}>
+									<Typography>
+										<MailIcon
+											sx={{
+												width: "40px",
+												height: "40px",
+												color: "rgba(170, 170, 170, 1)",
+												"&:hover": {
+													color: "rgba(250, 250, 250, 1)",
+												},
+											}}
+										></MailIcon>
+									</Typography>
+									<Typography>
+										<ShareIcon
+											sx={{
+												width: "40px",
+												height: "40px",
+												color: "rgba(170, 170, 170, 1)",
+												"&:hover": {
+													color: "rgba(250, 250, 250, 1)",
+												},
+											}}
+										></ShareIcon>
+									</Typography>
+									<Typography>
+										<SettingsIcon
+											sx={{
+												width: "40px",
+												height: "40px",
+												color: "rgba(170, 170, 170, 1)",
+												"&:hover": {
+													color: "rgba(250, 250, 250, 1)",
+												},
+											}}
+											onClick={handleOpenModal}
+										></SettingsIcon>
+									</Typography>
+								</div>
+							)}
+							<Modal open={open} onClose={handleCloseModal}>
+								<Box
 									sx={{
-										width: "40px",
-										height: "40px",
-										color: "rgba(170, 170, 170, 1)",
-										"&:hover": {
-											color: "rgba(250, 250, 250, 1)",
-										},
+										position: "absolute",
+										top: "50%",
+										left: "50%",
+										transform: "translate(-50%, -50%)",
+										width: 400,
+										bgcolor: "#343F4B",
+										border: "2px solid #343F4B",
+										boxShadow: 24,
+										p: 4,
 									}}
-								></ChatIcon>
-							</Typography>
-							<Popover
-								id="mouse-over-popover"
-								sx={{
-									pointerEvents: "none",
-								}}
-								open={open1}
-								anchorEl={anchorEl1}
-								anchorOrigin={{
-									vertical: "bottom",
-									horizontal: "left",
-								}}
-								transformOrigin={{
-									vertical: "top",
-									horizontal: "left",
-								}}
-								onClose={handlePopoverClose1}
-								disableRestoreFocus
-							>
-								<Typography sx={{ p: 1 }}>Chat</Typography>
-							</Popover>
-							<Typography
-								onMouseEnter={handlePopoverOpen2}
-								onMouseLeave={handlePopoverClose2}
-							>
-								<PersonAddIcon
-									sx={{
-										width: "40px",
-										height: "40px",
-										color: "rgba(170, 170, 170, 1)",
-										"&:hover": {
-											color: "rgba(250, 250, 250, 1)",
-										},
-									}}
-								></PersonAddIcon>
-							</Typography>
-							<Popover
-								id="mouse-over-popover"
-								sx={{
-									pointerEvents: "none",
-								}}
-								open={open2}
-								anchorEl={anchorEl2}
-								anchorOrigin={{
-									vertical: "bottom",
-									horizontal: "left",
-								}}
-								transformOrigin={{
-									vertical: "top",
-									horizontal: "left",
-								}}
-								onClose={handlePopoverClose2}
-								disableRestoreFocus
-							>
-								<Typography sx={{ p: 1 }}>Add Friend</Typography>
-							</Popover>
-							<Typography
-								onMouseEnter={handlePopoverOpen3}
-								onMouseLeave={handlePopoverClose3}
-							>
-								<ShareIcon
-									sx={{
-										width: "40px",
-										height: "40px",
-										color: "rgba(170, 170, 170, 1)",
-										"&:hover": {
-											color: "rgba(250, 250, 250, 1)",
-										},
-									}}
-								></ShareIcon>
-							</Typography>
-							<Popover
-								id="mouse-over-popover"
-								sx={{
-									pointerEvents: "none",
-								}}
-								open={open3}
-								anchorEl={anchorEl3}
-								anchorOrigin={{
-									vertical: "bottom",
-									horizontal: "left",
-								}}
-								transformOrigin={{
-									vertical: "top",
-									horizontal: "left",
-								}}
-								onClose={handlePopoverClose3}
-								disableRestoreFocus
-							>
-								<Typography sx={{ p: 1 }}>Share Profile</Typography>
-							</Popover>
-							<Typography
-								onMouseEnter={handlePopoverOpen4}
-								onMouseLeave={handlePopoverClose4}
-							>
-								<FlagIcon
-									sx={{
-										width: "40px",
-										height: "40px",
-										color: "rgba(170, 170, 170, 1)",
-										"&:hover": {
-											color: "rgba(250, 250, 250, 1)",
-										},
-									}}
-								></FlagIcon>
-							</Typography>
-							<Popover
-								id="mouse-over-popover"
-								sx={{
-									pointerEvents: "none",
-								}}
-								open={open4}
-								anchorEl={anchorEl4}
-								anchorOrigin={{
-									vertical: "bottom",
-									horizontal: "left",
-								}}
-								transformOrigin={{
-									vertical: "top",
-									horizontal: "left",
-								}}
-								onClose={handlePopoverClose4}
-								disableRestoreFocus
-							>
-								<Typography sx={{ p: 1 }}>Report Profile</Typography>
-							</Popover>
+								>
+									<div style={{ color: "white", display: "flex" }}>
+										<label>Change Profile Picture: </label>
+										<input
+											type="file"
+											style={{ width: "200px", paddingLeft: "5px" }}
+											onChange={(e) => setAvatar(e.target.value)}
+										></input>
+									</div>
+									<div style={{ color: "white" }}>
+										Change Preferred Position:{" "}
+										<select onChange={(e) => setPosition(e.target.value)}>
+											{positions.map((position) => (
+												<option value={position}>{position}</option>
+											))}
+										</select>
+									</div>
+								</Box>
+							</Modal>
 						</div>
 					</div>
 					<ProfileTabMenu

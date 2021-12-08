@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import man from "../Man.png";
+import field from "../campo.png";
 import "../styles/Login.css";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
@@ -95,13 +96,7 @@ function Login() {
 
 	return (
 		<div className="global-container">
-			<div className="pitch">
-				<div className="goal">
-					<div className="box">
-						<div className="dot"></div>
-					</div>
-				</div>
-			</div>
+			<img src={field} className="pitch" />
 			<div className="wrapper">
 				<img src={man} className="logo-register" />
 				<p className="header-register">Ball Together</p>
@@ -171,7 +166,8 @@ function Login() {
 							navigate("/balltogether/register");
 						}}
 					>
-						Register
+						{" "}
+						Register{" "}
 					</b>
 					now!
 				</div>

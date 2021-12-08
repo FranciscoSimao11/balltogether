@@ -135,10 +135,9 @@ function MapComponent(props: any) {
 						try {
 							const results = await getGeocode({ address });
 							const { lat, lng } = await getLatLng(results[0]);
-							console.log(address);
-							console.log(results[0]);
 							setLocation({ lat, lng });
 							setCenter({ lat, lng });
+							props.locationCallback(address);
 						} catch (error) {
 							console.log("error");
 						}
@@ -161,7 +160,6 @@ function MapComponent(props: any) {
 			</div>
 			{matches && location && (
 				<GoogleMap
-					//zoom={16}
 					defaultZoom={16}
 					center={{ lat: center.lat, lng: center.lng }}
 					defaultOptions={{ styles: mapStyles }}
@@ -256,6 +254,8 @@ export default function MapWrapper(props: any) {
 			position={props.position}
 			marker={props.marker}
 			markerCallback={props.markerCallback}
+			location={props.location}
+			locationCallback={props.locationCallback}
 			interactive={props.interactive}
 			filters={props.filters}
 			containerElement={<div style={props.mapStyle}></div>}

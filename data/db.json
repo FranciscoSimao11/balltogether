@@ -5,7 +5,7 @@
       "id": "edenhazard@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
-      "preferredPositon": "Midfielder",
+      "preferredPosition": "Midfielder",
       "matchHistory": [
         {
           "location": "Johan Cruyff Arena",
@@ -43,7 +43,7 @@
       "id": "memphisdepay@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
-      "preferredPositon": "Forward",
+      "preferredPosition": "Forward",
       "matchHistory": [
         {
           "location": "Camp Nou",
@@ -123,7 +123,7 @@
       "id": "simon@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
-      "preferredPositon": "Forward",
+      "preferredPosition": "Forward",
       "matchHistory": [
         {
           "location": "MyIndoor Sacavém",
@@ -155,7 +155,7 @@
       "id": "guillaume@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
-      "preferredPositon": "Defender",
+      "preferredPosition": "Defender",
       "matchHistory": [
         {
           "location": "MyIndoor Sacavém",
@@ -193,7 +193,7 @@
       "id": "robertoalves@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
-      "preferredPositon": "Goalkeeper",
+      "preferredPosition": "Goalkeeper",
       "matchHistory": [
         {
           "location": "MyIndoor Sacavém",
@@ -225,7 +225,7 @@
       "id": "srping@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
-      "preferredPositon": "Defender",
+      "preferredPosition": "Defender",
       "matchHistory": [
         {
           "location": "Oeiras, Parque dos Poetas",
@@ -263,7 +263,7 @@
       "id": "mariogotze@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
-      "preferredPositon": "Midfielder",
+      "preferredPosition": "Midfielder",
       "matchHistory": [
         {
           "location": "Arena dos Aliados",
@@ -301,7 +301,7 @@
       "id": "jamesfrango@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
-      "preferredPositon": "Forward",
+      "preferredPosition": "Forward",
       "matchHistory": [
         {
           "location": "MyIndoor Gaia",
@@ -339,7 +339,7 @@
       "id": "learningagreement@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
-      "preferredPositon": "Goalkeeper",
+      "preferredPosition": "Goalkeeper",
       "matchHistory": [
         {
           "location": "MyIndoor Sacavém",
@@ -377,7 +377,7 @@
       "id": "chouricard@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
-      "preferredPositon": "Midfielder",
+      "preferredPosition": "Midfielder",
       "matchHistory": [
         {
           "location": "Vermilion City",
@@ -408,6 +408,20 @@
         "https://web.whatsapp.com/"
       ],
       "avatar": "http://2.bp.blogspot.com/-uyfMKz44gFw/Uk6-iNfQkpI/AAAAAAAABSc/wZBEgv1KOYk/s1600/256px-006Charizard.png",
+      "banner": ""
+    },
+    {
+      "name": "Francisco Duarte Lourenço Simões",
+      "id": "fsimoes2000@gmail.com",
+      "phone": "919313601",
+      "password": "1",
+      "preferredPosition": "",
+      "matchHistory": [],
+      "nextMatches": [],
+      "watchlist": [],
+      "friends": [],
+      "socialMedia": [],
+      "avatar": "",
       "banner": ""
     }
   ],
@@ -485,7 +499,7 @@
     {
       "id": 2,
       "host": "Sr. Ping",
-      "numberOfSpotsLeft": 9,
+      "numberOfSpotsLeft": 81,
       "totalNumberOfPlayers": 10,
       "description": "Careful with Salah's left.",
       "skillLevel": "3.0",
@@ -529,7 +543,7 @@
     {
       "id": 3,
       "host": "Sr. Ping",
-      "numberOfSpotsLeft": 9,
+      "numberOfSpotsLeft": 0,
       "totalNumberOfPlayers": 10,
       "description": "Careful with Salah's left.",
       "skillLevel": "3.0",

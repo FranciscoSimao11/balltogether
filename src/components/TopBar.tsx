@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router";
 import man from "../Man.png";
 import "../styles/TopBar.css";
 import { styled } from "@mui/material/styles";
+import Link from "@mui/material/Link";
 //O LOGO TEM POUCA DEFINIÇAO POR ALGUMA RAZAO INVEStIGAR
 
 const StyledTypography = styled(Typography)({
@@ -36,23 +37,39 @@ function TopBar() {
 					Ball Together
 				</Typography>
 				<StyledTypography>
-					<a
+					<Link
 						href="https://franciscosimao11.github.io/ipmwebsite/"
-						style={{ textDecoration: "none", color: "white" }}
+						sx={{
+							textDecoration: "none",
+							color: "white",
+							"&:hover": {
+								color: "rgb(0, 178, 155)",
+							},
+						}}
 					>
 						About Us
-					</a>
+					</Link>
 				</StyledTypography>
 				<StyledTypography>|</StyledTypography>
 				<StyledTypography
 					style={{ cursor: "pointer" }}
 					onClick={() => navigate("/balltogether/login")}
+					sx={{
+						"&:hover": {
+							color: "rgb(0, 178, 155)",
+						},
+					}}
 				>
 					Login
 				</StyledTypography>
 				<StyledTypography
 					style={{ cursor: "pointer" }}
 					onClick={() => navigate("/balltogether/register")}
+					sx={{
+						"&:hover": {
+							color: "rgb(0, 178, 155)",
+						},
+					}}
 				>
 					Register
 				</StyledTypography>

@@ -15,6 +15,7 @@ import IconButton from "@mui/material/IconButton";
 import Collapse from "@mui/material/Collapse";
 import CloseIcon from "@mui/icons-material/Close";
 import { useParams, useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
 const StyledButton = styled(Button)({
 	color: "white",
@@ -32,13 +33,10 @@ const StyledButton = styled(Button)({
 });
 
 function Match() {
-	const [selectedPlayer, setSelectedPlayer] = useState({});
-	const bluePlayers: any = blueTeam;
-	const redPlayers: any = redTeam;
 	const [blueAvg, setBlueAvg] = useState("0.0");
 	const [redAvg, setRedAvg] = useState("0.0");
-	const matches: any = matchesJson;
-	//const match = matches.default[0];
+	const state = useSelector((state) => state);
+	const { session } = state as any;
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const handleClickMatchInfo = (event: any) => {
 		setAnchorEl(event.currentTarget);
@@ -51,6 +49,12 @@ function Match() {
 	const [alertOpen, setAlertOpen] = React.useState(false);
 	let matchId = useParams().matchId;
 	const [match, setMatch] = useState<any>();
+	const [user, setUser] = useState<any>();
+	const [rating, setRating] = useState<any>();
+	const [canJoinMatch, setCanJoinMatch] = useState<any>(true);
+	const [joiningMatch, setJoiningMatch] = useState<any>(false);
+	const [canJoinBlue, setCanJoinBlue] = useState<any>(true);
+	const [canJoinRed, setCanJoinRed] = useState<any>(true);
 	const getMatch = () => {
 		fetch("http://localhost:8000/matches/" + matchId, {
 			method: "GET",
@@ -61,15 +65,167 @@ function Match() {
 			.then((data) => {
 				setMatch(data);
 				if (data.blueTeam.length != 0) setBlueAvg(computeAvg(data.blueTeam));
+				else setBlueAvg("0.0");
 				if (data.redTeam.length != 0) setRedAvg(computeAvg(data.redTeam));
+				else setRedAvg("0.0");
+			});
+	};
+
+	const getCurrentUser = () => {
+		fetch("http://localhost:8000/users/" + session.id, {
+			method: "GET",
+		})
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				setUser(data);
+			});
+	};
+
+	const joinMatchBlue = () => {
+		setCanJoinMatch(false);
+		setJoiningMatch(false);
+		fetch("http://localhost:8000/matches/" + matchId, {
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			method: "PUT",
+			body: JSON.stringify({
+				...match,
+				numberOfSpotsLeft: match.numberOfSpotsLeft - 1,
+				blueTeam: [
+					...match.blueTeam,
+					{ userId: user.id, name: user.name, avgRating: rating },
+				],
+			}),
+		})
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				setMatch(data);
+				if (data.blueTeam.length != 0) setBlueAvg(computeAvg(data.blueTeam));
+				else setBlueAvg("0.0");
+				if (data.redTeam.length != 0) setRedAvg(computeAvg(data.redTeam));
+				else setRedAvg("0.0");
+			});
+	};
+
+	const joinMatchRed = () => {
+		setCanJoinMatch(false);
+		setJoiningMatch(false);
+		fetch("http://localhost:8000/matches/" + matchId, {
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			method: "PUT",
+			body: JSON.stringify({
+				...match,
+				numberOfSpotsLeft: match.numberOfSpotsLeft - 1,
+				redTeam: [
+					...match.redTeam,
+					{ userId: user.id, name: user.name, avgRating: rating },
+				],
+			}),
+		})
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				setMatch(data);
+				if (data.blueTeam.length != 0) setBlueAvg(computeAvg(data.blueTeam));
+				else setBlueAvg("0.0");
+				if (data.redTeam.length != 0) setRedAvg(computeAvg(data.redTeam));
+				else setRedAvg("0.0");
+			});
+	};
+
+	const leaveMatch = () => {
+		let oldBlue = match.blueTeam;
+		let blueIndex = -1;
+		for (let i = 0; i < oldBlue.length; i++) {
+			if (oldBlue[i].userId == user.id) {
+				blueIndex = i;
+			}
+		}
+		if (blueIndex != -1) {
+			oldBlue.splice(blueIndex, 1);
+			setCanJoinBlue(true);
+		}
+
+		let oldRed = match.redTeam;
+		let redIndex = -1;
+		for (let i = 0; i < oldRed.length; i++) {
+			if (oldRed[i].userId == user.id) {
+				redIndex = i;
+			}
+		}
+		if (redIndex != -1) {
+			oldRed.splice(redIndex, 1);
+			setCanJoinRed(true);
+		}
+		setCanJoinMatch(true);
+		fetch("http://localhost:8000/matches/" + matchId, {
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			method: "PUT",
+			body: JSON.stringify({
+				...match,
+				numberOfSpotsLeft: match.numberOfSpotsLeft + 1,
+				redTeam: oldRed,
+				blueTeam: oldBlue,
+			}),
+		})
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				setMatch(data);
+				if (data.blueTeam.length != 0) setBlueAvg(computeAvg(data.blueTeam));
+				else setBlueAvg("0.0");
+				if (data.redTeam.length != 0) setRedAvg(computeAvg(data.redTeam));
+				else setRedAvg("0.0");
 			});
 	};
 
 	useEffect(() => {
 		if (matchId) {
 			getMatch();
+			getCurrentUser();
 		}
 	}, [matchId]);
+
+	useEffect(() => {
+		if (user) {
+			let rating = 0;
+			user.matchHistory.forEach((m: any) => {
+				rating += parseFloat(m.rating) / user.matchHistory.length;
+			});
+			setRating(rating.toFixed(2));
+		}
+	}, [user]);
+
+	useEffect(() => {
+		if (match) {
+			match.redTeam.forEach((p: any) => {
+				if (p.userId == session.id) setCanJoinMatch(false);
+			});
+			if (canJoinMatch) {
+				match.blueTeam.forEach((p: any) => {
+					if (p.userId == session.id) setCanJoinMatch(false);
+				});
+			}
+			if (match.redTeam.length >= match.totalNumberOfPlayers / 2)
+				setCanJoinRed(false);
+			if (match.blueTeam.length >= match.totalNumberOfPlayers / 2)
+				setCanJoinBlue(false);
+		}
+	}, [match]);
 
 	return (
 		<div className="global-match-wrapper">
@@ -93,7 +249,26 @@ function Match() {
 							))}
 							<h3 className="avg-rating-header">Average Rating: {blueAvg}</h3>
 						</div>
+						{joiningMatch && canJoinBlue && (
+							<StyledButton
+								sx={{
+									backgroundColor: "#00A6FF",
+									"&:hover": {
+										backgroundColor: "#005989",
+									},
+
+									alignSelf: "center",
+									paddingInline: "70px",
+								}}
+								onClick={() => {
+									joinMatchBlue();
+								}}
+							>
+								Join Blue Team
+							</StyledButton>
+						)}
 					</div>
+
 					<div className="match-info-wrapper">
 						<h2>Match Details</h2>
 						<div>
@@ -119,6 +294,7 @@ function Match() {
 								severity="error"
 								sx={{
 									marginTop: "20px",
+									width: "320px",
 								}}
 								action={
 									<IconButton
@@ -133,7 +309,7 @@ function Match() {
 									</IconButton>
 								}
 							>
-								Couldn't join match, match is full!
+								Couldn't join match, match is full or you've already joined!
 							</Alert>
 						</Collapse>
 						<div
@@ -143,15 +319,39 @@ function Match() {
 								marginTop: "20px",
 							}}
 						>
-							<StyledButton
-								onClick={() => {
-									match.numberOfSpotsLeft == 0
-										? setAlertOpen(true)
-										: console.log("Join Match");
-								}}
-							>
-								Join Match
-							</StyledButton>
+							{canJoinMatch && (
+								<StyledButton
+									sx={{
+										backgroundColor: "#00ad45",
+										"&:hover": {
+											backgroundColor: "#007842",
+										},
+									}}
+									onClick={() => {
+										match.numberOfSpotsLeft == 0 || canJoinMatch == false
+											? setAlertOpen(true)
+											: setJoiningMatch(true); //joinMatch();
+									}}
+								>
+									Join Match
+								</StyledButton>
+							)}
+							{!canJoinMatch && (
+								<StyledButton
+									sx={{
+										backgroundColor: "#e30000",
+										"&:hover": {
+											backgroundColor: "#7d0000",
+										},
+									}}
+									onClick={() => {
+										leaveMatch();
+									}}
+								>
+									Leave Match
+								</StyledButton>
+							)}
+
 							<StyledButton onClick={handleClickMatchInfo}>
 								View Match Info
 							</StyledButton>
@@ -170,7 +370,7 @@ function Match() {
 								<Typography sx={{ p: 2 }}>
 									<div>
 										<b>Match Format: </b>
-										{match.totalNumberOfPlayers / 2} v
+										{match.totalNumberOfPlayers / 2} v{" "}
 										{match.totalNumberOfPlayers / 2}
 									</div>
 									<div>
@@ -189,6 +389,7 @@ function Match() {
 							</Popover>
 						</div>
 					</div>
+
 					<div className="team-wrapper" style={{ paddingLeft: "200px" }}>
 						<h3 className="team-header">Red Team</h3>
 						<div>
@@ -206,6 +407,23 @@ function Match() {
 							))}
 							<h3 className="avg-rating-header">Average Rating: {redAvg}</h3>
 						</div>
+						{joiningMatch && canJoinRed && (
+							<StyledButton
+								sx={{
+									backgroundColor: "#F95F62",
+									"&:hover": {
+										backgroundColor: "#a33f41",
+									},
+									alignSelf: "center",
+									paddingInline: "75px",
+								}}
+								onClick={() => {
+									joinMatchRed();
+								}}
+							>
+								Join Red Team
+							</StyledButton>
+						)}
 					</div>
 				</div>
 			)}

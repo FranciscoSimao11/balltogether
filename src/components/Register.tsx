@@ -59,6 +59,7 @@ function Register() {
 	const [visibleConfirm, setVisibleConfirm] = useState("password");
 	const [finishedPost, setFinishedPost] = useState<Boolean>(false);
 	const [alertOpen, setAlertOpen] = useState(false);
+	const [infoOpen, setInfoOpen] = useState(false);
 	let navigate = useNavigate();
 	useEffect(() => {
 		if (finishedRegister) {
@@ -82,6 +83,7 @@ function Register() {
 					}),
 				}).then((res) => {
 					setFinishedPost(true);
+					setInfoOpen(true);
 				});
 			} else {
 				setFinishedRegister(false);
@@ -92,7 +94,9 @@ function Register() {
 
 	useEffect(() => {
 		if (finishedPost) {
-			navigate("/balltogether/login");
+			setTimeout(() => {
+				navigate("/balltogether/login");
+			}, 2500);
 		}
 	}, [finishedPost]);
 
@@ -264,6 +268,32 @@ function Register() {
 				>
 					Register
 				</RegisterButton>
+				<Collapse in={infoOpen}>
+					<Alert
+						variant="filled"
+						severity="success"
+						sx={{
+							paddingInline: "10px",
+							marginBottom: "10px",
+							width: "300px",
+							transform: "translateX(-80vh) translateY(-2vh)",
+						}}
+						action={
+							<IconButton
+								aria-label="close"
+								color="inherit"
+								size="small"
+								onClick={() => {
+									setInfoOpen(false);
+								}}
+							>
+								<CloseIcon fontSize="inherit" />
+							</IconButton>
+						}
+					>
+						Successfully registered account! Redirecting...
+					</Alert>
+				</Collapse>
 			</div>
 		</div>
 	);

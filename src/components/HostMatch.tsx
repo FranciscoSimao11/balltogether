@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
-import { Button } from "@mui/material";
+import { Alert, Button, Collapse, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import LoggedInTopBar from "./LoggedInTopBar";
 import MapWrapper from "./Map";
 import "../styles/HostMatch.css";
@@ -39,7 +40,7 @@ const HostMatchButton = styled(Button)({
 	backgroundColor: "black",
 	fontSize: "25px",
 	padding: "16px 50px 16px 50px",
-	marginTop: "60px",
+	marginTop: "30px",
 	"&:hover": {
 		backgroundColor: "#4b4b4b",
 	},
@@ -55,6 +56,9 @@ function HostMatch() {
 	const [description, setDescription] = useState<any>();
 	const [hostPlays, setHostPlays] = useState<any>(false);
 	const [finishedCreatingMatch, setFinishedCreatingMatch] = useState(false);
+	const [failedCreate, setFailedCreate] = useState(false);
+	const [finishedPosting, setFinishedPosting] = useState(false);
+	const [infoOpen, setInfoOpen] = useState(false);
 	const mapStyle = {
 		width: `70%`,
 		minWidth: "70%",
@@ -77,6 +81,12 @@ function HostMatch() {
 			setMarker(marker);
 		},
 		[marker]
+	);
+	const addLocationNameCallback = useCallback(
+		(location) => {
+			setLocation(location);
+		},
+		[location]
 	);
 
 	useEffect(() => {
@@ -106,12 +116,15 @@ function HostMatch() {
 								description: description,
 								location: {
 									name: location,
-									latitude: 0,
-									longitude: 0,
+									latitude: (marker as any).lat,
+									longitude: (marker as any).lng,
 								},
 								blueTeam: [],
 								redTeam: [],
 							}),
+						}).then((res) => {
+							setFinishedPosting(true);
+							setInfoOpen(true);
 						});
 					});
 			} else {
@@ -154,16 +167,26 @@ function HostMatch() {
 								],
 								redTeam: [],
 							}),
+						}).then((res) => {
+							setFinishedPosting(true);
+							setInfoOpen(true);
 						});
 					});
 			}
 		}
 	}, [finishedCreatingMatch]);
 
+	useEffect(() => {
+		if (finishedPosting) {
+			setTimeout(() => {
+				navigate("/balltogether/home");
+			}, 2500);
+		}
+	}, [finishedPosting]);
+
 	return (
 		<div className="hostmatch-wrapper">
 			<LoggedInTopBar />
-
 			<div style={{ display: "flex" }}>
 				<div className="hostmatch-options-wrapper">
 					<h2
@@ -173,30 +196,46 @@ function HostMatch() {
 					</h2>
 					<div style={{ display: "grid" }}>
 						<label
-							style={{ color: "white", fontSize: "20px", fontWeight: "bold" }}
+							style={{
+								color: "white",
+								fontSize: "20px",
+								fontWeight: "bold",
+								paddingBottom: "10px",
+							}}
 						>
-							Pick a location on the map.
+							Search for a location and pick the spot on the map*
 						</label>
-						<input type="text" onChange={(e) => setLocation(e.target.value)} />
-						<label style={{ color: "white" }}>Number of Players: </label>
-						<input type="text" onChange={(e) => setNPlayers(e.target.value)} />
-						<label style={{ color: "white" }}>Date: </label>
-						<input type="date" onChange={(e) => setDate(e.target.value)} />
-						<label style={{ color: "white" }}>Starting Time: </label>
-						<select onChange={(e) => setHour(e.target.value)}>
+						<label style={{ color: "white" }}>Number of Players* </label>
+						<input
+							type="text"
+							onChange={(e) => setNPlayers(e.target.value)}
+							required
+						/>
+						<label style={{ color: "white" }}>Date* </label>
+						<input
+							type="date"
+							onChange={(e) => setDate(e.target.value)}
+							required
+						/>
+						<label style={{ color: "white" }}>Starting Time* </label>
+						<select onChange={(e) => setHour(e.target.value)} required>
 							{hours.map((hour) => (
 								<option value={hour}>{hour}</option>
 							))}
 						</select>
-						<label style={{ color: "white" }}>Recommended Level: </label>
-						<select onChange={(e) => setLevel(e.target.value)}>
+						<label style={{ color: "white" }}>Recommended Level* </label>
+						<select onChange={(e) => setLevel(e.target.value)} required>
 							{levels.map((level) => (
 								<option value={level}>{level}</option>
 							))}
 						</select>
-						<label style={{ color: "white" }}>Duration: </label>
-						<input type="time" onChange={(e) => setDuration(e.target.value)} />
-						<label style={{ color: "white" }}>Description: </label>
+						<label style={{ color: "white" }}>Duration* </label>
+						<input
+							type="time"
+							onChange={(e) => setDuration(e.target.value)}
+							required
+						/>
+						<label style={{ color: "white" }}>Description </label>
 						<input
 							type="text"
 							onChange={(e) => setDescription(e.target.value)}
@@ -204,15 +243,80 @@ function HostMatch() {
 						<label style={{ color: "white" }}>
 							Will you participate in this match as a player?
 						</label>
-						<input type="checkbox" onClick={() => setHostPlays(!hostPlays)} />
+						<input
+							style={{ placeSelf: "center" }}
+							type="checkbox"
+							onClick={() => setHostPlays(!hostPlays)}
+						/>
 					</div>
+					<Collapse in={failedCreate}>
+						<Alert
+							variant="filled"
+							severity="error"
+							sx={{
+								paddingInline: "10px",
+								width: "290px",
+								margin: "10px",
+							}}
+							action={
+								<IconButton
+									aria-label="close"
+									color="inherit"
+									size="small"
+									onClick={() => {
+										setFailedCreate(false);
+									}}
+								>
+									<CloseIcon fontSize="inherit" />
+								</IconButton>
+							}
+						>
+							Please fill in the mandatory fields!
+						</Alert>
+					</Collapse>
+					<label
+						style={{
+							color: "white",
+							paddingInline: "100px",
+							paddingTop: "100px",
+						}}
+					>
+						* = Mandatory fields
+					</label>
 					<HostMatchButton
 						onClick={() => {
-							setFinishedCreatingMatch(true);
+							if (location && date && nPlayers && duration && level && marker)
+								setFinishedCreatingMatch(true);
+							else setFailedCreate(true);
 						}}
 					>
 						Create Match
 					</HostMatchButton>
+					<Collapse in={infoOpen}>
+						<Alert
+							variant="filled"
+							severity="success"
+							sx={{
+								paddingInline: "10px",
+								marginTop: "30px",
+								width: "300px",
+							}}
+							action={
+								<IconButton
+									aria-label="close"
+									color="inherit"
+									size="small"
+									onClick={() => {
+										setInfoOpen(false);
+									}}
+								>
+									<CloseIcon fontSize="inherit" />
+								</IconButton>
+							}
+						>
+							Successfully created match! Redirecting...
+						</Alert>
+					</Collapse>
 				</div>
 				<MapWrapper
 					mapStyle={mapStyle}
@@ -220,6 +324,8 @@ function HostMatch() {
 					marker={marker}
 					markerCallback={addMarkerCallback}
 					interactive={true}
+					location={location}
+					locationCallback={addLocationNameCallback}
 				/>
 			</div>
 		</div>

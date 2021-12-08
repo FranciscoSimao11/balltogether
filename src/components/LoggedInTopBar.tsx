@@ -79,7 +79,15 @@ function Notifications() {
 				onClick={handleClick}
 				sx={{ color: "white", width: "0px", minWidth: "0px", padding: "0px" }}
 			>
-				<NotificationsRounded sx={{ fontSize: "2.2rem", marginX: "-8px" }} />
+				<NotificationsRounded
+					sx={{
+						fontSize: "2.2rem",
+						marginX: "-8px",
+						"&:hover": {
+							color: "rgb(0, 178, 155)",
+						},
+					}}
+				/>
 			</Button>
 			<Menu
 				anchorEl={anchorEl}
@@ -140,6 +148,9 @@ function Options() {
 					sx={{
 						fontSize: "1.5rem",
 						marginRight: "30px",
+						"&:hover": {
+							color: "rgb(0, 178, 155)",
+						},
 					}}
 				/>
 			</Button>
@@ -228,7 +239,7 @@ function LoggedInTopBar() {
 							<SearchIcon />
 						</SearchIconWrapper>
 						<StyledInputBase
-							placeholder="Search…"
+							placeholder="Search for a user..."
 							inputProps={{ "aria-label": "search" }}
 						/>
 					</Search>
@@ -247,22 +258,47 @@ function LoggedInTopBar() {
 							onClick={() => navigate(`/balltogether/profile/${session.id}`)}
 							style={{ cursor: "pointer" }}
 						>
-							<Avatar
-								sx={{
-									marginX: "0px",
-									height: "33px",
-									width: "33px",
-									marginRight: "-10px",
-									backgroundColor: "rgb(255,255,255,0.2)",
-									borderRadius: "100%",
-									overflow: "hidden",
-								}}
-								src={user.avatar}
-							/>
+							{user.avatar != "" && (
+								<Avatar
+									sx={{
+										marginX: "0px",
+										height: "33px",
+										width: "33px",
+										marginRight: "-10px",
+										backgroundColor: "rgb(255,255,255,0.2)",
+										borderRadius: "100%",
+										overflow: "hidden",
+									}}
+									src={user.avatar}
+								/>
+							)}
+							{user.avatar == "" && (
+								<Avatar
+									sx={{
+										marginX: "0px",
+										height: "33px",
+										width: "33px",
+										marginRight: "-10px",
+										backgroundColor: "rgb(255,255,255,0.2)",
+										borderRadius: "100%",
+										overflow: "hidden",
+									}}
+									src={
+										"https://img.icons8.com/emoji/256/smiling-face-with-smiling-eyes.png"
+									}
+								/>
+							)}
 						</StyledTypography>
 						<StyledTypography
 							onClick={() => navigate(`/balltogether/profile/${session.id}`)}
-							style={{ cursor: "pointer" }}
+							style={{
+								cursor: "pointer",
+							}}
+							sx={{
+								"&:hover": {
+									color: "rgb(0, 178, 155)",
+								},
+							}}
 						>
 							Profile
 						</StyledTypography>
