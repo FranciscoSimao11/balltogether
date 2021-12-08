@@ -512,10 +512,10 @@ function Profile() {
 									}}
 								>
 									<div style={{ color: "white", display: "flex" }}>
-										<label>Change Profile Picture: </label>
+										<label>Change Profile Picture (paste the url): </label>
 										<input
-											type="file"
-											style={{ width: "200px", paddingLeft: "5px" }}
+											type="text"
+											style={{ width: "100px", marginLeft: "10px" }}
 											onChange={(e) => setAvatar(e.target.value)}
 										></input>
 									</div>
