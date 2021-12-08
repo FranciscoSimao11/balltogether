@@ -8,19 +8,23 @@
       "preferredPosition": "Midfielder",
       "matchHistory": [
         {
-          "location": "Johan Cruyff Arena",
-          "date": "20/10/2021",
-          "finalScore": "3 - 1",
-          "rating": "5.0"
-        },
-        {
-          "location": "Stamford Bridge",
-          "date": "30/10/2021",
-          "finalScore": "4 - 2",
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
+          "finalScore": "5 - 1",
           "rating": "5.0"
         }
       ],
-      "nextMatches": [],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
       "watchlist": [],
       "friends": [
         {
@@ -46,19 +50,21 @@
       "preferredPosition": "Forward",
       "matchHistory": [
         {
-          "location": "Camp Nou",
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
           "date": "16/10/2021",
-          "finalScore": "2 - 0",
+          "finalScore": "5 - 1",
           "rating": "5.0"
         }
       ],
       "nextMatches": [
         {
-          "location": "Wanda Metropolitano",
+          "id": 3,
+          "location": "Alvalade",
           "date": "31/12/2021",
           "startingTime": "19:00",
-          "duration": 2,
-          "skillLevel": "5.0"
+          "duration": 1,
+          "skillLevel": "3.0"
         }
       ],
       "watchlist": [],
@@ -126,13 +132,23 @@
       "preferredPosition": "Forward",
       "matchHistory": [
         {
-          "location": "MyIndoor Sacavém",
-          "date": "22/11/2021",
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
           "finalScore": "5 - 1",
           "rating": "5.0"
         }
       ],
-      "nextMatches": [],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
       "watchlist": [],
       "friends": [
         {
@@ -158,19 +174,23 @@
       "preferredPosition": "Defender",
       "matchHistory": [
         {
-          "location": "MyIndoor Sacavém",
-          "date": "22/11/2021",
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
           "finalScore": "5 - 1",
           "rating": "2.0"
-        },
-        {
-          "location": "MyIndoor Sacavém",
-          "date": "25/11/2021",
-          "finalScore": "3 - 2",
-          "rating": "3.0"
         }
       ],
-      "nextMatches": [],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
       "watchlist": [],
       "friends": [
         {
@@ -196,13 +216,23 @@
       "preferredPosition": "Goalkeeper",
       "matchHistory": [
         {
-          "location": "MyIndoor Sacavém",
-          "date": "22/11/2021",
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
           "finalScore": "5 - 1",
           "rating": "2.0"
         }
       ],
-      "nextMatches": [],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
       "watchlist": [],
       "friends": [
         {
@@ -228,19 +258,23 @@
       "preferredPosition": "Defender",
       "matchHistory": [
         {
-          "location": "Oeiras, Parque dos Poetas",
-          "date": "22/11/2021",
-          "finalScore": "2 - 1",
-          "rating": "4.0"
-        },
-        {
-          "location": "MyIndoor Almada",
-          "date": "25/11/2021",
-          "finalScore": "3 - 2",
-          "rating": "3.0"
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
+          "finalScore": "5 - 1",
+          "rating": "2.0"
         }
       ],
-      "nextMatches": [],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
       "watchlist": [],
       "friends": [
         {
@@ -266,19 +300,23 @@
       "preferredPosition": "Midfielder",
       "matchHistory": [
         {
-          "location": "Arena dos Aliados",
-          "date": "10/11/2021",
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
           "finalScore": "5 - 1",
-          "rating": "4.5"
-        },
-        {
-          "location": "Parque do Sinal",
-          "date": "25/11/2021",
-          "finalScore": "0 - 2",
-          "rating": "3.0"
+          "rating": "5.0"
         }
       ],
-      "nextMatches": [],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
       "watchlist": [],
       "friends": [
         {
@@ -304,19 +342,23 @@
       "preferredPosition": "Forward",
       "matchHistory": [
         {
-          "location": "MyIndoor Gaia",
-          "date": "22/11/2021",
-          "finalScore": "3 - 1",
-          "rating": "3.0"
-        },
-        {
-          "location": "MyIndoor Sacavém",
-          "date": "25/11/2021",
-          "finalScore": "3 - 2",
-          "rating": "2.0"
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
+          "finalScore": "5 - 1",
+          "rating": "1.0"
         }
       ],
-      "nextMatches": [],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
       "watchlist": [],
       "friends": [
         {
@@ -342,19 +384,23 @@
       "preferredPosition": "Goalkeeper",
       "matchHistory": [
         {
-          "location": "MyIndoor Sacavém",
-          "date": "22/11/2021",
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
           "finalScore": "5 - 1",
-          "rating": "2.0"
-        },
-        {
-          "location": "MyIndoor Sacavém",
-          "date": "25/11/2021",
-          "finalScore": "3 - 2",
           "rating": "3.0"
         }
       ],
-      "nextMatches": [],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
       "watchlist": [],
       "friends": [
         {
@@ -380,19 +426,23 @@
       "preferredPosition": "Midfielder",
       "matchHistory": [
         {
-          "location": "Vermilion City",
-          "date": "22/11/2021",
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
           "finalScore": "5 - 1",
           "rating": "2.0"
-        },
-        {
-          "location": "Enchilada City",
-          "date": "25/11/2021",
-          "finalScore": "3 - 2",
-          "rating": "3.0"
         }
       ],
-      "nextMatches": [],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
       "watchlist": [],
       "friends": [
         {
@@ -409,103 +459,39 @@
       ],
       "avatar": "http://2.bp.blogspot.com/-uyfMKz44gFw/Uk6-iNfQkpI/AAAAAAAABSc/wZBEgv1KOYk/s1600/256px-006Charizard.png",
       "banner": ""
-    },
-    {
-      "name": "Francisco Duarte Lourenço Simões",
-      "id": "fsimoes2000@gmail.com",
-      "phone": "919313601",
-      "password": "1",
-      "preferredPosition": "",
-      "matchHistory": [],
-      "nextMatches": [],
-      "watchlist": [],
-      "friends": [],
-      "socialMedia": [],
-      "avatar": "",
-      "banner": ""
     }
   ],
   "matches": [
     {
       "id": 1,
       "host": "Sr. Ping",
-      "numberOfSpotsLeft": 0,
+      "numberOfSpotsLeft": 10,
       "totalNumberOfPlayers": 10,
       "description": "Careful with Salah's left.",
       "skillLevel": "3.0",
       "duration": 1,
       "date": "31/12/2021",
       "startingTime": "19:00",
+      "finalScore": "",
       "location": {
         "name": "Jamor",
         "latitude": 38.70306,
         "longitude": -9.254067
       },
-      "blueTeam": [
-        {
-          "userId": "edenhazard@gmail.com",
-          "name": "Eden Hazard",
-          "avgRating": "5.0"
-        },
-        {
-          "userId": "memphisdepay@gmail.com",
-          "name": "Memphis Depay",
-          "avgRating": "5.0"
-        },
-        {
-          "userId": "simon@gmail.com",
-          "name": "Simon",
-          "avgRating": "5.0"
-        },
-        {
-          "userId": "guillaume@gmail.com",
-          "name": "Guillaume",
-          "avgRating": "2.5"
-        },
-        {
-          "userId": "robertoalves@gmail.com",
-          "name": "Roberto Alves",
-          "avgRating": "2.0"
-        }
-      ],
-      "redTeam": [
-        {
-          "userId": "srping@gmail.com",
-          "name": "Sr. Ping",
-          "avgRating": "3.5"
-        },
-        {
-          "userId": "mariogotze@gmail.com",
-          "name": "Mario Götze",
-          "avgRating": "3.75"
-        },
-        {
-          "userId": "jamesfrango@gmail.com",
-          "name": "James Frango",
-          "avgRating": "2.5"
-        },
-        {
-          "userId": "learningagreement@gmail.com",
-          "name": "Learning Agreement",
-          "avgRating": "2.5"
-        },
-        {
-          "userId": "chouricard@gmail.com",
-          "name": "Chouriçard, o Deus do Fogo",
-          "avgRating": "2.5"
-        }
-      ]
+      "blueTeam": [],
+      "redTeam": []
     },
     {
       "id": 2,
       "host": "Sr. Ping",
-      "numberOfSpotsLeft": 81,
+      "numberOfSpotsLeft": 5,
       "totalNumberOfPlayers": 10,
       "description": "Careful with Salah's left.",
       "skillLevel": "3.0",
       "duration": 1,
       "date": "31/12/2021",
       "startingTime": "19:00",
+      "finalScore": "",
       "location": {
         "name": "FCT",
         "latitude": 38.658525,
@@ -516,27 +502,27 @@
         {
           "userId": "srping@gmail.com",
           "name": "Sr. Ping",
-          "avgRating": "3.5"
+          "avgRating": "2.0"
         },
         {
           "userId": "mariogotze@gmail.com",
           "name": "Mario Götze",
-          "avgRating": "3.75"
+          "avgRating": "5.0"
         },
         {
           "userId": "jamesfrango@gmail.com",
           "name": "James Frango",
-          "avgRating": "2.5"
+          "avgRating": "1.0"
         },
         {
           "userId": "learningagreement@gmail.com",
           "name": "Learning Agreement",
-          "avgRating": "2.5"
+          "avgRating": "3.0"
         },
         {
           "userId": "chouricard@gmail.com",
           "name": "Chouriçard, o Deus do Fogo",
-          "avgRating": "2.5"
+          "avgRating": "2.0"
         }
       ]
     },
@@ -550,6 +536,7 @@
       "duration": 1,
       "date": "31/12/2021",
       "startingTime": "19:00",
+      "finalScore": "",
       "location": {
         "name": "Alvalade",
         "latitude": 38.761149,
@@ -557,13 +544,13 @@
       },
       "blueTeam": [
         {
-          "userId": "edenhazard@gmail.com",
-          "name": "Eden Hazard",
-          "avgRating": "5.0"
-        },
-        {
           "userId": "memphisdepay@gmail.com",
           "name": "Memphis Depay",
+          "avgRating": "5.00"
+        },
+        {
+          "userId": "edenhazard@gmail.com",
+          "name": "Eden Hazard",
           "avgRating": "5.0"
         },
         {
@@ -574,7 +561,7 @@
         {
           "userId": "guillaume@gmail.com",
           "name": "Guillaume",
-          "avgRating": "2.5"
+          "avgRating": "2.0"
         },
         {
           "userId": "robertoalves@gmail.com",
@@ -586,27 +573,98 @@
         {
           "userId": "srping@gmail.com",
           "name": "Sr. Ping",
-          "avgRating": "3.5"
+          "avgRating": "2.0"
         },
         {
           "userId": "mariogotze@gmail.com",
           "name": "Mario Götze",
-          "avgRating": "3.75"
+          "avgRating": "5.0"
         },
         {
           "userId": "jamesfrango@gmail.com",
           "name": "James Frango",
-          "avgRating": "2.5"
+          "avgRating": "1.0"
         },
         {
           "userId": "learningagreement@gmail.com",
           "name": "Learning Agreement",
-          "avgRating": "2.5"
+          "avgRating": "3.0"
         },
         {
           "userId": "chouricard@gmail.com",
           "name": "Chouriçard, o Deus do Fogo",
-          "avgRating": "2.5"
+          "avgRating": "2.0"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "host": "Memphis Depay",
+      "numberOfSpotsLeft": 9,
+      "totalNumberOfPlayers": 10,
+      "date": "16/10/2021",
+      "startingTime": "19:00",
+      "duration": "02:00",
+      "skillLevel": "5.0",
+      "description": "Més que un club.",
+      "finalScore": "5 - 1",
+      "location": {
+        "name": "Camp Nou Tour & Museo FC Barcelona",
+        "latitude": 41.380589,
+        "longitude": 2.123237
+      },
+      "blueTeam": [
+        {
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avgRating": "5.00"
+        },
+        {
+          "userId": "edenhazard@gmail.com",
+          "name": "Eden Hazard",
+          "avgRating": "5.0"
+        },
+        {
+          "userId": "simon@gmail.com",
+          "name": "Simon",
+          "avgRating": "5.0"
+        },
+        {
+          "userId": "guillaume@gmail.com",
+          "name": "Guillaume",
+          "avgRating": "2.0"
+        },
+        {
+          "userId": "robertoalves@gmail.com",
+          "name": "Roberto Alves",
+          "avgRating": "2.0"
+        }
+      ],
+      "redTeam": [
+        {
+          "userId": "srping@gmail.com",
+          "name": "Sr. Ping",
+          "avgRating": "2.0"
+        },
+        {
+          "userId": "mariogotze@gmail.com",
+          "name": "Mario Götze",
+          "avgRating": "5.0"
+        },
+        {
+          "userId": "jamesfrango@gmail.com",
+          "name": "James Frango",
+          "avgRating": "1.0"
+        },
+        {
+          "userId": "learningagreement@gmail.com",
+          "name": "Learning Agreement",
+          "avgRating": "3.0"
+        },
+        {
+          "userId": "chouricard@gmail.com",
+          "name": "Chouriçard, o Deus do Fogo",
+          "avgRating": "2.0"
         }
       ]
     }

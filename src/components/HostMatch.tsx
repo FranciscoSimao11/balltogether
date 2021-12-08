@@ -280,7 +280,6 @@ function HostMatch() {
 						style={{
 							color: "white",
 							paddingInline: "100px",
-							paddingTop: "100px",
 						}}
 					>
 						* = Mandatory fields

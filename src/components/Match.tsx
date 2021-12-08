@@ -111,6 +111,7 @@ function Match() {
 				if (data.redTeam.length != 0) setRedAvg(computeAvg(data.redTeam));
 				else setRedAvg("0.0");
 			});
+		addMatchToUser();
 	};
 
 	const joinMatchRed = () => {
@@ -140,6 +141,68 @@ function Match() {
 				else setBlueAvg("0.0");
 				if (data.redTeam.length != 0) setRedAvg(computeAvg(data.redTeam));
 				else setRedAvg("0.0");
+			});
+		addMatchToUser();
+	};
+
+	const addMatchToUser = () => {
+		fetch("http://localhost:8000/users/" + session.id, {
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			method: "PUT",
+			body: JSON.stringify({
+				...user,
+				nextMatches: [
+					...user.nextMatches,
+					{
+						id: match.id,
+						location: match.location.name,
+						date: match.date,
+						startingTime: match.startingTime,
+						duration: match.duration,
+						skillLevel: match.skillLevel,
+					},
+				],
+			}),
+		})
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				setUser(data);
+			});
+	};
+
+	const removeMatchFromUser = () => {
+		let oldArray = user.nextMatches;
+		let matchIndex = -1;
+		for (let i = 0; i < oldArray.length; i++) {
+			if (oldArray[i].id == match.id) {
+				matchIndex = i;
+			}
+		}
+		if (matchIndex != -1) {
+			oldArray.splice(matchIndex, 1);
+		}
+
+		fetch("http://localhost:8000/users/" + session.id, {
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			method: "PUT",
+			body: JSON.stringify({
+				...user,
+				nextMatches: oldArray,
+			}),
+		})
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				setUser(data);
 			});
 	};
 
@@ -191,6 +254,7 @@ function Match() {
 				if (data.redTeam.length != 0) setRedAvg(computeAvg(data.redTeam));
 				else setRedAvg("0.0");
 			});
+		removeMatchFromUser();
 	};
 
 	useEffect(() => {

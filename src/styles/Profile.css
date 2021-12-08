@@ -67,15 +67,38 @@
 }
 
 .profile-friend-container{
-    color: red;
+    color: rgb(0, 178, 155);
     display: flex;
     flex: 1 0 21%;
-    width: 500px;
+    max-width: 425px;
+    justify-content: space-between;
 }
 
 .friend-avatar{
     height: 60px;
     width: 60px;       
     border-radius: 100%;
-    overflow: hidden;
+    padding: 0px 15px 0px 
+}
+
+.profile-match-container {
+    display: flex;
+    border-left: 3px solid rgb(0, 178, 155);
+    border-right: 3px solid rgb(0, 178, 155);
+    width: max-content;
+    padding: 0px 15px;
+    margin-right: 20px;
+}
+
+.profile-matches-container {
+    display: flex;
+}
+
+.profile-match-text-wrapper {
+    padding: 0px 15px 0px 0px;
+}
+
+.profile-single-container {
+    display: flex;
+    align-items: center;
 }

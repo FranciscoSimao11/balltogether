@@ -67,8 +67,8 @@ function LoggedInHomepage() {
 	const [date, setDate] = useState<any>("2021-12-31");
 	const [startHour, setStartHour] = useState<any>("00:00");
 	const [endHour, setEndHour] = useState<any>("24:00");
-	const [minLevel, setMinLevel] = useState<any>("0.00");
-	const [maxLevel, setMaxLevel] = useState<any>("5.00");
+	const [minLevel, setMinLevel] = useState<any>("0.0");
+	const [maxLevel, setMaxLevel] = useState<any>("5.0");
 	const [filters, setFilters] = useState<any>({
 		date,
 		startHour,
@@ -103,9 +103,11 @@ function LoggedInHomepage() {
 							marginRight: "25px",
 						}}
 					/>
+
 					<input
-						type="date"
+						className="input-date"
 						defaultValue="2021-12-31"
+						type="date"
 						onChange={(e) => setDate(e.target.value)}
 					></input>
 				</div>
@@ -116,6 +118,7 @@ function LoggedInHomepage() {
 					<select
 						defaultValue="00:00"
 						onChange={(e) => setStartHour(e.target.value)}
+						style={{ marginRight: "10px" }}
 					>
 						<optgroup label="Starting After">
 							{hours.map((hour) => (
@@ -145,6 +148,7 @@ function LoggedInHomepage() {
 					<select
 						defaultValue="0.0"
 						onChange={(e) => setMinLevel(e.target.value)}
+						style={{ marginRight: "10px" }}
 					>
 						<optgroup label="Min Skill Level">
 							{levels.map((level) => (
