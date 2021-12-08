@@ -42,6 +42,8 @@ function filterMatches(match: any, filters: any) {
 	} else {
 		let filterDate = filters.date.split("-");
 		let actualDate = filterDate[2] + "/" + filterDate[1] + "/" + filterDate[0];
+		console.log(actualDate);
+		console.log(match.date);
 		return (
 			match.date == actualDate &&
 			parseInt(match.startingTime.split(":", 1)[0]) >=

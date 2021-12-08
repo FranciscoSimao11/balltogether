@@ -91,6 +91,8 @@ function HostMatch() {
 
 	useEffect(() => {
 		if (finishedCreatingMatch) {
+			let dateArr = date.split("-");
+			let actualDate = dateArr[2] + "/" + dateArr[1] + "/" + dateArr[0];
 			if (!hostPlays) {
 				fetch("http://localhost:8000/users/" + session.id, {
 					method: "GET",
@@ -109,7 +111,7 @@ function HostMatch() {
 								host: data.name,
 								numberOfSpotsLeft: parseInt(nPlayers),
 								totalNumberOfPlayers: parseInt(nPlayers),
-								date: date,
+								date: actualDate,
 								startingTime: hour,
 								duration: duration,
 								skillLevel: level,
