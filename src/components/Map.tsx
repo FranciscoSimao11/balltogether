@@ -42,6 +42,8 @@ function filterMatches(match: any, filters: any) {
 	} else {
 		let filterDate = filters.date.split("-");
 		let actualDate = filterDate[2] + "/" + filterDate[1] + "/" + filterDate[0];
+		console.log(actualDate);
+		console.log(match.date);
 		return (
 			match.date == actualDate &&
 			parseInt(match.startingTime.split(":", 1)[0]) >=
@@ -261,7 +263,7 @@ export default function MapWrapper(props: any) {
 			containerElement={<div style={props.mapStyle}></div>}
 			mapElement={<div style={{ height: `100%` }} />}
 			googleMapURL={
-				"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key="
+				"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyApqDepx72qyciy7FwFjxAmFFKSrtm78ws"
 			}
 			loadingElement={<div style={{ height: `100%` }} />}
 		/>
