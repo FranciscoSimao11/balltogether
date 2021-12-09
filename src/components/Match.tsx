@@ -313,7 +313,7 @@ function Match() {
 							))}
 							<h3 className="avg-rating-header">Average Rating: {blueAvg}</h3>
 						</div>
-						{joiningMatch && canJoinBlue && (
+						{match.finalScore == "" && joiningMatch && canJoinBlue && (
 							<StyledButton
 								sx={{
 									backgroundColor: "#00A6FF",
@@ -349,8 +349,14 @@ function Match() {
 							{match.location.name}
 						</div>
 
-						<div>
-							<b>Score: </b>Match not yet played
+						<div style={{ display: "inline-flex" }}>
+							<b>Score: </b>
+							{match.finalScore != "" && (
+								<div style={{ paddingLeft: "10px" }}> {match.finalScore}</div>
+							)}
+							{match.finalScore == "" && (
+								<div style={{ paddingLeft: "10px" }}> Match not yet played</div>
+							)}
 						</div>
 						<Collapse in={alertOpen}>
 							<Alert
@@ -383,7 +389,7 @@ function Match() {
 								marginTop: "20px",
 							}}
 						>
-							{canJoinMatch && (
+							{match.finalScore == "" && canJoinMatch && (
 								<StyledButton
 									sx={{
 										backgroundColor: "#00ad45",
@@ -400,7 +406,7 @@ function Match() {
 									Join Match
 								</StyledButton>
 							)}
-							{!canJoinMatch && (
+							{match.finalScore == "" && !canJoinMatch && (
 								<StyledButton
 									sx={{
 										backgroundColor: "#e30000",
@@ -471,7 +477,7 @@ function Match() {
 							))}
 							<h3 className="avg-rating-header">Average Rating: {redAvg}</h3>
 						</div>
-						{joiningMatch && canJoinRed && (
+						{match.finalScore == "" && joiningMatch && canJoinRed && (
 							<StyledButton
 								sx={{
 									backgroundColor: "#F95F62",
