@@ -65,14 +65,6 @@
           "startingTime": "19:00",
           "duration": 1,
           "skillLevel": "3.0"
-        },
-        {
-          "id": 4,
-          "location": "Camp Nou Tour & Museo FC Barcelona",
-          "date": "16/10/2021",
-          "startingTime": "19:00",
-          "duration": "02:00",
-          "skillLevel": "5.0"
         }
       ],
       "watchlist": [],
@@ -623,6 +615,11 @@
       },
       "blueTeam": [
         {
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avgRating": "5.00"
+        },
+        {
           "userId": "edenhazard@gmail.com",
           "name": "Eden Hazard",
           "avgRating": "5.0"
@@ -641,11 +638,6 @@
           "userId": "robertoalves@gmail.com",
           "name": "Roberto Alves",
           "avgRating": "2.0"
-        },
-        {
-          "userId": "memphisdepay@gmail.com",
-          "name": "Memphis Depay",
-          "avgRating": "5.00"
         }
       ],
       "redTeam": [
