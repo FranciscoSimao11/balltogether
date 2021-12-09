@@ -218,73 +218,75 @@ function ProfileTabMenu(props: any) {
 			<Box sx={{ backgroundColor: "#343F4B", width: "100%", height: "446px" }}>
 				<TabPanel value={value} index={0}>
 					<div className="profile-matches-container">
-					{nextMatches.map((m: any) => (
-						<div className="profile-match-container">
-							<div className="profile-match-text-wrapper">
-								<b>Location: </b>
-								{m.location} <br />
-								<b>Date: </b>
-								{m.date} <br />
-								<b>Starting Time: </b>
-								{m.startingTime}
-								<br />
-								<b>Duration: </b>
-								{m.duration}h
-								<br />
-								<b>Skill Level: </b>
-								{m.skillLevel}
-								<br />
-							</div>
-							<Button
-								sx={{ color: "rgb(0, 178, 155)",
-								backgroundColor: "#242825",
-								height: "min-content",
-								alignSelf: "center",
-								fontSize: "14px",
-								"&:hover": {
-									backgroundColor: "rgb(0, 178, 155)",
-									color: "#242825"
-								},
-								}}
+						{nextMatches.map((m: any) => (
+							<div className="profile-match-container">
+								<div className="profile-match-text-wrapper">
+									<b>Location: </b>
+									{m.location} <br />
+									<b>Date: </b>
+									{m.date} <br />
+									<b>Starting Time: </b>
+									{m.startingTime}
+									<br />
+									<b>Duration: </b>
+									{m.duration}h
+									<br />
+									<b>Skill Level: </b>
+									{m.skillLevel}
+									<br />
+								</div>
+								<Button
+									sx={{
+										color: "rgb(0, 178, 155)",
+										backgroundColor: "#242825",
+										height: "min-content",
+										alignSelf: "center",
+										fontSize: "14px",
+										"&:hover": {
+											backgroundColor: "rgb(0, 178, 155)",
+											color: "#242825",
+										},
+									}}
 									onClick={() => {
 										navigate("/balltogether/match/" + m.id);
 									}}
 								>
 									View Match
-							</Button>
-						</div>
-					))}
+								</Button>
+							</div>
+						))}
 					</div>
 				</TabPanel>
 				<TabPanel value={value} index={1}>
 					{matchHistory.map((m: any) => (
 						<div className="profile-match-container">
 							<div className="profile-match-text-wrapper">
-							<b>Location: </b>
-							{m.location} <br />
-							<b>Date: </b>
-							{m.date} <br />
-							<b>Final Score: </b>
-							{m.finalScore} <br />
-							<b>Rating: </b>
-							{m.rating} <br />
+								<b>Location: </b>
+								{m.location} <br />
+								<b>Date: </b>
+								{m.date} <br />
+								<b>Final Score: </b>
+								{m.finalScore} <br />
+								<b>Rating: </b>
+								{m.rating} <br />
 							</div>
 							<Button
-								sx={{ color: "rgb(0, 178, 155)",
-								backgroundColor: "#242825",
-								height: "min-content",
-								alignSelf: "center",
-								fontSize: "14px",
-								"&:hover": {
-									backgroundColor: "rgb(0, 178, 155)",
-									color: "#242825"
-								},
+								sx={{
+									color: "rgb(0, 178, 155)",
+									backgroundColor: "#242825",
+									height: "min-content",
+									alignSelf: "center",
+									fontSize: "14px",
+									"&:hover": {
+										backgroundColor: "rgb(0, 178, 155)",
+										color: "#242825",
+									},
 								}}
-									onClick={() => {
-										navigate("/balltogether/match/" + m.id);
-									}}
-								>
-									View Match
+								onClick={() => {
+									navigate("/balltogether/match/" + m.id);
+								}}
+							>
+								View Match
 							</Button>
 						</div>
 					))}
@@ -457,6 +459,7 @@ function Profile() {
 												"&:hover": {
 													color: "rgba(250, 250, 250, 1)",
 												},
+												cursor: "pointer",
 											}}
 										></PersonAddIcon>
 									</Typography>
@@ -469,6 +472,7 @@ function Profile() {
 												"&:hover": {
 													color: "rgba(250, 250, 250, 1)",
 												},
+												cursor: "pointer",
 											}}
 										></ChatIcon>
 									</Typography>
@@ -481,6 +485,7 @@ function Profile() {
 												"&:hover": {
 													color: "rgba(250, 250, 250, 1)",
 												},
+												cursor: "pointer",
 											}}
 										></ShareIcon>
 									</Typography>
@@ -493,6 +498,7 @@ function Profile() {
 												"&:hover": {
 													color: "rgba(250, 250, 250, 1)",
 												},
+												cursor: "pointer",
 											}}
 										></FlagIcon>
 									</Typography>
@@ -509,6 +515,7 @@ function Profile() {
 												"&:hover": {
 													color: "rgba(250, 250, 250, 1)",
 												},
+												cursor: "pointer",
 											}}
 										></MailIcon>
 									</Typography>
@@ -521,6 +528,7 @@ function Profile() {
 												"&:hover": {
 													color: "rgba(250, 250, 250, 1)",
 												},
+												cursor: "pointer",
 											}}
 										></ShareIcon>
 									</Typography>
@@ -533,6 +541,7 @@ function Profile() {
 												"&:hover": {
 													color: "rgba(250, 250, 250, 1)",
 												},
+												cursor: "pointer",
 											}}
 											onClick={handleOpenModal}
 										></SettingsIcon>

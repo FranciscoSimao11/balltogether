@@ -459,6 +459,20 @@
       ],
       "avatar": "http://2.bp.blogspot.com/-uyfMKz44gFw/Uk6-iNfQkpI/AAAAAAAABSc/wZBEgv1KOYk/s1600/256px-006Charizard.png",
       "banner": ""
+    },
+    {
+      "name": "ilneige",
+      "id": "ilneige",
+      "phone": "",
+      "password": "password",
+      "preferredPosition": "",
+      "matchHistory": [],
+      "nextMatches": [],
+      "watchlist": [],
+      "friends": [],
+      "socialMedia": [],
+      "avatar": "",
+      "banner": ""
     }
   ],
   "matches": [
@@ -544,11 +558,6 @@
       },
       "blueTeam": [
         {
-          "userId": "memphisdepay@gmail.com",
-          "name": "Memphis Depay",
-          "avgRating": "5.00"
-        },
-        {
           "userId": "edenhazard@gmail.com",
           "name": "Eden Hazard",
           "avgRating": "5.0"
@@ -567,6 +576,11 @@
           "userId": "robertoalves@gmail.com",
           "name": "Roberto Alves",
           "avgRating": "2.0"
+        },
+        {
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avgRating": "5.00"
         }
       ],
       "redTeam": [
