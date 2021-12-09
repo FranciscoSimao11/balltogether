@@ -148,8 +148,9 @@ function MapComponent(props: any) {
 						onChange={(e) => {
 							setValue(e.target.value);
 						}}
-						placeholder="search"
-						style={{ height: "33px", width: "300px", fontSize: "18px" }}
+						placeholder="Search"
+						style={{ height: "33px", width: "300px", fontSize: "18px", outline: "none", border: "none",
+						color: "black", appearance: "none" }}
 					></ComboboxInput>
 					<ComboboxPopover>
 						{data.map(({ id, description }) => (
