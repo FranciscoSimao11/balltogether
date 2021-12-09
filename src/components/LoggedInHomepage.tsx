@@ -105,7 +105,7 @@ function LoggedInHomepage() {
 					/>
 
 					<input
-						className="input-date"
+						className="input-shadow"
 						defaultValue="2021-12-31"
 						type="date"
 						onChange={(e) => setDate(e.target.value)}
@@ -116,6 +116,7 @@ function LoggedInHomepage() {
 						sx={{ color: "white", fontSize: "60px", marginRight: "25px" }}
 					/>
 					<select
+						className="input-shadow"
 						defaultValue="00:00"
 						onChange={(e) => setStartHour(e.target.value)}
 						style={{ marginRight: "10px" }}

@@ -209,12 +209,14 @@ function HostMatch() {
 						</label>
 						<label style={{ color: "white" }}>Number of Players* </label>
 						<input
+							className="input-shadow"
 							type="text"
 							onChange={(e) => setNPlayers(e.target.value)}
 							required
 						/>
 						<label style={{ color: "white" }}>Date* </label>
 						<input
+							className="input-shadow"
 							type="date"
 							onChange={(e) => setDate(e.target.value)}
 							required
@@ -233,12 +235,14 @@ function HostMatch() {
 						</select>
 						<label style={{ color: "white" }}>Duration* </label>
 						<input
+							className="input-shadow"
 							type="time"
 							onChange={(e) => setDuration(e.target.value)}
 							required
 						/>
 						<label style={{ color: "white" }}>Description </label>
 						<input
+							className="input-shadow"
 							type="text"
 							onChange={(e) => setDescription(e.target.value)}
 						/>

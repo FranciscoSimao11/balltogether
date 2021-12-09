@@ -17,12 +17,12 @@
 	margin-top: 50px;
 }
 
-.input-date {
+.input-shadow {
 	border-radius: 10px;
     box-shadow: 4px 4px rgb(0 178 155 / 60%);
 	font-weight: 500;
 	font-family: Verdana;
-	text-align: end ;
+	text-align: center ;
 }
 
 select {
