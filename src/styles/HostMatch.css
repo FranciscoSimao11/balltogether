@@ -9,3 +9,8 @@
     text-align: center;
     text-align: -webkit-center;
 }
+
+.input-separator-wrapper {
+    display:flex;
+    margin-bottom: 20px;
+}

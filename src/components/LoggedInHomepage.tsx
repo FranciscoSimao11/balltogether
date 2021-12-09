@@ -180,6 +180,7 @@ function LoggedInHomepage() {
 					-- OR --
 				</div>
 				<HostMatchButton
+					className="input-shadow"
 					onClick={() => {
 						navigate("/balltogether/hostmatch");
 					}}

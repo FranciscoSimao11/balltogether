@@ -207,45 +207,63 @@ function HostMatch() {
 						>
 							Search for a location and pick the spot on the map*
 						</label>
-						<label style={{ color: "white" }}>Number of Players* </label>
-						<input
-							className="input-shadow"
-							type="text"
-							onChange={(e) => setNPlayers(e.target.value)}
-							required
-						/>
-						<label style={{ color: "white" }}>Date* </label>
-						<input
-							className="input-shadow"
-							type="date"
-							onChange={(e) => setDate(e.target.value)}
-							required
-						/>
-						<label style={{ color: "white" }}>Starting Time* </label>
-						<select onChange={(e) => setHour(e.target.value)} required>
-							{hours.map((hour) => (
-								<option value={hour}>{hour}</option>
-							))}
-						</select>
-						<label style={{ color: "white" }}>Recommended Level* </label>
-						<select onChange={(e) => setLevel(e.target.value)} required>
-							{levels.map((level) => (
-								<option value={level}>{level}</option>
-							))}
-						</select>
-						<label style={{ color: "white" }}>Duration* </label>
-						<input
-							className="input-shadow"
-							type="time"
-							onChange={(e) => setDuration(e.target.value)}
-							required
-						/>
-						<label style={{ color: "white" }}>Description </label>
-						<input
-							className="input-shadow"
-							type="text"
-							onChange={(e) => setDescription(e.target.value)}
-						/>
+						<div className="input-separator-wrapper">
+							<div className="input-single-label">
+								<label style={{ color: "white" }}>Number of Players* </label>
+								<input
+									className="input-shadow"
+									type="text"
+									onChange={(e) => setNPlayers(e.target.value)}
+									required
+								/>
+							</div>
+							<div className="input-single-label">
+								<label style={{ color: "white" }}>Date* </label>
+								<input
+									className="input-shadow"
+									type="date"
+									onChange={(e) => setDate(e.target.value)}
+									required
+								/>
+							</div>
+						</div>
+						<div className="input-separator-wrapper">
+							<div className="input-single-label">
+								<label style={{ color: "white" }}>Starting Time* </label>
+								<select onChange={(e) => setHour(e.target.value)} required>
+									{hours.map((hour) => (
+										<option value={hour}>{hour}</option>
+									))}
+								</select>
+							</div>
+							<div className="input-single-label">
+								<label style={{ color: "white" }}>Recommended Level* </label>
+								<select onChange={(e) => setLevel(e.target.value)} required>
+									{levels.map((level) => (
+										<option value={level}>{level}</option>
+									))}
+								</select>
+							</div>
+						</div>
+						<div className="input-separator-wrapper">
+							<div className="input-single-label">
+								<label style={{ color: "white" }}>Duration* </label>
+								<input
+									className="input-shadow"
+									type="time"
+									onChange={(e) => setDuration(e.target.value)}
+									required
+								/>
+							</div>
+							<div className="input-single-label">
+								<label style={{ color: "white" }}>Description </label>
+								<input
+									className="input-shadow"
+									type="text"
+									onChange={(e) => setDescription(e.target.value)}
+								/>
+							</div>
+						</div>
 						<label style={{ color: "white" }}>
 							Will you participate in this match as a player?
 						</label>
@@ -289,6 +307,7 @@ function HostMatch() {
 						* = Mandatory fields
 					</label>
 					<HostMatchButton
+						className="input-shadow"
 						onClick={() => {
 							if (location && date && nPlayers && duration && level && marker)
 								setFinishedCreatingMatch(true);
