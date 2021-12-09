@@ -25,13 +25,13 @@ const HostMatchButton = styled(Button)({
 	marginTop: "170px",
 	padding: "20px 50px 20px 50px",
 	marginRight: "15px",
-	color: "#242825",
+	color: "rgb(0, 178, 155)",
 	fontSize: "25px",
-	backgroundColor: "white",
+	backgroundColor: "black",
 	fontWeight: "bold",
 	"&:hover": {
-		backgroundColor: "#454d47",
-		color: "white",
+		color: "rgb(0, 178, 155)",
+		backgroundColor: "#293030",
 	},
 });
 

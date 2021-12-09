@@ -36,13 +36,14 @@ const FormTextField = styled(TextField)({
 });
 
 const HostMatchButton = styled(Button)({
-	color: "white",
+	color: "rgb(0, 178, 155)",
 	backgroundColor: "black",
 	fontSize: "25px",
 	padding: "16px 50px 16px 50px",
 	marginTop: "30px",
 	"&:hover": {
-		backgroundColor: "#4b4b4b",
+		// color: "black",
+		backgroundColor: "#293030",
 	},
 });
 

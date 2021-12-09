@@ -361,7 +361,39 @@ function Profile() {
 				})
 				.then((data) => {
 					setUser(data);
-					console.log(data);
+					user.friends.forEach((f: any) => {
+						fetch("http://localhost:8000/users/" + f.userId, {
+							method: "GET",
+						})
+							.then((res) => {
+								return res.json();
+							})
+							.then((dataF) => {
+								let newFriends = dataF.friends;
+								let friend;
+								for (let i = 0; i < newFriends.length; i++) {
+									if (newFriends[i].userId == user.id) {
+										friend = newFriends[i];
+										newFriends[i] = {
+											userId: friend.userId,
+											name: friend.name,
+											avatar: avatar,
+										};
+									}
+								}
+								fetch("http://localhost:8000/users/" + f.userId, {
+									headers: {
+										"Content-Type": "application/json",
+										Accept: "application/json",
+									},
+									method: "PUT",
+									body: JSON.stringify({
+										...dataF,
+										friends: [...newFriends],
+									}),
+								});
+							});
+					});
 				});
 		} else if (avatar != "") {
 			fetch("http://localhost:8000/users/" + userId, {
@@ -380,7 +412,39 @@ function Profile() {
 				})
 				.then((data) => {
 					setUser(data);
-					console.log(data);
+					user.friends.forEach((f: any) => {
+						fetch("http://localhost:8000/users/" + f.userId, {
+							method: "GET",
+						})
+							.then((res) => {
+								return res.json();
+							})
+							.then((dataF) => {
+								let newFriends = dataF.friends;
+								let friend;
+								for (let i = 0; i < newFriends.length; i++) {
+									if (newFriends[i].userId == user.id) {
+										friend = newFriends[i];
+										newFriends[i] = {
+											userId: friend.userId,
+											name: friend.name,
+											avatar: avatar,
+										};
+									}
+								}
+								fetch("http://localhost:8000/users/" + f.userId, {
+									headers: {
+										"Content-Type": "application/json",
+										Accept: "application/json",
+									},
+									method: "PUT",
+									body: JSON.stringify({
+										...dataF,
+										friends: [...newFriends],
+									}),
+								});
+							});
+					});
 				});
 		} else if (position != "") {
 			fetch("http://localhost:8000/users/" + userId, {

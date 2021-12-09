@@ -13,4 +13,11 @@
 .input-separator-wrapper {
     display:flex;
     margin-bottom: 20px;
+    width: 400px;
+}
+
+.input-single-label{
+    display: grid;
+    min-width: 225px;
+    padding-inline: 10px;
 }
