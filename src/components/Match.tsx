@@ -45,6 +45,7 @@ function Match() {
 		setAnchorEl(null);
 	};
 	const open = Boolean(anchorEl);
+
 	let navigate = useNavigate();
 	const [alertOpen, setAlertOpen] = React.useState(false);
 	let matchId = useParams().matchId;
