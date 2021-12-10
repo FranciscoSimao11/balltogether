@@ -109,6 +109,7 @@ function LoggedInHomepage() {
 						defaultValue="2021-12-31"
 						type="date"
 						onChange={(e) => setDate(e.target.value)}
+						style={{ minWidth: "185px" }}
 					></input>
 				</div>
 				<div className="select-and-icon">
@@ -119,7 +120,7 @@ function LoggedInHomepage() {
 						className="input-shadow"
 						defaultValue="00:00"
 						onChange={(e) => setStartHour(e.target.value)}
-						style={{ marginRight: "10px" }}
+						style={{ marginRight: "10px", minWidth: "90px" }}
 					>
 						<optgroup label="Starting After">
 							{hours.map((hour) => (
@@ -130,6 +131,7 @@ function LoggedInHomepage() {
 					<select
 						defaultValue="24:00"
 						onChange={(e) => setEndHour(e.target.value)}
+						style={{ minWidth: "90px" }}
 					>
 						<optgroup label="Starting Before">
 							{hours.map((hour) => (
@@ -149,7 +151,7 @@ function LoggedInHomepage() {
 					<select
 						defaultValue="0.0"
 						onChange={(e) => setMinLevel(e.target.value)}
-						style={{ marginRight: "10px" }}
+						style={{ marginRight: "10px", minWidth: "90px" }}
 					>
 						<optgroup label="Min Skill Level">
 							{levels.map((level) => (
@@ -160,6 +162,7 @@ function LoggedInHomepage() {
 					<select
 						defaultValue="5.0"
 						onChange={(e) => setMaxLevel(e.target.value)}
+						style={{ minWidth: "90px" }}
 					>
 						<optgroup label="Max Skill Level">
 							{levels.map((level) => (
