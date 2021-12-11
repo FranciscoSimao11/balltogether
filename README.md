@@ -1,12 +1,14 @@
-# Getting Started with Create React App
+# Ball Together
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Built using ReactJS
 
-## Available Scripts
+Ball Together aims to solve a problem that we have been through before which prevented us from having fun at times. We wanted to organize a friendly 5v5 football match, for example, but it was always tough to find 10 people who were available to play at the same time. And so we thought we could do something about that and aid those in the same situation with our application. We allow you to host your own matches and invite your friends or join matches that have already been created. You can play with friends or with people you haven’t met yet, so it’s easier to find enough people to play with. You can create your own account and customize your profile. You’re able to add friends and see other player’s profiles. And, above all, you’re able to search for matches with filters so you can find the perfect match to jump in and show your skills!
+
+
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,33 +16,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `npx json-server --watch data/db.json --port 8000`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Runs a local server with a database in a json format, perfect for development purposes. This server will run on port 8000. By default it would run on port 3000 but we already have our application running on that port, so we'll force it to the port 8000.
