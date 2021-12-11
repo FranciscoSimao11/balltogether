@@ -301,6 +301,17 @@ function ProfileTabMenu(props: any) {
 									{f.name}
 								</div>
 								<Button
+									sx={{
+										color: "rgb(0, 178, 155)",
+										backgroundColor: "#242825",
+										height: "min-content",
+										alignSelf: "center",
+										fontSize: "14px",
+										"&:hover": {
+											backgroundColor: "rgb(0, 178, 155)",
+											color: "#242825",
+										},
+									}}
 									onClick={() => {
 										navigate("/balltogether/profile/" + f.userId);
 									}}
@@ -327,6 +338,9 @@ function Profile() {
 	const [open, setOpen] = React.useState(false);
 	const [position, setPosition] = useState("");
 	const [avatar, setAvatar] = useState("");
+	const [addingFriend, setAddingFriend] = useState(false);
+	const [removingFriend, setRemovingFriend] = useState(false);
+	const [isFriend, setIsFriend] = useState(false);
 	const handleOpenModal = () => setOpen(true);
 	const handleCloseModal = () => setOpen(false);
 
@@ -339,9 +353,133 @@ function Profile() {
 			})
 			.then((data) => {
 				setUser(data);
-				console.log(data);
+				if (userId != session.id) {
+					setIsFriend(false);
+					data.friends.forEach((f: any) => {
+						if (f.userId == session.id) {
+							setIsFriend(true);
+						}
+					});
+				}
 			});
 	};
+
+	const addFriend = () => {
+		fetch("http://localhost:8000/users/" + session.id, {
+			method: "GET",
+		})
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				let newFriendsOtherUser = user.friends;
+				newFriendsOtherUser.push({
+					userId: data.id,
+					name: data.name,
+					avatar: data.avatar,
+				});
+				let newFriendsCurrentUser = data.friends;
+				newFriendsCurrentUser.push({
+					userId: user.id,
+					name: user.name,
+					avatar: user.avatar,
+				});
+
+				fetch("http://localhost:8000/users/" + userId, {
+					headers: {
+						"Content-Type": "application/json",
+						Accept: "application/json",
+					},
+					method: "PUT",
+					body: JSON.stringify({
+						...user,
+						friends: newFriendsOtherUser,
+					}),
+				}).then((res) => {
+					fetch("http://localhost:8000/users/" + session.id, {
+						headers: {
+							"Content-Type": "application/json",
+							Accept: "application/json",
+						},
+						method: "PUT",
+						body: JSON.stringify({
+							...data,
+							friends: newFriendsCurrentUser,
+						}),
+					});
+					setAddingFriend(false);
+					setIsFriend(true);
+				});
+			});
+	};
+
+	const removeFriend = () => {
+		fetch("http://localhost:8000/users/" + session.id, {
+			method: "GET",
+		})
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				let newFriendsOtherUser = user.friends;
+				let index = -1;
+				for (let i = 0; i < newFriendsOtherUser.length; i++) {
+					if (newFriendsOtherUser[i].userId == data.id) {
+						index = i;
+					}
+				}
+				if (index != -1) {
+					newFriendsOtherUser.splice(index, 1);
+				}
+
+				let newFriendsCurrentUser = data.friends;
+				let newIndex = -1;
+				for (let i = 0; i < newFriendsCurrentUser.length; i++) {
+					if (newFriendsCurrentUser[i].userId == user.id) {
+						newIndex = i;
+					}
+				}
+
+				if (newIndex != -1) {
+					newFriendsCurrentUser.splice(newIndex, 1);
+				}
+
+				fetch("http://localhost:8000/users/" + userId, {
+					headers: {
+						"Content-Type": "application/json",
+						Accept: "application/json",
+					},
+					method: "PUT",
+					body: JSON.stringify({
+						...user,
+						friends: newFriendsOtherUser,
+					}),
+				}).then((res) => {
+					fetch("http://localhost:8000/users/" + session.id, {
+						headers: {
+							"Content-Type": "application/json",
+							Accept: "application/json",
+						},
+						method: "PUT",
+						body: JSON.stringify({
+							...data,
+							friends: newFriendsCurrentUser,
+						}),
+					});
+					setRemovingFriend(false);
+					setIsFriend(false);
+				});
+			});
+	};
+
+	useEffect(() => {
+		if (addingFriend) addFriend();
+	}, [addingFriend]);
+
+	useEffect(() => {
+		if (removingFriend) removeFriend();
+	}, [removingFriend]);
+
 	useEffect(() => {
 		if (avatar != "" && position != "") {
 			fetch("http://localhost:8000/users/" + userId, {
@@ -483,6 +621,9 @@ function Profile() {
 		}
 	}, [user, userId]);
 
+	useEffect(() => {
+		console.log(isFriend);
+	}, []);
 	return (
 		<div>
 			<LoggedInTopBar />
@@ -515,17 +656,38 @@ function Profile() {
 							{userId != session.id && (
 								<div style={{ height: "100%", display: "contents" }}>
 									<Typography>
-										<PersonAddIcon
-											sx={{
-												width: "40px",
-												height: "40px",
-												color: "rgba(170, 170, 170, 1)",
-												"&:hover": {
-													color: "rgba(250, 250, 250, 1)",
-												},
-												cursor: "pointer",
-											}}
-										></PersonAddIcon>
+										{!isFriend && (
+											<PersonAddIcon
+												sx={{
+													width: "40px",
+													height: "40px",
+													color: "rgba(170, 170, 170, 1)",
+													"&:hover": {
+														color: "rgba(250, 250, 250, 1)",
+													},
+													cursor: "pointer",
+												}}
+												onClick={() => {
+													setAddingFriend(true);
+												}}
+											></PersonAddIcon>
+										)}
+										{isFriend && (
+											<PersonRemoveIcon
+												sx={{
+													width: "40px",
+													height: "40px",
+													color: "rgba(170, 170, 170, 1)",
+													"&:hover": {
+														color: "rgba(250, 250, 250, 1)",
+													},
+													cursor: "pointer",
+												}}
+												onClick={() => {
+													setRemovingFriend(true);
+												}}
+											></PersonRemoveIcon>
+										)}
 									</Typography>
 									<Typography>
 										<ChatIcon
