@@ -96,7 +96,7 @@
     min-width: 200px;
 }
 
-.test{
+.profile-single-match-container{
     color: white;
     display: flex;
     flex: 1 0 21%;
@@ -105,7 +105,7 @@
     border-right: 1px solid rgb(0, 178, 155);
     padding: 0px 15px 0px 15px;
     margin: 0px 0px 15px -1px;
-    width:500px
+    max-width: 400px;
 }
 
 .profile-matches-container {
@@ -115,7 +115,7 @@
 .profile-match-text-wrapper {
     padding: 0px 15px 0px 0px;
     min-width: 200px;
-    max-width: 370px;
+    max-width: 250px;
 }
 
 .profile-single-container {

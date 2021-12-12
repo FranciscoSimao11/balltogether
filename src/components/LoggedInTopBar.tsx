@@ -15,8 +15,6 @@ import { bindActionCreators } from "redux";
 import { actionCreators } from "../state/index";
 import { useParams, useNavigate } from "react-router";
 
-//O LOGO TEM POUCA DEFINIÇAO POR ALGUMA RAZAO INVESTIGAR
-//TIRAR EFEITOS DE CLICK NO SINO E NA SETA
 const StyledTypography = styled(Typography)({
 	fontFamily: "Verdana",
 	position: "relative",
@@ -132,6 +130,16 @@ function Options() {
 		localStorage.removeItem("activeUser");
 		navigate("/balltogether");
 	};
+	const anchorRef = React.useRef<HTMLButtonElement>(null);
+	const handleClose1 = (event: Event | React.SyntheticEvent) => {
+		if (
+			anchorRef.current &&
+			anchorRef.current.contains(event.target as HTMLElement)
+		) {
+			return;
+		}
+		setAnchorEl(null);
+	};
 
 	return (
 		<div>
@@ -157,7 +165,7 @@ function Options() {
 			<Menu
 				anchorEl={anchorEl}
 				open={open}
-				onClose={handleClose}
+				onClose={handleClose1}
 				anchorOrigin={{
 					vertical: "top",
 					horizontal: "left",
