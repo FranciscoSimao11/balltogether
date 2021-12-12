@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/balltogether/static/css/main.5a052a62.chunk.css",
-    "main.js": "/balltogether/static/js/main.61b6d683.chunk.js",
-    "main.js.map": "/balltogether/static/js/main.61b6d683.chunk.js.map",
+    "main.css": "/balltogether/static/css/main.8beb8567.chunk.css",
+    "main.js": "/balltogether/static/js/main.9f92cb18.chunk.js",
+    "main.js.map": "/balltogether/static/js/main.9f92cb18.chunk.js.map",
     "runtime-main.js": "/balltogether/static/js/runtime-main.6b3b0b7a.js",
     "runtime-main.js.map": "/balltogether/static/js/runtime-main.6b3b0b7a.js.map",
     "static/css/2.8d682a32.chunk.css": "/balltogether/static/css/2.8d682a32.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.2d4b3669.chunk.js.map": "/balltogether/static/js/3.2d4b3669.chunk.js.map",
     "index.html": "/balltogether/index.html",
     "static/css/2.8d682a32.chunk.css.map": "/balltogether/static/css/2.8d682a32.chunk.css.map",
-    "static/css/main.5a052a62.chunk.css.map": "/balltogether/static/css/main.5a052a62.chunk.css.map",
+    "static/css/main.8beb8567.chunk.css.map": "/balltogether/static/css/main.8beb8567.chunk.css.map",
     "static/js/2.f236c366.chunk.js.LICENSE.txt": "/balltogether/static/js/2.f236c366.chunk.js.LICENSE.txt",
     "static/media/Man.1525f310.png": "/balltogether/static/media/Man.1525f310.png",
     "static/media/ball.dc39c2a7.png": "/balltogether/static/media/ball.dc39c2a7.png",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.6b3b0b7a.js",
     "static/css/2.8d682a32.chunk.css",
     "static/js/2.f236c366.chunk.js",
-    "static/css/main.5a052a62.chunk.css",
-    "static/js/main.61b6d683.chunk.js"
+    "static/css/main.8beb8567.chunk.css",
+    "static/js/main.9f92cb18.chunk.js"
   ]
 }
