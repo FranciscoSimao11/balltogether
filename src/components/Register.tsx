@@ -78,7 +78,8 @@ function Register() {
 						watchlist: [],
 						friends: [],
 						socialMedia: [],
-						avatar: "",
+						avatar:
+							"https://img.icons8.com/emoji/256/smiling-face-with-smiling-eyes.png",
 						banner: "",
 					}),
 				}).then((res) => {

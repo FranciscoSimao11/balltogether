@@ -38,7 +38,19 @@ const WrappedMap = withScriptjs(withGoogleMap(MapComponent));
 
 function filterMatches(match: any, filters: any) {
 	if (filters == undefined) {
-		return true;
+		var today = new Date();
+		var day = today.getDate();
+		var month = today.getMonth() + 1;
+		var year = today.getFullYear();
+		var matchDate = match.date.split("/");
+		if (matchDate[2] >= year) {
+			if (matchDate[1] >= month) {
+				if (matchDate[0] >= day) {
+					return true;
+				}
+			}
+		}
+		return false;
 	} else {
 		let filterDate = filters.date.split("-");
 		let actualDate = filterDate[2] + "/" + filterDate[1] + "/" + filterDate[0];
@@ -149,8 +161,15 @@ function MapComponent(props: any) {
 							setValue(e.target.value);
 						}}
 						placeholder="Search"
-						style={{ height: "33px", width: "300px", fontSize: "18px", outline: "none", border: "none",
-						color: "black", appearance: "none" }}
+						style={{
+							height: "33px",
+							width: "300px",
+							fontSize: "18px",
+							outline: "none",
+							border: "none",
+							color: "black",
+							appearance: "none",
+						}}
 					></ComboboxInput>
 					<ComboboxPopover>
 						{data.map(({ id, description }) => (
@@ -262,7 +281,7 @@ export default function MapWrapper(props: any) {
 			containerElement={<div style={props.mapStyle}></div>}
 			mapElement={<div style={{ height: `100%` }} />}
 			googleMapURL={
-				"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key="
+				"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyApqDepx72qyciy7FwFjxAmFFKSrtm78ws"
 			}
 			loadingElement={<div style={{ height: `100%` }} />}
 		/>

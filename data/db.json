@@ -82,7 +82,7 @@
         {
           "userId": "guillaume@gmail.com",
           "name": "Guillaume",
-          "avatar": "https://avatars.githubusercontent.com/u/72967988?v=4"
+          "avatar": "https://pbs.twimg.com/profile_images/1161238934845874176/XaMnP5tv_400x400.jpg"
         },
         {
           "userId": "robertoalves@gmail.com",
@@ -90,9 +90,9 @@
           "avatar": "https://1.bp.blogspot.com/-9Zn23-iPidA/X3xXyusKZYI/AAAAAAAAie0/RGT0hBkV5HYtyxjg7OdqJEgnUWYY1QseQCLcBGAsYHQ/s0/campeones-roberto-zedinho.jpg"
         },
         {
-          "userId": "srping@gmail.com",
-          "name": "Sr. Ping",
-          "avatar": "https://i.pinimg.com/originals/51/fe/e3/51fee3b04c96aad285da4e76b148f06f.png"
+          "userId": "juliandraxler@gmail.com",
+          "name": "Julian Draxler",
+          "avatar": "https://s1.fifaaddict.com/fo4/players/ljqrdypm.png?20200818"
         },
         {
           "userId": "mariogotze@gmail.com",
@@ -100,18 +100,18 @@
           "avatar": "https://pbs.twimg.com/profile_images/703577862658531329/PHRS5oed_400x400.jpg"
         },
         {
-          "userId": "jamesfrango@gmail.com",
-          "name": "James Frango",
-          "avatar": "https://www.descargarstickers.com/publico/static/miniatura/2020/11/0499574.gif"
+          "userId": "mosalah@gmail.com",
+          "name": "Mohamed Salah",
+          "avatar": "https://c-cl.cdn.smule.com/rs-s79/arr/dd/ff/52054690-f398-4369-b377-4395c0301897.jpg"
         },
         {
-          "userId": "learningagreement@gmail.com",
-          "name": "Learning Agreement",
-          "avatar": "https://image.slidesharecdn.com/learning-studiesen-161012174013/95/learning-agreement-student-mobility-for-studies-1-638.jpg?cb=1476294043"
+          "userId": "luisdias@gmail.com",
+          "name": "Luís Dias",
+          "avatar": "https://img.icons8.com/emoji/256/smiling-face-with-smiling-eyes.png"
         },
         {
-          "userId": "chouricard@gmail.com",
-          "name": "Chouriçard, o Deus do Fogo",
+          "userId": "charizard@gmail.com",
+          "name": "Charizard",
           "avatar": "http://2.bp.blogspot.com/-uyfMKz44gFw/Uk6-iNfQkpI/AAAAAAAABSc/wZBEgv1KOYk/s1600/256px-006Charizard.png"
         }
       ],
@@ -159,8 +159,8 @@
       ],
       "socialMedia": [
         "https://twitter.com/SimonsFooties",
-        "https://www.instagram.com/_francisco__11_/",
-        "https://www.facebook.com/francisco.simoes11/",
+        "https://www.instagram.com/",
+        "https://www.facebook.com/",
         "https://web.whatsapp.com/"
       ],
       "avatar": "https://pbs.twimg.com/profile_images/1382270867145637897/I8MkUCRd_400x400.jpg",
@@ -197,6 +197,11 @@
           "userId": "memphisdepay@gmail.com",
           "name": "Memphis Depay",
           "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
+        },
+        {
+          "userId": "robertoalves@gmail.com",
+          "name": "Roberto Alves",
+          "avatar": "https://1.bp.blogspot.com/-9Zn23-iPidA/X3xXyusKZYI/AAAAAAAAie0/RGT0hBkV5HYtyxjg7OdqJEgnUWYY1QseQCLcBGAsYHQ/s0/campeones-roberto-zedinho.jpg"
         }
       ],
       "socialMedia": [
@@ -205,7 +210,7 @@
         "https://www.facebook.com",
         "https://web.whatsapp.com/"
       ],
-      "avatar": "https://avatars.githubusercontent.com/u/72967988?v=4",
+      "avatar": "https://pbs.twimg.com/profile_images/1161238934845874176/XaMnP5tv_400x400.jpg",
       "banner": ""
     },
     {
@@ -231,6 +236,14 @@
           "startingTime": "19:00",
           "duration": 1,
           "skillLevel": "3.0"
+        },
+        {
+          "id": 2,
+          "location": "FCT",
+          "date": "31/12/2021",
+          "startingTime": "16:30",
+          "duration": 1,
+          "skillLevel": "3.0"
         }
       ],
       "watchlist": [],
@@ -239,6 +252,11 @@
           "userId": "memphisdepay@gmail.com",
           "name": "Memphis Depay",
           "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
+        },
+        {
+          "userId": "guillaume@gmail.com",
+          "name": "Guillaume",
+          "avatar": "https://pbs.twimg.com/profile_images/1161238934845874176/XaMnP5tv_400x400.jpg"
         }
       ],
       "socialMedia": [
@@ -251,137 +269,11 @@
       "banner": ""
     },
     {
-      "name": "Sr. Ping",
-      "id": "srping@gmail.com",
-      "phoneNumber": "919191919",
-      "password": "password",
-      "preferredPosition": "Defender",
-      "matchHistory": [
-        {
-          "id": 4,
-          "location": "Camp Nou Tour & Museo FC Barcelona",
-          "date": "16/10/2021",
-          "finalScore": "5 - 1",
-          "rating": "2.0"
-        }
-      ],
-      "nextMatches": [
-        {
-          "id": 3,
-          "location": "Alvalade",
-          "date": "31/12/2021",
-          "startingTime": "19:00",
-          "duration": 1,
-          "skillLevel": "3.0"
-        }
-      ],
-      "watchlist": [],
-      "friends": [
-        {
-          "userId": "memphisdepay@gmail.com",
-          "name": "Memphis Depay",
-          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
-        }
-      ],
-      "socialMedia": [
-        "https://twitter.com",
-        "https://www.instagram.com",
-        "https://www.facebook.com",
-        "https://web.whatsapp.com/"
-      ],
-      "avatar": "https://i.pinimg.com/originals/51/fe/e3/51fee3b04c96aad285da4e76b148f06f.png",
-      "banner": ""
-    },
-    {
-      "name": "Mario Götze",
-      "id": "mariogotze@gmail.com",
+      "name": "Julian Draxler",
+      "id": "juliandraxler@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
       "preferredPosition": "Midfielder",
-      "matchHistory": [
-        {
-          "id": 4,
-          "location": "Camp Nou Tour & Museo FC Barcelona",
-          "date": "16/10/2021",
-          "finalScore": "5 - 1",
-          "rating": "5.0"
-        }
-      ],
-      "nextMatches": [
-        {
-          "id": 3,
-          "location": "Alvalade",
-          "date": "31/12/2021",
-          "startingTime": "19:00",
-          "duration": 1,
-          "skillLevel": "3.0"
-        }
-      ],
-      "watchlist": [],
-      "friends": [
-        {
-          "userId": "memphisdepay@gmail.com",
-          "name": "Memphis Depay",
-          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
-        }
-      ],
-      "socialMedia": [
-        "https://twitter.com",
-        "https://www.instagram.com",
-        "https://www.facebook.com",
-        "https://web.whatsapp.com/"
-      ],
-      "avatar": "https://pbs.twimg.com/profile_images/703577862658531329/PHRS5oed_400x400.jpg",
-      "banner": ""
-    },
-    {
-      "name": "James Frango",
-      "id": "jamesfrango@gmail.com",
-      "phoneNumber": "919191919",
-      "password": "password",
-      "preferredPosition": "Forward",
-      "matchHistory": [
-        {
-          "id": 4,
-          "location": "Camp Nou Tour & Museo FC Barcelona",
-          "date": "16/10/2021",
-          "finalScore": "5 - 1",
-          "rating": "1.0"
-        }
-      ],
-      "nextMatches": [
-        {
-          "id": 3,
-          "location": "Alvalade",
-          "date": "31/12/2021",
-          "startingTime": "19:00",
-          "duration": 1,
-          "skillLevel": "3.0"
-        }
-      ],
-      "watchlist": [],
-      "friends": [
-        {
-          "userId": "memphisdepay@gmail.com",
-          "name": "Memphis Depay",
-          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
-        }
-      ],
-      "socialMedia": [
-        "https://twitter.com",
-        "https://www.instagram.com",
-        "https://www.facebook.com",
-        "https://web.whatsapp.com/"
-      ],
-      "avatar": "https://www.descargarstickers.com/publico/static/miniatura/2020/11/0499574.gif",
-      "banner": ""
-    },
-    {
-      "name": "Learning Agreement",
-      "id": "learningagreement@gmail.com",
-      "phoneNumber": "919191919",
-      "password": "password",
-      "preferredPosition": "Goalkeeper",
       "matchHistory": [
         {
           "id": 4,
@@ -415,15 +307,165 @@
         "https://www.facebook.com",
         "https://web.whatsapp.com/"
       ],
-      "avatar": "https://image.slidesharecdn.com/learning-studiesen-161012174013/95/learning-agreement-student-mobility-for-studies-1-638.jpg?cb=1476294043",
+      "avatar": "https://s1.fifaaddict.com/fo4/players/ljqrdypm.png?20200818",
       "banner": ""
     },
     {
-      "name": "Chouriçard, o Deus do Fogo",
-      "id": "chouricard@gmail.com",
+      "name": "Mario Götze",
+      "id": "mariogotze@gmail.com",
       "phoneNumber": "919191919",
       "password": "password",
       "preferredPosition": "Midfielder",
+      "matchHistory": [
+        {
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
+          "finalScore": "5 - 1",
+          "rating": "5.0"
+        }
+      ],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        },
+        {
+          "id": 2,
+          "location": "FCT",
+          "date": "31/12/2021",
+          "startingTime": "16:30",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
+      "watchlist": [],
+      "friends": [
+        {
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
+        }
+      ],
+      "socialMedia": [
+        "https://twitter.com",
+        "https://www.instagram.com",
+        "https://www.facebook.com",
+        "https://web.whatsapp.com/"
+      ],
+      "avatar": "https://pbs.twimg.com/profile_images/703577862658531329/PHRS5oed_400x400.jpg",
+      "banner": ""
+    },
+    {
+      "name": "Luís Dias",
+      "id": "luisdias@gmail.com",
+      "phoneNumber": "919191919",
+      "password": "password",
+      "preferredPosition": "Forward",
+      "matchHistory": [
+        {
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
+          "finalScore": "5 - 1",
+          "rating": "1.0"
+        }
+      ],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        },
+        {
+          "id": 2,
+          "location": "FCT",
+          "date": "31/12/2021",
+          "startingTime": "16:30",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
+      "watchlist": [],
+      "friends": [
+        {
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
+        }
+      ],
+      "socialMedia": [
+        "https://twitter.com",
+        "https://www.instagram.com",
+        "https://www.facebook.com",
+        "https://web.whatsapp.com/"
+      ],
+      "avatar": "https://img.icons8.com/emoji/256/smiling-face-with-smiling-eyes.png",
+      "banner": ""
+    },
+    {
+      "name": "Mohamed Salah",
+      "id": "mosalah@gmail.com",
+      "phoneNumber": "919191919",
+      "password": "password",
+      "preferredPosition": "Forward",
+      "matchHistory": [
+        {
+          "id": 4,
+          "location": "Camp Nou Tour & Museo FC Barcelona",
+          "date": "16/10/2021",
+          "finalScore": "5 - 1",
+          "rating": "5.0"
+        }
+      ],
+      "nextMatches": [
+        {
+          "id": 3,
+          "location": "Alvalade",
+          "date": "31/12/2021",
+          "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        },
+        {
+          "id": 2,
+          "location": "FCT",
+          "date": "31/12/2021",
+          "startingTime": "16:30",
+          "duration": 1,
+          "skillLevel": "3.0"
+        }
+      ],
+      "watchlist": [],
+      "friends": [
+        {
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avatar": "https://assets.laliga.com/squad/2021/t178/p106824/256x256/p106824_t178_2021_1_003_000.png"
+        }
+      ],
+      "socialMedia": [
+        "https://twitter.com",
+        "https://www.instagram.com",
+        "https://www.facebook.com",
+        "https://web.whatsapp.com/"
+      ],
+      "avatar": "https://c-cl.cdn.smule.com/rs-s79/arr/dd/ff/52054690-f398-4369-b377-4395c0301897.jpg",
+      "banner": ""
+    },
+    {
+      "name": "Charizard",
+      "id": "charizard@gmail.com",
+      "phoneNumber": "919191919",
+      "password": "password",
+      "preferredPosition": "Goalkeeper",
       "matchHistory": [
         {
           "id": 4,
@@ -439,6 +481,14 @@
           "location": "Alvalade",
           "date": "31/12/2021",
           "startingTime": "19:00",
+          "duration": 1,
+          "skillLevel": "3.0"
+        },
+        {
+          "id": 2,
+          "location": "FCT",
+          "date": "31/12/2021",
+          "startingTime": "16:30",
           "duration": 1,
           "skillLevel": "3.0"
         }
@@ -459,29 +509,15 @@
       ],
       "avatar": "http://2.bp.blogspot.com/-uyfMKz44gFw/Uk6-iNfQkpI/AAAAAAAABSc/wZBEgv1KOYk/s1600/256px-006Charizard.png",
       "banner": ""
-    },
-    {
-      "name": "ilneige",
-      "id": "ilneige",
-      "phone": "",
-      "password": "password",
-      "preferredPosition": "",
-      "matchHistory": [],
-      "nextMatches": [],
-      "watchlist": [],
-      "friends": [],
-      "socialMedia": [],
-      "avatar": "",
-      "banner": ""
     }
   ],
   "matches": [
     {
       "id": 1,
-      "host": "Sr. Ping",
+      "host": "Luís Dias",
       "numberOfSpotsLeft": 10,
       "totalNumberOfPlayers": 10,
-      "description": "Careful with Salah's left.",
+      "description": "The game will occur inside the national stadium.",
       "skillLevel": "3.0",
       "duration": 1,
       "date": "31/12/2021",
@@ -497,14 +533,14 @@
     },
     {
       "id": 2,
-      "host": "Sr. Ping",
+      "host": "Luís Dias",
       "numberOfSpotsLeft": 5,
       "totalNumberOfPlayers": 10,
       "description": "Careful with Salah's left.",
       "skillLevel": "3.0",
       "duration": 1,
       "date": "31/12/2021",
-      "startingTime": "19:00",
+      "startingTime": "16:30",
       "finalScore": "",
       "location": {
         "name": "FCT",
@@ -514,8 +550,8 @@
       "blueTeam": [],
       "redTeam": [
         {
-          "userId": "srping@gmail.com",
-          "name": "Sr. Ping",
+          "userId": "robertoalves@gmail.com",
+          "name": "Roberto Alves",
           "avgRating": "2.0"
         },
         {
@@ -524,25 +560,25 @@
           "avgRating": "5.0"
         },
         {
-          "userId": "jamesfrango@gmail.com",
-          "name": "James Frango",
+          "userId": "mosalah@gmail.com",
+          "name": "Mohamed Salah",
+          "avgRating": "5.0"
+        },
+        {
+          "userId": "luisdias@gmail.com",
+          "name": "Luís Dias",
           "avgRating": "1.0"
         },
         {
-          "userId": "learningagreement@gmail.com",
-          "name": "Learning Agreement",
-          "avgRating": "3.0"
-        },
-        {
-          "userId": "chouricard@gmail.com",
-          "name": "Chouriçard, o Deus do Fogo",
+          "userId": "charizard@gmail.com",
+          "name": "Charizard",
           "avgRating": "2.0"
         }
       ]
     },
     {
       "id": 3,
-      "host": "Sr. Ping",
+      "host": "Luís Dias",
       "numberOfSpotsLeft": 0,
       "totalNumberOfPlayers": 10,
       "description": "Careful with Salah's left.",
@@ -557,11 +593,6 @@
         "longitude": -9.161331
       },
       "blueTeam": [
-        {
-          "userId": "edenhazard@gmail.com",
-          "name": "Eden Hazard",
-          "avgRating": "5.0"
-        },
         {
           "userId": "simon@gmail.com",
           "name": "Simon",
@@ -580,14 +611,19 @@
         {
           "userId": "memphisdepay@gmail.com",
           "name": "Memphis Depay",
-          "avgRating": "5.00"
+          "avgRating": "5.0"
+        },
+        {
+          "userId": "edenhazard@gmail.com",
+          "name": "Eden Hazard",
+          "avgRating": "5.0"
         }
       ],
       "redTeam": [
         {
-          "userId": "srping@gmail.com",
-          "name": "Sr. Ping",
-          "avgRating": "2.0"
+          "userId": "juliandraxler@gmail.com",
+          "name": "Julian Draxler",
+          "avgRating": "3.0"
         },
         {
           "userId": "mariogotze@gmail.com",
@@ -595,18 +631,18 @@
           "avgRating": "5.0"
         },
         {
-          "userId": "jamesfrango@gmail.com",
-          "name": "James Frango",
+          "userId": "mosalah@gmail.com",
+          "name": "Mohamed Salah",
+          "avgRating": "5.0"
+        },
+        {
+          "userId": "luisdias@gmail.com",
+          "name": "Luís Dias",
           "avgRating": "1.0"
         },
         {
-          "userId": "learningagreement@gmail.com",
-          "name": "Learning Agreement",
-          "avgRating": "3.0"
-        },
-        {
-          "userId": "chouricard@gmail.com",
-          "name": "Chouriçard, o Deus do Fogo",
+          "userId": "charizard@gmail.com",
+          "name": "Charizard",
           "avgRating": "2.0"
         }
       ]
@@ -656,9 +692,9 @@
       ],
       "redTeam": [
         {
-          "userId": "srping@gmail.com",
-          "name": "Sr. Ping",
-          "avgRating": "2.0"
+          "userId": "juliandraxler@gmail.com",
+          "name": "Julian Draxler",
+          "avgRating": "3.0"
         },
         {
           "userId": "mariogotze@gmail.com",
@@ -666,18 +702,18 @@
           "avgRating": "5.0"
         },
         {
-          "userId": "jamesfrango@gmail.com",
-          "name": "James Frango",
+          "userId": "mosalah@gmail.com",
+          "name": "Mohamed Salah",
+          "avgRating": "5.0"
+        },
+        {
+          "userId": "luisdias@gmail.com",
+          "name": "Luís Dias",
           "avgRating": "1.0"
         },
         {
-          "userId": "learningagreement@gmail.com",
-          "name": "Learning Agreement",
-          "avgRating": "3.0"
-        },
-        {
-          "userId": "chouricard@gmail.com",
-          "name": "Chouriçard, o Deus do Fogo",
+          "userId": "charizard@gmail.com",
+          "name": "Charizard",
           "avgRating": "2.0"
         }
       ]

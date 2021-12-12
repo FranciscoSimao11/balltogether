@@ -82,7 +82,8 @@
     height: 60px;
     width: 60px;       
     border-radius: 100%;
-    padding: 0px 15px 0px 
+    padding: 0px 15px 0px;
+    margin-left: -10px;
 }
 
 .profile-match-container {
@@ -93,6 +94,18 @@
     padding: 0px 15px;
     margin-right: 20px;
     min-width: 200px;
+}
+
+.test{
+    color: white;
+    display: flex;
+    flex: 1 0 21%;
+    max-width: 390px;
+    justify-content: space-between;
+    border-left: 1px solid rgb(0, 178, 155);
+    border-right: 1px solid rgb(0, 178, 155);
+    padding: 0px 15px 0px 15px;
+    margin: 0px 0px 15px -1px;
 }
 
 .profile-matches-container {

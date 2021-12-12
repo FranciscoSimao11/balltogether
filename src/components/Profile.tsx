@@ -219,7 +219,7 @@ function ProfileTabMenu(props: any) {
 				<TabPanel value={value} index={0}>
 					<div className="profile-matches-container">
 						{nextMatches.map((m: any) => (
-							<div className="profile-match-container">
+							<div className="test">
 								<div className="profile-match-text-wrapper">
 									<b>Location: </b>
 									{m.location} <br />
@@ -631,17 +631,7 @@ function Profile() {
 				<div>
 					<div className="profile-layer">
 						<div className="avatar-container">
-							{user.avatar != "" && (
-								<img className="avatar" src={user.avatar} />
-							)}
-							{user.avatar == "" && (
-								<img
-									className="avatar"
-									src={
-										"https://img.icons8.com/emoji/256/smiling-face-with-smiling-eyes.png"
-									}
-								/>
-							)}
+							<img className="avatar" src={user.avatar} />
 						</div>
 						<div className="player-info-container">
 							<Rating
