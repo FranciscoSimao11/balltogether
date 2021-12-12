@@ -258,7 +258,7 @@ function ProfileTabMenu(props: any) {
 				</TabPanel>
 				<TabPanel value={value} index={1}>
 					{matchHistory.map((m: any) => (
-						<div className="profile-match-container">
+						<div className="test">
 							<div className="profile-match-text-wrapper">
 								<b>Location: </b>
 								{m.location} <br />
