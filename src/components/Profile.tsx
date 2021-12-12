@@ -41,7 +41,6 @@ function Rating(props: any) {
 			setRatingAvg(props.rating);
 		}
 	}, [props, ratingAvg]);
-	console.log(position);
 	return (
 		<div
 			style={{
@@ -601,7 +600,6 @@ function Profile() {
 				})
 				.then((data) => {
 					setUser(data);
-					console.log(data);
 				});
 		}
 	}, [avatar, position]);
@@ -621,9 +619,6 @@ function Profile() {
 		}
 	}, [user, userId]);
 
-	useEffect(() => {
-		console.log(isFriend);
-	}, []);
 	return (
 		<div>
 			<LoggedInTopBar />

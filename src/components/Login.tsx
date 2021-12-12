@@ -78,7 +78,6 @@ function Login() {
 					if (data.password == user.password) {
 						login(data);
 						setFinishedAuth(true);
-						console.log("acertei");
 					} else {
 						setFinishedLogin(false);
 						setFailedLogin(true);

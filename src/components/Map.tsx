@@ -184,7 +184,6 @@ function MapComponent(props: any) {
 					center={{ lat: center.lat, lng: center.lng }}
 					defaultOptions={{ styles: mapStyles }}
 					onClick={(e) => {
-						console.log(e);
 						if (props.interactive) {
 							props.markerCallback({
 								lat: e.latLng.lat(),
