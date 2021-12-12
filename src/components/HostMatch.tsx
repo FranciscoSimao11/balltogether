@@ -47,6 +47,11 @@ const HostMatchButton = styled(Button)({
 	},
 });
 
+interface markerProps {
+	lat: number;
+	lng: number;
+}
+
 function HostMatch() {
 	const [location, setLocation] = useState<any>();
 	const [nPlayers, setNPlayers] = useState<any>();
@@ -71,7 +76,7 @@ function HostMatch() {
 		position: `relative`,
 		float: "right",
 	};
-	const [marker, setMarker] = useState();
+	const [marker, setMarker] = useState<markerProps>();
 	const state = useSelector((state) => state);
 	const { session } = state as any;
 	let navigate = useNavigate();
@@ -91,7 +96,7 @@ function HostMatch() {
 	);
 
 	useEffect(() => {
-		if (finishedCreatingMatch) {
+		if (finishedCreatingMatch && marker) {
 			let dateArr = date.split("-");
 			let actualDate = dateArr[2] + "/" + dateArr[1] + "/" + dateArr[0];
 			if (!hostPlays) {
@@ -117,10 +122,11 @@ function HostMatch() {
 								duration: duration,
 								skillLevel: level,
 								description: description,
+								finalScore: "",
 								location: {
 									name: location,
-									latitude: (marker as any).lat,
-									longitude: (marker as any).lng,
+									latitude: marker.lat,
+									longitude: marker.lng,
 								},
 								blueTeam: [],
 								redTeam: [],
@@ -151,15 +157,16 @@ function HostMatch() {
 								host: data.name,
 								numberOfSpotsLeft: parseInt(nPlayers) - 1,
 								totalNumberOfPlayers: parseInt(nPlayers),
-								date: date,
+								date: actualDate,
 								startingTime: hour,
 								duration: duration,
 								skillLevel: level,
 								description: description,
+								finalScore: "",
 								location: {
 									name: location,
-									latitude: 0,
-									longitude: 0,
+									latitude: marker.lat,
+									longitude: marker.lng,
 								},
 								blueTeam: [
 									{
