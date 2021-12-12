@@ -13,6 +13,8 @@ import Profile from "./components/Profile";
 import HostMatch from "./components/HostMatch";
 import Match from "./components/Match";
 
+console.log(process.env.REACT_APP_MAP_API_KEY);
+
 function App() {
 	const state = useSelector((state) => state);
 	const dispatch = useDispatch();
