@@ -54,6 +54,8 @@ function filterMatches(match: any, filters: any) {
 	} else {
 		let filterDate = filters.date.split("-");
 		let actualDate = filterDate[2] + "/" + filterDate[1] + "/" + filterDate[0];
+		console.log("MATCH: " + match.date);
+		console.log("FILTRO: " + actualDate);
 		return (
 			match.date == actualDate &&
 			parseInt(match.startingTime.split(":", 1)[0]) >=
@@ -86,7 +88,9 @@ function MapComponent(props: any) {
 				return res.json();
 			})
 			.then((data) => {
-				setMatches(data.filter((v: any) => filterMatches(v, props.filters)));
+				setMatches(
+					data.filter((match: any) => filterMatches(match, props.filters))
+				);
 			});
 	}, [props]);
 
@@ -130,6 +134,9 @@ function MapComponent(props: any) {
 			});
 		}
 	}, []);
+	useEffect(() => {
+		console.log(matches);
+	}, [matches]);
 	return (
 		<div>
 			<div

@@ -177,10 +177,44 @@ function HostMatch() {
 								],
 								redTeam: [],
 							}),
-						}).then((res) => {
-							setFinishedPosting(true);
-							setInfoOpen(true);
-						});
+						})
+							.then((res) => {
+								setFinishedPosting(true);
+								setInfoOpen(true);
+								return res.json();
+							})
+							.then((data) => {
+								let id = data.id;
+								fetch("http://localhost:8000/users/" + session.id, {
+									method: "GET",
+								})
+									.then((res) => {
+										return res.json();
+									})
+									.then((userData) => {
+										fetch("http://localhost:8000/users/" + session.id, {
+											headers: {
+												"Content-Type": "application/json",
+												Accept: "application/json",
+											},
+											method: "PUT",
+											body: JSON.stringify({
+												...userData,
+												nextMatches: [
+													...userData.nextMatches,
+													{
+														id: id,
+														location: location,
+														date: date,
+														startingTime: hour,
+														duration: duration,
+														skillLevel: level,
+													},
+												],
+											}),
+										});
+									});
+							});
 					});
 			}
 		}

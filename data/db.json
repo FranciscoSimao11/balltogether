@@ -609,14 +609,14 @@
           "avgRating": "2.0"
         },
         {
-          "userId": "memphisdepay@gmail.com",
-          "name": "Memphis Depay",
-          "avgRating": "5.0"
-        },
-        {
           "userId": "edenhazard@gmail.com",
           "name": "Eden Hazard",
           "avgRating": "5.0"
+        },
+        {
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avgRating": "5.00"
         }
       ],
       "redTeam": [
@@ -717,6 +717,30 @@
           "avgRating": "2.0"
         }
       ]
+    },
+    {
+      "host": "Memphis Depay",
+      "numberOfSpotsLeft": 9,
+      "totalNumberOfPlayers": 10,
+      "date": "30/12/2021",
+      "startingTime": "09:00",
+      "duration": "01:00",
+      "skillLevel": "2.0",
+      "finalScore": "",
+      "location": {
+        "name": "Grenoble, France",
+        "latitude": 45.18884405743555,
+        "longitude": 5.725668412672147
+      },
+      "blueTeam": [
+        {
+          "userId": "memphisdepay@gmail.com",
+          "name": "Memphis Depay",
+          "avgRating": "5.00"
+        }
+      ],
+      "redTeam": [],
+      "id": 5
     }
   ]
 }
