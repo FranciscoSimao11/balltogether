@@ -176,11 +176,11 @@ function LoggedInHomepage() {
 						color: "white",
 						marginTop: "50px",
 						marginBottom: "-100px",
-						fontSize: "30px",
+						fontSize: "35px",
 						fontWeight: "bold",
 					}}
 				>
-					-- OR --
+					------ OR ------
 				</div>
 				<HostMatchButton
 					className="input-shadow"

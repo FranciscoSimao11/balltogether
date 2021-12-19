@@ -21,3 +21,7 @@
     min-width: 225px;
     padding-inline: 10px;
 }
+
+input[type="checkbox"]:checked{
+    background-color:red;
+}

@@ -23,6 +23,7 @@ import usePlacesAutocomplete, {
 	getLatLng,
 } from "use-places-autocomplete";
 import { useParams, useNavigate } from "react-router";
+import Geocode from "react-geocode";
 
 const MatchDetailsButton = styled(Button)({
 	color: "white",
@@ -54,8 +55,6 @@ function filterMatches(match: any, filters: any) {
 	} else {
 		let filterDate = filters.date.split("-");
 		let actualDate = filterDate[2] + "/" + filterDate[1] + "/" + filterDate[0];
-		console.log("MATCH: " + match.date);
-		console.log("FILTRO: " + actualDate);
 		return (
 			match.date == actualDate &&
 			parseInt(match.startingTime.split(":", 1)[0]) >=
@@ -88,6 +87,7 @@ function MapComponent(props: any) {
 				return res.json();
 			})
 			.then((data) => {
+				setMatches(undefined);
 				setMatches(
 					data.filter((match: any) => filterMatches(match, props.filters))
 				);
@@ -112,6 +112,7 @@ function MapComponent(props: any) {
 		lat: number;
 		lng: number;
 	}
+	//const geocoder = new google.maps.Geocoder();
 	const [location, setLocation] = useState<coords>({
 		lat: 38.660988,
 		lng: -9.203319,
@@ -120,6 +121,7 @@ function MapComponent(props: any) {
 		lat: 38.660988,
 		lng: -9.203319,
 	});
+	//const [locationName, setLocationName] = useState<string>("");
 	useEffect(() => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((position) => {
@@ -135,8 +137,9 @@ function MapComponent(props: any) {
 		}
 	}, []);
 	useEffect(() => {
-		console.log(matches);
-	}, [matches]);
+		Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY as any);
+	}, []);
+	useEffect(() => {}, [matches]);
 	return (
 		<div>
 			<div
@@ -156,7 +159,7 @@ function MapComponent(props: any) {
 							const { lat, lng } = await getLatLng(results[0]);
 							setLocation({ lat, lng });
 							setCenter({ lat, lng });
-							props.locationCallback(address);
+							//props.locationCallback(address);
 						} catch (error) {
 							console.log("error");
 						}
@@ -185,7 +188,7 @@ function MapComponent(props: any) {
 					</ComboboxPopover>
 				</Combobox>
 			</div>
-			{matches && location && (
+			{location && (
 				<GoogleMap
 					defaultZoom={16}
 					center={{ lat: center.lat, lng: center.lng }}
@@ -200,6 +203,25 @@ function MapComponent(props: any) {
 								lat: e.latLng.lat(),
 								lng: e.latLng.lng(),
 							});
+							Geocode.fromLatLng(
+								e.latLng.lat().toString(),
+								e.latLng.lng().toString()
+							).then(
+								(response) => {
+									const address: string = response.results[0].formatted_address;
+									let newStr = "";
+									if (address.includes("+")) {
+										let arr = address.split(" ");
+										for (let i = 1; i < arr.length; i++) {
+											newStr += arr[i] + " ";
+										}
+										props.locationCallback(newStr);
+									} else props.locationCallback(address);
+								},
+								(error) => {
+									console.error(error);
+								}
+							);
 						}
 					}}
 				>
@@ -211,21 +233,22 @@ function MapComponent(props: any) {
 							}}
 						></Marker>
 					)}
-					{matches.map((m) => (
-						<Marker
-							key={m.host}
-							position={{
-								lat: m.location.latitude,
-								lng: m.location.longitude,
-							}}
-							icon={{
-								url: ball,
-							}}
-							onClick={() => {
-								setSelectedMatch(m);
-							}}
-						></Marker>
-					))}
+					{matches != undefined &&
+						matches.map((m) => (
+							<Marker
+								key={m.host}
+								position={{
+									lat: m.location.latitude,
+									lng: m.location.longitude,
+								}}
+								icon={{
+									url: ball,
+								}}
+								onClick={() => {
+									setSelectedMatch(m);
+								}}
+							></Marker>
+						))}
 					{selectedMatch && (
 						<InfoWindow
 							position={{

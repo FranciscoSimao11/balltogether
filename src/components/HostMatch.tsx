@@ -77,6 +77,8 @@ function HostMatch() {
 		float: "right",
 	};
 	const [marker, setMarker] = useState<markerProps>();
+	const [failedFields, setFailedFields] = useState<any>([]);
+
 	const state = useSelector((state) => state);
 	const { session } = state as any;
 	let navigate = useNavigate();
@@ -247,14 +249,14 @@ function HostMatch() {
 								paddingBottom: "10px",
 							}}
 						>
-							Search for a location and pick the spot on the map*
+							Pick the match location on the map*
 						</label>
 						<div className="input-separator-wrapper">
 							<div className="input-single-label">
 								<label style={{ color: "white" }}>Number of Players* </label>
 								<input
 									className="input-shadow"
-									type="text"
+									type="number"
 									onChange={(e) => setNPlayers(e.target.value)}
 									required
 								/>
@@ -265,6 +267,7 @@ function HostMatch() {
 									className="input-shadow"
 									type="date"
 									onChange={(e) => setDate(e.target.value)}
+									min={new Date().toISOString().split("T")[0]}
 									required
 								/>
 							</div>
@@ -272,11 +275,16 @@ function HostMatch() {
 						<div className="input-separator-wrapper">
 							<div className="input-single-label">
 								<label style={{ color: "white" }}>Starting Time* </label>
-								<select onChange={(e) => setHour(e.target.value)} required>
-									{hours.map((hour) => (
-										<option value={hour}>{hour}</option>
-									))}
-								</select>
+								<input
+									className="input-shadow"
+									type="time"
+									onChange={(e) => setHour(e.target.value)}
+									defaultValue={new Date()
+										.toTimeString()
+										.split(" ")[0]
+										.slice(0, -3)}
+									required
+								/>
 							</div>
 							<div className="input-single-label">
 								<label style={{ color: "white" }}>Recommended Level* </label>
@@ -294,6 +302,7 @@ function HostMatch() {
 									className="input-shadow"
 									type="time"
 									onChange={(e) => setDuration(e.target.value)}
+									defaultValue={"00:00"}
 									required
 								/>
 							</div>
@@ -310,7 +319,13 @@ function HostMatch() {
 							Will you participate in this match as a player?
 						</label>
 						<input
-							style={{ placeSelf: "center" }}
+							style={{
+								placeSelf: "center",
+								height: "20px",
+								width: "20px",
+								boxShadow: "3px 3px rgb(0 178 155 / 60%)",
+								borderRadius: "10px",
+							}}
 							type="checkbox"
 							onClick={() => setHostPlays(!hostPlays)}
 						/>
@@ -331,13 +346,18 @@ function HostMatch() {
 									size="small"
 									onClick={() => {
 										setFailedCreate(false);
+										setFailedFields([]);
 									}}
 								>
 									<CloseIcon fontSize="inherit" />
 								</IconButton>
 							}
 						>
-							Please fill in the mandatory fields!
+							Please fill in the mandatory fields:{" "}
+							{failedFields.map((field: any) => {
+								if (failedFields.at(-1) == field) return field + ".";
+								else return field + ", ";
+							})}
 						</Alert>
 					</Collapse>
 					<label
@@ -351,9 +371,28 @@ function HostMatch() {
 					<HostMatchButton
 						className="input-shadow"
 						onClick={() => {
-							if (location && date && nPlayers && duration && level && marker)
+							if (location && date && nPlayers && duration && level && marker) {
 								setFinishedCreatingMatch(true);
-							else setFailedCreate(true);
+							} else {
+								let localFailed: any = [];
+								if (!marker) {
+									localFailed.push("Location");
+								}
+								if (!date) {
+									localFailed.push("Date");
+								}
+								if (!nPlayers) {
+									localFailed.push("Number of Players");
+								}
+								if (!level) {
+									localFailed.push("Skill Level");
+								}
+								if (!duration) {
+									localFailed.push("Duration");
+								}
+								setFailedFields(localFailed);
+								setFailedCreate(true);
+							}
 						}}
 					>
 						Create Match

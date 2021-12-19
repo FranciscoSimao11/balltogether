@@ -24,7 +24,7 @@ var hoursArr = [];
 //     hoursArr[j] = toTime(j / 2);
 // }
 
-for (var j = 0; j <= 24; j++) {
+for (var j = 0; j < 24; j++) {
     hoursArr[j] = toTime(j);
 }
 

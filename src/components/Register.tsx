@@ -159,6 +159,7 @@ function Register() {
 				<FormTextField
 					label="Phone Number"
 					required
+					type="number"
 					onChange={(e) => {
 						setUser({
 							name: user.name,

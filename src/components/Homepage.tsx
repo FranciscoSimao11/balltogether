@@ -18,7 +18,7 @@ const RegisterButton = styled(Button)({
 
 const LoginButton = styled(Button)({
 	color: "white",
-	backgroundColor: "#177a46",
+	backgroundColor: "#02612f", //"#177a46",
 	fontSize: "28px",
 	marginLeft: "80px",
 	padding: "20px 40px 20px 40px",
