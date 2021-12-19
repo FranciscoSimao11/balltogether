@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/balltogether/static/css/main.138b2afe.chunk.css",
-    "main.js": "/balltogether/static/js/main.790f8f4b.chunk.js",
-    "main.js.map": "/balltogether/static/js/main.790f8f4b.chunk.js.map",
-    "runtime-main.js": "/balltogether/static/js/runtime-main.6b3b0b7a.js",
-    "runtime-main.js.map": "/balltogether/static/js/runtime-main.6b3b0b7a.js.map",
+    "main.css": "/balltogether/static/css/main.acdbecb4.chunk.css",
+    "main.js": "/balltogether/static/js/main.6cc90cb5.chunk.js",
+    "main.js.map": "/balltogether/static/js/main.6cc90cb5.chunk.js.map",
+    "runtime-main.js": "/balltogether/static/js/runtime-main.fbb8c580.js",
+    "runtime-main.js.map": "/balltogether/static/js/runtime-main.fbb8c580.js.map",
     "static/css/2.8d682a32.chunk.css": "/balltogether/static/css/2.8d682a32.chunk.css",
-    "static/js/2.7c742783.chunk.js": "/balltogether/static/js/2.7c742783.chunk.js",
-    "static/js/2.7c742783.chunk.js.map": "/balltogether/static/js/2.7c742783.chunk.js.map",
-    "static/js/3.2d4b3669.chunk.js": "/balltogether/static/js/3.2d4b3669.chunk.js",
-    "static/js/3.2d4b3669.chunk.js.map": "/balltogether/static/js/3.2d4b3669.chunk.js.map",
+    "static/js/2.e1fd35b7.chunk.js": "/balltogether/static/js/2.e1fd35b7.chunk.js",
+    "static/js/2.e1fd35b7.chunk.js.map": "/balltogether/static/js/2.e1fd35b7.chunk.js.map",
+    "static/js/3.feb166a0.chunk.js": "/balltogether/static/js/3.feb166a0.chunk.js",
+    "static/js/3.feb166a0.chunk.js.map": "/balltogether/static/js/3.feb166a0.chunk.js.map",
     "index.html": "/balltogether/index.html",
     "static/css/2.8d682a32.chunk.css.map": "/balltogether/static/css/2.8d682a32.chunk.css.map",
-    "static/css/main.138b2afe.chunk.css.map": "/balltogether/static/css/main.138b2afe.chunk.css.map",
-    "static/js/2.7c742783.chunk.js.LICENSE.txt": "/balltogether/static/js/2.7c742783.chunk.js.LICENSE.txt",
+    "static/css/main.acdbecb4.chunk.css.map": "/balltogether/static/css/main.acdbecb4.chunk.css.map",
+    "static/js/2.e1fd35b7.chunk.js.LICENSE.txt": "/balltogether/static/js/2.e1fd35b7.chunk.js.LICENSE.txt",
     "static/media/Man.1525f310.png": "/balltogether/static/media/Man.1525f310.png",
     "static/media/ball.dc39c2a7.png": "/balltogether/static/media/ball.dc39c2a7.png",
     "static/media/campo.00451ecc.png": "/balltogether/static/media/campo.00451ecc.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.6b3b0b7a.js",
+    "static/js/runtime-main.fbb8c580.js",
     "static/css/2.8d682a32.chunk.css",
-    "static/js/2.7c742783.chunk.js",
-    "static/css/main.138b2afe.chunk.css",
-    "static/js/main.790f8f4b.chunk.js"
+    "static/js/2.e1fd35b7.chunk.js",
+    "static/css/main.acdbecb4.chunk.css",
+    "static/js/main.6cc90cb5.chunk.js"
   ]
 }
